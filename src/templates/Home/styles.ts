@@ -42,7 +42,7 @@ export const ToDown = styled.div`
   display: flex;
 
   ${media.greaterThan('medium')`
-    width: 50%;
+    width: 34%;
   `}
 `
 

@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
     overflow: hidden;
 
     ${media.greaterThan('medium')`
-      flex-direction: column;
+      flex-direction: row;
     `}
   `}
 `
