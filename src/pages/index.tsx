@@ -1,5 +1,5 @@
 import EmBreveTemplate from 'templates/EmBreve'
 
-export default function Home() {
+export default function Index() {
   return <EmBreveTemplate />
 }

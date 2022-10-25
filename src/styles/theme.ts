@@ -12,19 +12,21 @@ export default {
     light: 300,
     normal: 400,
     bold: 600,
+    extraBold: 800,
     sizes: {
       xsmall: '1.2rem',
       small: '1.4rem',
       medium: '1.6rem',
       large: '1.8rem',
       xlarge: '2.0rem',
-      xxlarge: '2.8rem'
+      xxlarge: '2.8rem',
+      huge: '4.2rem'
     }
   },
   colors: {
     brown: '#BFA78D',
     lightBrown: '#E1C9AF',
-    white: '#FAFAFA',
+    white: '#FFFFFF',
     light: '#F9F9F9',
     inputBg: '#EAEAEA',
     black: '#121214',

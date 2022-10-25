@@ -36,6 +36,11 @@ export const Title = styled.h1`
     font-size: calc(${theme.font.sizes.xxlarge} + 2rem);
     font-weight: ${theme.font.bold};
     color: ${theme.colors.white};
+    text-align: center;
+
+    ${media.greaterThan('medium')`
+      text-align: left;
+    `}
   `}
 `
 
@@ -55,9 +60,11 @@ export const Copy = styled.small`
   ${({ theme }) => css`
     color: ${theme.colors.gray};
     text-align: center;
+    margin-top: 1rem;
 
     ${media.greaterThan('medium')`
       text-align: left;
+      margin-top: 0;
     `}
   `}
 `

@@ -26,6 +26,7 @@ const EmBreveTemplate = () => (
           as="a"
           href="https://www.instagram.com/comedouroswoof/"
           target="_blank"
+          fullWidth
         >
           @comedouroswoof
         </Button>
