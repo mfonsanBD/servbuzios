@@ -18,20 +18,16 @@ const Heading = ({
   lineLeft = false,
   lineBottom = false,
   size = 'medium',
-  lineColor = 'lightBrown',
-  subtitle
+  lineColor = 'lightBrown'
 }: HeadingProps) => (
-  <S.Wrapper>
-    <S.Title
-      color={color}
-      lineLeft={lineLeft}
-      lineBottom={lineBottom}
-      size={size}
-      lineColor={lineColor}
-    >
-      {children}
-    </S.Title>
-    {!!subtitle && <S.Subtitle>{subtitle}</S.Subtitle>}
+  <S.Wrapper
+    color={color}
+    lineLeft={lineLeft}
+    lineBottom={lineBottom}
+    size={size}
+    lineColor={lineColor}
+  >
+    {children}
   </S.Wrapper>
 )
 

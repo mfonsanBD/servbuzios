@@ -48,21 +48,17 @@ export const wrapperModifiers = {
   `
 }
 
-export const Wrapper = styled.div``
-
-export const Title = styled.h1<HeadingProps>`
+export const Wrapper = styled.div<HeadingProps>`
   ${({ theme, color, lineLeft, lineBottom, size, lineColor }) => css`
     color: ${theme.colors[color!]};
+    font-weight: ${theme.font.extraBold};
 
     ${lineLeft && wrapperModifiers.lineLeft(theme, lineColor!)}
     ${lineBottom && wrapperModifiers.lineBottom(theme, lineColor!)}
     ${!!size && wrapperModifiers[size](theme)}
-  `}
-`
 
-export const Subtitle = styled.p`
-  ${({ theme }) => css`
-    color: ${theme.colors.white};
-    text-align: center;
+    ${media.lessThan('small')`
+      word-wrap: break-word;
+    `}
   `}
 `

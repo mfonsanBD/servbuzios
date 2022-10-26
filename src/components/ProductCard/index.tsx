@@ -19,7 +19,7 @@ const ProductCard = ({ image, title, slug, description }: ProductCardProps) => (
         <S.Title>{title}</S.Title>
         <S.Description>{description}</S.Description>
       </div>
-      <Button as="a" href={`/modelo/${slug}`} fullWidth>
+      <Button as="a" href={`/${slug}`} fullWidth>
         Crie seu Comedouro
       </Button>
     </S.Content>

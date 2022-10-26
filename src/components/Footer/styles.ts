@@ -44,6 +44,10 @@ export const Copyright = styled.div`
 export const Copy = styled.small`
   ${({ theme }) => css`
     color: ${theme.colors.gray};
+
+    ${media.lessThan('medium')`
+      text-align: center;
+    `}
   `}
 `
 
