@@ -1,6 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
+import MediaMatch from 'components/MediaMatch'
 import Image from 'next/image'
-
-import * as S from './styles'
 
 export type LogoProps = {
   color?: 'brown' | 'white' | 'dark'
@@ -8,15 +8,38 @@ export type LogoProps = {
 
 const Logo = ({ color = 'white' }: LogoProps) => {
   return (
-    <S.Wrapper>
+    <div>
       {color === 'white' ? (
-        <Image width={80} height={80} src="/img/logo-white.svg" />
+        <>
+          <MediaMatch greaterThan="medium">
+            <Image width={80} height={80} src="/img/logo-white.svg" />
+          </MediaMatch>
+          <MediaMatch lessThan="medium">
+            <Image width={60} height={60} src="/img/logo-white.svg" />
+          </MediaMatch>
+        </>
       ) : color === 'dark' ? (
-        <Image width={80} height={80} src="/img/logo-dark.svg" />
+        <>
+          <MediaMatch greaterThan="medium">
+            <Image width={80} height={80} src="/img/logo-dark.svg" />
+          </MediaMatch>
+          <MediaMatch lessThan="medium">
+            <Image width={60} height={60} src="/img/logo-dark.svg" />
+          </MediaMatch>
+        </>
       ) : (
-        <Image width={80} height={80} src="/img/logo-brown.svg" />
+        color === 'brown' && (
+          <>
+            <MediaMatch greaterThan="medium">
+              <Image width={80} height={80} src="/img/logo-brown.svg" />
+            </MediaMatch>
+            <MediaMatch lessThan="medium">
+              <Image width={60} height={60} src="/img/logo-brown.svg" />
+            </MediaMatch>
+          </>
+        )
       )}
-    </S.Wrapper>
+    </div>
   )
 }
 

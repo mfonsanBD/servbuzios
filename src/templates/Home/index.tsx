@@ -1,6 +1,5 @@
 import Image from 'next/image'
 
-import Logo from 'components/Logo'
 import Footer from 'components/Footer'
 import Heading from 'components/Heading'
 import FeatureCard from 'components/FeatureCard'
@@ -12,6 +11,7 @@ import { BiVector } from 'react-icons/bi'
 import { MdOutlineDesignServices } from 'react-icons/md'
 import { BannerProps } from 'components/Banner'
 import BannerSlider from 'components/BannerSlider'
+import Menu from 'components/Menu'
 
 export type FeaturesData = {
   title: string
@@ -50,9 +50,7 @@ const HomeTemplate = ({
 }: HomeProps) => {
   return (
     <S.Wrapper>
-      <S.LogoAreaHome>
-        <Logo />
-      </S.LogoAreaHome>
+      <Menu />
 
       <S.Content>
         <S.HeroSection id="hero">

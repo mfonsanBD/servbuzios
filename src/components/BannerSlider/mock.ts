@@ -1,18 +1,22 @@
 export default [
   {
     img: '/img/background-01.jpg',
-    subtitle: 'Gallery Image 1',
-    title: 'Braço direito do Mister, Manuel Cordeiro, prega o trabalho como'
+    title:
+      'Desenvolva Sob Medida o Comedouro Postural Personalizado para o seu Aumigo',
+    htmlTitle:
+      'Desenvolva Sob Medida o Comedouro Postural Personalizado para o seu Aumigo',
+    contentBackgroundColor: 'lightBrown'
   },
   {
     img: '/img/background-02.jpg',
-    subtitle: 'Gallery Image 2',
-    title: 'Flamengo inicia caminhada no Campeonato Carioca nesta quarta-feira'
+    title: 'Seu Pet se Alimenta com a postura correta?',
+    htmlTitle: 'Seu Pet se Alimenta com a postura correta?',
+    contentBackgroundColor: 'black'
   },
   {
     img: '/img/background-03.jpg',
-    subtitle: 'Gallery Image 3',
-    title:
-      'Cosimo Cappagli chega ao Flamengo querendo conquistar o máximo de títulos possíveis'
+    title: 'Dog& Cat& Postura& Saúde.',
+    htmlTitle: 'Dog&<br>Cat&<br>Postura&<br>Saúde.',
+    contentBackgroundColor: 'dark'
   }
 ]

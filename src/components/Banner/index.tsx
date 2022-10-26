@@ -4,23 +4,25 @@ import * as S from './styles'
 export type BannerProps = {
   img: string
   title: string
-  subtitle: string
+  htmlTitle: string
+  contentBackgroundColor: 'lightBrown' | 'dark' | 'black'
 }
 
-const Banner = ({ img, title, subtitle }: BannerProps) => (
+const Banner = ({
+  img,
+  title,
+  htmlTitle,
+  contentBackgroundColor
+}: BannerProps) => (
   <S.Wrapper>
+    <S.Caption background={contentBackgroundColor}>
+      <S.Title dangerouslySetInnerHTML={{ __html: htmlTitle }} />
+    </S.Caption>
+
     <S.ImageWrapper>
       {/* <Image src={img} alt={title} layout="fill" /> */}
       <img src={img} alt={title} />
     </S.ImageWrapper>
-
-    <S.Caption>
-      <S.Title>
-        {title}
-        <span>.</span>
-      </S.Title>
-      <S.Subtitle>{subtitle}</S.Subtitle>
-    </S.Caption>
   </S.Wrapper>
 )
 

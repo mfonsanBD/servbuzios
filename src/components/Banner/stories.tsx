@@ -8,14 +8,15 @@ export default {
   args: {
     img: '/img/background-01.jpg',
     title:
-      'Desenvolva sob medida o Comedouro Postural Personalizado para o seu Aumigo',
-    subtitle:
-      'Alta qualidade, design detalhado, execução artesanal e seleção cuidadosa de materiais'
+      'Desenvolva Sob Medida o Comedouro Postural Personalizado para o seu Aumigo',
+    htmlTitle:
+      'Desenvolva Sob Medida o Comedouro Postural Personalizado para o seu Aumigo',
+    contentBackgroundColor: 'lightBrown'
   }
 } as Meta
 
 export const Default: Story<BannerProps> = (args) => (
-  <div style={{ maxWidth: '104rem', margin: '0 auto' }}>
+  <div style={{ maxWidth: '100%', margin: '0 auto' }}>
     <Banner {...args} />
   </div>
 )

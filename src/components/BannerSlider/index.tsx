@@ -3,6 +3,11 @@ import Banner, { BannerProps } from 'components/Banner'
 
 import * as S from './styles'
 
+import {
+  MdOutlineArrowBackIosNew,
+  MdOutlineArrowForwardIos
+} from 'react-icons/md'
+
 type ArrowsProps = React.HTMLAttributes<HTMLDivElement>
 
 const ArrowRight = (props: ArrowsProps) => {
@@ -22,11 +27,6 @@ const ArrowLeft = (props: ArrowsProps) => {
     </div>
   )
 }
-
-import {
-  MdOutlineArrowBackIosNew,
-  MdOutlineArrowForwardIos
-} from 'react-icons/md'
 
 export type BannerSliderProps = {
   items: BannerProps[]

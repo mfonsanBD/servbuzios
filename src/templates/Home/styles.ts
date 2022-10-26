@@ -27,11 +27,15 @@ export const HeroSection = styled.section`
 `
 
 export const LogoAreaHome = styled.div`
-  position: absolute;
-  left: 50%;
-  top: 2rem;
-  transform: translateX(-50%);
-  z-index: 99;
+  ${({ theme }) => css`
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: ${theme.spacings.xsmall};
+    background-color: ${theme.colors.white};
+    z-index: 99;
+  `}
 `
 
 export const AboutSection = styled.section`
