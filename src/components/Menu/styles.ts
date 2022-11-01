@@ -4,15 +4,17 @@ import media from 'styled-media-query'
 export const Wrapper = styled.menu<MenuFullProps>`
   ${({ theme, isOpen }) => css`
     width: 100%;
-    padding: 2rem ${theme.spacings.small};
+    padding: 3rem ${theme.spacings.small};
     display: flex;
-    align-items: flex-start;
+    flex-direction: row-reverse;
+    align-items: center;
     justify-content: space-between;
     position: absolute;
     z-index: ${isOpen ? theme.layers.menu : `calc(${theme.layers.menu} - 1)`};
 
     ${media.greaterThan('medium')`
-      padding: 2rem ${theme.spacings.xxlarge};
+      padding: 3rem ${theme.spacings.xxlarge};
+      flex-direction: row;
       align-items: center;
     `}
   `}

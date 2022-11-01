@@ -2,54 +2,46 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-export const Wrapper = styled.main`
-  height: 100vh;
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+type ImageWrapperProps = {
+  img: string
+}
 
-  ${media.greaterThan('medium')`
-    grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
-  `}
-`
-
-export const ImageWrapper = styled.div`
-  ${({ theme }) => css`
-    height: 50vh;
-    background-color: ${theme.colors.gray};
-    background-position: center center;
+export const Wrapper = styled.main<ImageWrapperProps>`
+  ${({ img }) => css`
+    width: 100%;
+    height: 100vh;
+    background-image: url('/img/slide/${img}-large-mobile.png');
+    background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
+    background-position: center;
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    @media (max-width: 321px) {
+      background-image: url('/img/slide/${img}-small-mobile.png');
     }
 
     ${media.greaterThan('medium')`
-      height: 100vh;
+      background-image: url('/img/slide/${img}-desktop.png');
     `}
   `}
 `
 
-type BackgroundProps = {
-  background: 'lightBrown' | 'dark' | 'black'
-}
-
-export const Caption = styled.div<BackgroundProps>`
-  ${({ theme, background }) => css`
-    height: 50vh;
-    background-color: ${theme.colors[background!]};
-    padding: ${theme.spacings.small};
+export const Caption = styled.div`
+  ${({ theme }) => css`
+    width: 100%;
+    height: 100vh;
+    padding: calc(${theme.spacings.small} - 0.2rem);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     flex: 1;
 
+    @media (max-width: 321px) {
+      padding: calc(${theme.spacings.small} - 0.2rem);
+    }
+
     ${media.greaterThan('medium')`
-      padding: ${theme.spacings.xxlarge};
-      height: 100vh;
+      width: 50%;
+      padding: calc(${theme.spacings.xxlarge} + 0.6rem);
     `}
   `}
 `
@@ -57,17 +49,19 @@ export const Caption = styled.div<BackgroundProps>`
 export const Title = styled.h1`
   ${({ theme }) => css`
     color: ${theme.colors.white};
-    font-family: ${theme.font.family.Helvetica};
-    font-size: calc(${theme.font.sizes.huge} - 0.8rem);
+    font-family: ${theme.font.family};
+    font-size: calc(${theme.font.sizes.huge} + 1rem);
     line-height: 1;
+    font-weight: ${theme.font.thin};
+    text-transform: uppercase;
     margin-bottom: 1rem;
 
     @media (max-width: 321px) {
-      font-size: ${theme.font.sizes.xxlarge};
+      font-size: calc(${theme.font.sizes.xxlarge} + 1rem);
     }
 
     ${media.greaterThan('medium')`
-      font-size: calc(${theme.font.sizes.huge} + 1rem);
+      font-size: calc(${theme.font.sizes.huge} + 4rem);
     `}
   `}
 `

@@ -34,7 +34,7 @@ export type BannerSliderProps = {
 
 const settings: SliderSettings = {
   dots: false,
-  arrows: true,
+  arrows: false,
   autoplay: true,
   infinite: true,
   nextArrow: <ArrowRight />,
@@ -71,7 +71,7 @@ const BannerSlider = ({ items }: BannerSliderProps) => (
   <S.Wrapper>
     <Slider settings={settings}>
       {items.map((item) => (
-        <Banner key={item.title} {...item} />
+        <Banner key={item.img} {...item} />
       ))}
     </Slider>
   </S.Wrapper>

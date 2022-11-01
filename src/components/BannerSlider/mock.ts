@@ -1,22 +1,14 @@
 export default [
   {
-    img: '/img/background-01.jpg',
-    title:
-      'Desenvolva Sob Medida o Comedouro Postural Personalizado para o seu Aumigo',
-    htmlTitle:
-      'Desenvolva Sob Medida o Comedouro Postural Personalizado para o seu Aumigo',
-    contentBackgroundColor: 'lightBrown'
+    img: 'comedouro-postural',
+    htmlTitle: 'Comedouro<br>postural<br>feito sob<br>medida'
   },
   {
-    img: '/img/background-02.jpg',
-    title: 'Seu Pet se Alimenta com a postura correta?',
-    htmlTitle: 'Seu Pet se Alimenta com a postura correta?',
-    contentBackgroundColor: 'black'
+    img: 'monte-seu-comedouro',
+    htmlTitle: 'Monte seu<br>Comedouro<br>Personalizado'
   },
   {
-    img: '/img/background-03.jpg',
-    title: 'Dog& Cat& Postura& Saúde.',
-    htmlTitle: 'Dog&<br>Cat&<br>Postura&<br>Saúde.',
-    contentBackgroundColor: 'dark'
+    img: 'saude-e-conforto',
+    htmlTitle: 'Saúde e<br>Conforto<br>para o seu<br>aumigo'
   }
 ]

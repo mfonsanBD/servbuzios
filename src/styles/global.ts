@@ -4,6 +4,14 @@ const GlobalStyles = createGlobalStyle`
   @font-face {
     font-family: 'Poppins';
     font-style: normal;
+    font-weight: 100;
+    font-display: swap;
+    src: local('Poppins Thin'), url('/fonts/poppins-v20-latin-100.woff2') format('woff2')
+  }
+
+  @font-face {
+    font-family: 'Poppins';
+    font-style: normal;
     font-weight: 300;
     font-display: swap;
     src: local('Poppins Light'), url('/fonts/poppins-v20-latin-300.woff2') format('woff2')
@@ -33,14 +41,6 @@ const GlobalStyles = createGlobalStyle`
     src: local('Poppins ExtraBold'), url('/fonts/poppins-v20-latin-800.woff2') format('woff2')
   }
 
-  @font-face {
-    font-family: 'Helvetica';
-    font-style: normal;
-    font-weight: 600;
-    font-display: swap;
-    src: local('Helvetica'), url('/fonts/helveticaneue-bold.woff2') format('woff2')
-  }
-
   * {
     margin: 0;
     padding: 0;
@@ -56,7 +56,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     body {
-      font-family: ${theme.font.family.Poppins};
+      font-family: ${theme.font.family};
       font-size: ${theme.font.sizes.medium};
       background-color: ${theme.colors.light};
     }

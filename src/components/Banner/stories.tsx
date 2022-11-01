@@ -5,13 +5,12 @@ import Banner, { BannerProps } from '.'
 export default {
   title: 'Banner',
   component: Banner,
+  parameters: {
+    layout: 'fullscreen'
+  },
   args: {
-    img: '/img/background-01.jpg',
-    title:
-      'Desenvolva Sob Medida o Comedouro Postural Personalizado para o seu Aumigo',
-    htmlTitle:
-      'Desenvolva Sob Medida o Comedouro Postural Personalizado para o seu Aumigo',
-    contentBackgroundColor: 'lightBrown'
+    img: 'comedouro-postural',
+    htmlTitle: 'Comedouro<br>postural<br>feito sob<br>medida'
   }
 } as Meta
 
