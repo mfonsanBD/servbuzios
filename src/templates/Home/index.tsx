@@ -12,6 +12,8 @@ import BannerSlider from 'components/BannerSlider'
 import { MdOutlineDesignServices } from 'react-icons/md'
 
 import Base from 'templates/Base'
+import { NextSeo } from 'next-seo'
+import { SITE_NAME } from 'pages/_app'
 
 export type FeaturesData = {
   title: string
@@ -50,6 +52,18 @@ const HomeTemplate = ({
 }: HomeProps) => {
   return (
     <Base>
+      <NextSeo
+        title={`${SITE_NAME} :: O Comedouro Postural do seu Pet`}
+        description="O Comedouro Postural WOOF Bowl Stand é projetado para cães e gatos, valoriza o design moderno atenuado com base em formas clássicas que se encaixam perfeitamente até em ambientes muito exigentes."
+        canonical={`https://woofbowlstand.com.br`}
+        openGraph={{
+          url: `https://woofbowlstand.com.br`,
+          title: `${SITE_NAME} :: O Comedouro Postural do seu Pet`,
+          description:
+            'O Comedouro Postural WOOF Bowl Stand é projetado para cães e gatos, valoriza o design moderno atenuado com base em formas clássicas que se encaixam perfeitamente até em ambientes muito exigentes.'
+        }}
+      />
+
       <S.HeroSection id="hero">
         <BannerSlider items={hero} />
       </S.HeroSection>

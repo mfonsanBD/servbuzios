@@ -6,6 +6,8 @@ import TitleArea from 'components/TitleArea'
 import Base from 'templates/Base'
 
 import * as S from './styles'
+import { NextSeo } from 'next-seo'
+import { SITE_NAME } from 'pages/_app'
 
 export type AWoofTemplateProps = {
   aboutText: string
@@ -14,6 +16,17 @@ export type AWoofTemplateProps = {
 
 const AWoofTemplate = ({ aboutText, aboutTitle }: AWoofTemplateProps) => (
   <Base>
+    <NextSeo
+      title={`${SITE_NAME} :: ${aboutTitle}`}
+      description={`${aboutText}`}
+      canonical={`https://woofbowlstand.com.br/a-woof`}
+      openGraph={{
+        url: `https://woofbowlstand.com.br/a-woof`,
+        title: `${SITE_NAME} :: ${aboutTitle}`,
+        description: `${aboutText}`
+      }}
+    />
+
     <TitleArea title="A Woof" />
 
     <S.AboutSection id="about">
