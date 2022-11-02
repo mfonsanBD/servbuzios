@@ -15,7 +15,7 @@ export const Default: Story<HeadingProps> = (args) => <Heading {...args} />
 
 Default.args = {
   children: 'Comedouro Postural',
-  color: 'dark',
+  color: 'lightBrown',
   lineLeft: true
 }
 
