@@ -1,10 +1,17 @@
+import Link from 'next/link'
+
 import Logo from 'components/Logo'
+
 import * as S from './styles'
 
 const Footer = () => (
   <S.Wrapper>
     <S.LogoFooterArea>
-      <Logo color="brown" />
+      <Link href="/" passHref>
+        <a>
+          <Logo color="brown" />
+        </a>
+      </Link>
     </S.LogoFooterArea>
 
     <S.Copyright>

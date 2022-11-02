@@ -33,7 +33,8 @@ export default {
     black: '#121214',
     gray: '#999999',
     dark: '#434343',
-    success: '#3ECE7E'
+    success: '#3ECE7E',
+    danger: '#E46D78'
   },
   spacings: {
     xxsmall: '0.8rem',
