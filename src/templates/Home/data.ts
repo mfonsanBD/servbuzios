@@ -31,20 +31,20 @@ export default {
     {
       title: 'Personalização',
       description:
-        'Trabalhamos a personalizar da forma que você deseja. Com nome, foto, ícone, etc...'
+        'Trabalhamos a personalizar da forma que você deseja. Com nome, foto, ícone, etc.'
     }
   ],
   productsTitle: 'Veja os nossos produtos',
   products: [
     {
-      title: 'Modelo Flat',
-      slug: 'modelo-flat',
+      title: 'Modelo Curve',
+      slug: 'modelo-curve',
       description:
         'Atenuado com base em formas clássicas que se encaixam em ambientes muito exigentes.'
     },
     {
-      title: 'Modelo Curve',
-      slug: 'modelo-curve',
+      title: 'Modelo Flat',
+      slug: 'modelo-flat',
       description:
         'Atenuado com base em formas clássicas que se encaixam em ambientes muito exigentes.'
     }

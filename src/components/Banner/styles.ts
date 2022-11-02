@@ -29,15 +29,12 @@ export const Caption = styled.div`
   ${({ theme }) => css`
     width: 100%;
     height: 100vh;
-    padding: calc(${theme.spacings.small} - 0.2rem);
+    padding: calc(${theme.spacings.small} - 0.2rem)
+      calc(${theme.spacings.small} - 0.2rem) 10rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     flex: 1;
-
-    @media (max-width: 321px) {
-      padding: calc(${theme.spacings.small} - 0.2rem);
-    }
 
     ${media.greaterThan('medium')`
       width: 50%;
@@ -50,7 +47,7 @@ export const Title = styled.h1`
   ${({ theme }) => css`
     color: ${theme.colors.white};
     font-family: ${theme.font.family};
-    font-size: calc(${theme.font.sizes.huge} + 1rem);
+    font-size: calc(${theme.font.sizes.huge} + 0.5rem);
     line-height: 1;
     font-weight: ${theme.font.thin};
     text-transform: uppercase;

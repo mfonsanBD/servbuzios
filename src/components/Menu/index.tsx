@@ -18,7 +18,7 @@ const Menu = ({ logoColor = 'white' }: MenuPros) => {
     <S.Wrapper isOpen={isOpen}>
       <MediaMatch lessThan="medium">
         <S.IconWrapper onClick={() => setIsOpen(true)}>
-          <MdMenu aria-label="Open Menu" size={24} />
+          <MdMenu aria-label="Open Menu" size={32} />
         </S.IconWrapper>
       </MediaMatch>
 
@@ -51,7 +51,11 @@ const Menu = ({ logoColor = 'white' }: MenuPros) => {
       </MediaMatch>
 
       <S.MenuFull aria-hidden={!isOpen} isOpen={isOpen}>
-        <MdClose aria-label="Close Menu" onClick={() => setIsOpen(false)} />
+        <MdClose
+          size={32}
+          aria-label="Close Menu"
+          onClick={() => setIsOpen(false)}
+        />
 
         <S.MenuNav>
           <Link href="/" passHref>

@@ -3,7 +3,7 @@ import media from 'styled-media-query'
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
-    background-color: ${theme.colors.light};
+    background-color: ${theme.colors.white};
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -4,7 +4,7 @@ export type LineColors = 'white' | 'lightBrown'
 
 export type HeadingProps = {
   children: React.ReactNode
-  color?: 'white' | 'dark'
+  color?: 'white' | 'lightBrown'
   lineLeft?: boolean
   lineBottom?: boolean
   size?: 'small' | 'medium' | 'huge'
@@ -14,7 +14,7 @@ export type HeadingProps = {
 
 const Heading = ({
   children,
-  color = 'dark',
+  color = 'lightBrown',
   lineLeft = false,
   lineBottom = false,
   size = 'medium',

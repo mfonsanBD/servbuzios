@@ -58,12 +58,17 @@ const GlobalStyles = createGlobalStyle`
     body {
       font-family: ${theme.font.family};
       font-size: ${theme.font.sizes.medium};
-      background-color: ${theme.colors.light};
+      background-color: ${theme.colors.black};
     }
 
     a {
-      color: ${theme.colors.brown};
+      color: ${theme.colors.lightBrown};
       text-decoration: none;
+      transition: 0.3s;
+
+      &:hover {
+        color: ${theme.colors.brown};
+      }
     }
   `}
 `

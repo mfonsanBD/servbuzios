@@ -66,6 +66,7 @@ export const Wrapper = styled.button<WrapperProps>`
 
     &:hover {
       background: ${minimal ? 'none' : darken(0.1, theme.colors.lightBrown)};
+      color: ${theme.colors.white};
     }
 
     ${!!size && wrapperModifiers[size](theme)}

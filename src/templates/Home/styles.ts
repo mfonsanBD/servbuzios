@@ -40,12 +40,12 @@ export const LogoAreaHome = styled.div`
 
 export const AboutSection = styled.section`
   ${({ theme }) => css`
-    padding: 8rem ${theme.spacings.small};
+    padding: 12rem ${theme.spacings.small};
     position: relative;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
-    gap: 3rem;
+    gap: 8rem;
 
     ${media.greaterThan('medium')`
       padding: 12rem ${theme.spacings.xxlarge};
@@ -65,6 +65,7 @@ export const AboutLeft = styled.div`
 export const AboutText = styled.p`
   ${({ theme }) => css`
     color: ${theme.colors.gray};
+    font-weight: ${theme.font.light};
   `}
 `
 
@@ -85,7 +86,7 @@ export const AboutRight = styled.div`
 
 export const FeaturesSection = styled.section`
   ${({ theme }) => css`
-    padding: 0 ${theme.spacings.small} 8rem;
+    padding: 0 ${theme.spacings.small} 12rem;
 
     ${media.greaterThan('medium')`
       padding: 0 ${theme.spacings.xxlarge} 12rem;
@@ -103,6 +104,7 @@ export const FeaturesTitleArea = styled.div`
 
 export const FeaturesArea = styled.div`
   display: grid;
+  margin-top: 8rem;
   grid-template-columns: repeat(auto-fill, minmax(37rem, 1fr));
   gap: 3.2rem;
 
@@ -116,13 +118,14 @@ export const FeaturesArea = styled.div`
 
   ${media.greaterThan('medium')`
     grid-template-columns: repeat(auto-fill, minmax(39rem, 1fr));
+    margin-top: 0;
   `}
 `
 
 export const ProductsSection = styled.section`
   ${({ theme }) => css`
-    background-color: ${theme.colors.white};
-    padding: 8rem ${theme.spacings.small};
+    background-color: ${theme.colors.light};
+    padding: 12rem ${theme.spacings.small};
 
     ${media.greaterThan('medium')`
       padding: 12rem ${theme.spacings.xxlarge};
@@ -132,6 +135,7 @@ export const ProductsSection = styled.section`
 
 export const ProductsArea = styled.div`
   display: grid;
+  margin-top: 8rem;
   grid-template-columns: repeat(auto-fill, minmax(37rem, 1fr));
   gap: 3.2rem;
 
@@ -145,12 +149,13 @@ export const ProductsArea = styled.div`
 
   ${media.greaterThan('medium')`
     grid-template-columns: repeat(auto-fill, minmax(60rem, 1fr));
+    margin-top: 0;
   `}
 `
 
 export const NewsSection = styled.section`
   ${({ theme }) => css`
-    padding: 8rem ${theme.spacings.small};
+    padding: 12rem ${theme.spacings.small};
 
     ${media.greaterThan('medium')`
       padding: 12rem ${theme.spacings.xxlarge};
@@ -164,7 +169,7 @@ export const MeowSection = styled.section`
     background-size: cover;
     background-position: center;
     position: relative;
-    padding: 8rem ${theme.spacings.small};
+    padding: 12rem ${theme.spacings.small};
 
     &::before {
       content: '';

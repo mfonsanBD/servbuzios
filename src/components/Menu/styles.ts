@@ -30,8 +30,8 @@ export const IconWrapper = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.white};
     cursor: pointer;
-    width: 2.4rem;
-    height: 2.4rem;
+    width: 3.2rem;
+    height: 3.2rem;
   `}
 `
 
@@ -98,7 +98,7 @@ export const MenuFull = styled.nav<MenuFullProps>`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: rgba(18, 18, 20, 0.9);
+    background: rgba(18, 18, 20, 0.95);
     position: fixed;
     z-index: ${theme.layers.menu};
     top: 0;
@@ -118,8 +118,8 @@ export const MenuFull = styled.nav<MenuFullProps>`
       right: 0;
       margin: ${theme.spacings.xsmall};
       cursor: pointer;
-      width: 2.4rem;
-      height: 2.4rem;
+      width: 3.2rem;
+      height: 3.2rem;
       color: ${theme.colors.white};
     }
 
