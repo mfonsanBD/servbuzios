@@ -62,12 +62,12 @@ const GlobalStyles = createGlobalStyle`
     }
 
     a {
-      color: ${theme.colors.lightBrown};
+      color: ${theme.colors.brown};
       text-decoration: none;
       transition: 0.3s;
 
       &:hover {
-        color: ${theme.colors.brown};
+        color: ${theme.colors.lightBrown};
       }
     }
   `}

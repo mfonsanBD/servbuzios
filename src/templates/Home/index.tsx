@@ -1,17 +1,17 @@
 import Image from 'next/image'
 
-import Footer from 'components/Footer'
 import Heading from 'components/Heading'
 import FeatureCard from 'components/FeatureCard'
 import ProductCard from 'components/ProductCard'
 
 import * as S from './styles'
-import { VscWand } from 'react-icons/vsc'
 import { BiVector } from 'react-icons/bi'
-import { MdOutlineDesignServices } from 'react-icons/md'
+import { VscWand } from 'react-icons/vsc'
 import { BannerProps } from 'components/Banner'
 import BannerSlider from 'components/BannerSlider'
-import Menu from 'components/Menu'
+import { MdOutlineDesignServices } from 'react-icons/md'
+
+import Base from 'templates/Base'
 
 export type FeaturesData = {
   title: string
@@ -49,92 +49,86 @@ const HomeTemplate = ({
   newsTitle
 }: HomeProps) => {
   return (
-    <S.Wrapper>
-      <Menu />
+    <Base>
+      <S.HeroSection id="hero">
+        <BannerSlider items={hero} />
+      </S.HeroSection>
 
-      <S.Content>
-        <S.HeroSection id="hero">
-          <BannerSlider items={hero} />
-        </S.HeroSection>
+      <S.AboutSection id="about">
+        <S.AboutLeft>
+          <Heading lineLeft size="huge">
+            {aboutTitle}
+          </Heading>
+          <S.AboutText>{aboutText}</S.AboutText>
+        </S.AboutLeft>
 
-        <S.AboutSection id="about">
-          <S.AboutLeft>
-            <Heading lineLeft size="huge">
-              {aboutTitle}
-            </Heading>
-            <S.AboutText>{aboutText}</S.AboutText>
-          </S.AboutLeft>
+        <S.AboutRight>
+          <Image
+            src="/img/about-image.jpg"
+            alt="Sobre Nós"
+            layout="fill"
+            objectFit="cover"
+          />
+        </S.AboutRight>
+      </S.AboutSection>
 
-          <S.AboutRight>
-            <Image
-              src="/img/about-image.jpg"
-              alt="Sobre Nós"
-              layout="fill"
-              objectFit="cover"
+      <S.FeaturesSection id="features">
+        <S.FeaturesTitleArea>
+          <Heading lineLeft size="huge">
+            {featuresTitle}
+          </Heading>
+        </S.FeaturesTitleArea>
+
+        <S.FeaturesArea>
+          {features.map((feature) => (
+            <FeatureCard
+              icon={
+                feature.title === 'Design Moderno' ? (
+                  <MdOutlineDesignServices size={52} />
+                ) : feature.title === 'Facilidade' ? (
+                  <VscWand size={52} />
+                ) : (
+                  <BiVector size={52} />
+                )
+              }
+              title={feature.title}
+              description={feature.description}
+              key={feature.title}
             />
-          </S.AboutRight>
-        </S.AboutSection>
+          ))}
+        </S.FeaturesArea>
+      </S.FeaturesSection>
 
-        <S.FeaturesSection id="features">
-          <S.FeaturesTitleArea>
-            <Heading lineLeft size="huge">
-              {featuresTitle}
-            </Heading>
-          </S.FeaturesTitleArea>
+      <S.ProductsSection id="products">
+        <Heading lineLeft size="huge">
+          {productsTitle}
+        </Heading>
 
-          <S.FeaturesArea>
-            {features.map((feature) => (
-              <FeatureCard
-                icon={
-                  feature.title === 'Design Moderno' ? (
-                    <MdOutlineDesignServices size={52} />
-                  ) : feature.title === 'Facilidade' ? (
-                    <VscWand size={52} />
-                  ) : (
-                    <BiVector size={52} />
-                  )
-                }
-                title={feature.title}
-                description={feature.description}
-                key={feature.title}
-              />
-            ))}
-          </S.FeaturesArea>
-        </S.FeaturesSection>
+        <S.ProductsArea>
+          {products.map((product) => (
+            <ProductCard
+              image={`/img/${product.slug}.png`}
+              slug={product.slug}
+              title={product.title}
+              description={product.description}
+              key={product.slug}
+            />
+          ))}
+        </S.ProductsArea>
+      </S.ProductsSection>
 
-        <S.ProductsSection id="products">
-          <Heading lineLeft size="huge">
-            {productsTitle}
-          </Heading>
-
-          <S.ProductsArea>
-            {products.map((product) => (
-              <ProductCard
-                image={`/img/${product.slug}.png`}
-                slug={product.slug}
-                title={product.title}
-                description={product.description}
-                key={product.slug}
-              />
-            ))}
-          </S.ProductsArea>
-        </S.ProductsSection>
-
-        <S.NewsSection id="news">
-          <Heading lineLeft size="huge">
-            {newsTitle}
-          </Heading>
-        </S.NewsSection>
-      </S.Content>
+      <S.NewsSection id="news">
+        <Heading lineLeft size="huge">
+          {newsTitle}
+        </Heading>
+      </S.NewsSection>
 
       <S.MeowSection>
         <Heading color="white" lineColor="white" lineBottom size="huge">
           {meowTitle}
         </Heading>
       </S.MeowSection>
-
-      <Footer />
-    </S.Wrapper>
+    </Base>
   )
 }
 

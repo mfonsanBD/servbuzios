@@ -1,23 +1,6 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-import * as HeadingStyles from 'components/Heading/styles'
-
-export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  justify-content: space-between;
-
-  ${HeadingStyles.Wrapper} {
-    margin-bottom: 3rem;
-  }
-`
-
-export const Content = styled.div`
-  flex: 1 0 auto;
-`
-
 export const HeroSection = styled.section`
   width: 100%;
   height: 100vh;
