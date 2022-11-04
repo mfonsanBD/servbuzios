@@ -70,9 +70,7 @@ const HomeTemplate = ({
 
       <S.AboutSection id="about">
         <S.AboutLeft>
-          <Heading lineLeft size="huge">
-            {aboutTitle}
-          </Heading>
+          <Heading size="huge">{aboutTitle}</Heading>
           <S.AboutText>{aboutText}</S.AboutText>
         </S.AboutLeft>
 
@@ -88,9 +86,7 @@ const HomeTemplate = ({
 
       <S.FeaturesSection id="features">
         <S.FeaturesTitleArea>
-          <Heading lineLeft size="huge">
-            {featuresTitle}
-          </Heading>
+          <Heading size="huge">{featuresTitle}</Heading>
         </S.FeaturesTitleArea>
 
         <S.FeaturesArea>
@@ -114,9 +110,7 @@ const HomeTemplate = ({
       </S.FeaturesSection>
 
       <S.ProductsSection id="products">
-        <Heading lineLeft size="huge">
-          {productsTitle}
-        </Heading>
+        <Heading size="huge">{productsTitle}</Heading>
 
         <S.ProductsArea>
           {products.map((product) => (
@@ -132,13 +126,11 @@ const HomeTemplate = ({
       </S.ProductsSection>
 
       <S.NewsSection id="news">
-        <Heading lineLeft size="huge">
-          {newsTitle}
-        </Heading>
+        <Heading size="huge">{newsTitle}</Heading>
       </S.NewsSection>
 
       <S.MeowSection>
-        <Heading color="white" lineColor="white" lineBottom size="huge">
+        <Heading color="white" align="center" size="huge">
           {meowTitle}
         </Heading>
       </S.MeowSection>

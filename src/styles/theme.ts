@@ -31,6 +31,7 @@ export default {
     light: '#F9F9F9',
     inputBg: '#EAEAEA',
     black: '#121214',
+    background: '#292728',
     gray: '#999999',
     dark: '#434343',
     success: '#3ECE7E',

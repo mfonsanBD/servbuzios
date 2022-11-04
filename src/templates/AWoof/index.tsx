@@ -31,9 +31,7 @@ const AWoofTemplate = ({ aboutText, aboutTitle }: AWoofTemplateProps) => (
 
     <S.AboutSection id="about">
       <S.AboutLeft>
-        <Heading lineLeft size="huge">
-          {aboutTitle}
-        </Heading>
+        <Heading size="huge">{aboutTitle}</Heading>
         <S.AboutText>{aboutText}</S.AboutText>
       </S.AboutLeft>
 

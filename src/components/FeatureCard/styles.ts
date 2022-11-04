@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
-    background-color: ${theme.colors.black};
+    background-color: transparent;
     border: thin solid ${theme.colors.lightBrown};
     border-radius: ${theme.border.radius};
     padding: 3rem;

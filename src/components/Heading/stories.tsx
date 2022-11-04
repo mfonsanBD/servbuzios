@@ -15,8 +15,7 @@ export const Default: Story<HeadingProps> = (args) => <Heading {...args} />
 
 Default.args = {
   children: 'Comedouro Postural',
-  color: 'lightBrown',
-  lineLeft: true
+  color: 'lightBrown'
 }
 
 export const WithSubtitle: Story<HeadingProps> = (args) => <Heading {...args} />
@@ -30,8 +29,6 @@ WithSubtitle.parameters = {
 WithSubtitle.args = {
   children: 'Comedouro Postural',
   color: 'white',
-  lineBottom: true,
-  lineColor: 'white',
   subtitle: 'O comedouro perfeito para o seu pet',
   size: 'huge'
 }

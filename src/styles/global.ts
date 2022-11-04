@@ -58,7 +58,7 @@ const GlobalStyles = createGlobalStyle`
     body {
       font-family: ${theme.font.family};
       font-size: ${theme.font.sizes.medium};
-      background-color: ${theme.colors.black};
+      background-color: ${theme.colors.background};
     }
 
     a {

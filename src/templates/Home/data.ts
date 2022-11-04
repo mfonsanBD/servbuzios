@@ -14,7 +14,7 @@ export default {
     }
   ],
   aboutText:
-    'O Comedouro Postural WOOF Bowl Stand é projetado para cães e gatos, valoriza o design moderno atenuado com base em formas clássicas que se encaixam perfeitamente até em ambientes muito exigentes. Além disso, os produtos são projetados de maneira a facilitar a limpeza e aumentar o conforto para os pets e seus donos. Podemos garantir nossa abordagem meticulosa e rigorosa à qualidade dos produtos que estamos criando.',
+    'O Comedouro Postural WOOF Bowl Stand é projetado para cães e gatos, valoriza o design moderno atenuado com base em formas clássicas que se encaixam perfeitamente até em ambientes muito exigentes. Além disso, os produtos são projetados de maneira a facilitar a limpeza e aumentar o conforto para os pets e seus donos. Podemos garantir nossa abordagem meticulosa e rigorosa à qualidade dos produtos que estamos criando. Não permitimos qualquer desvio dos padrões e sempre mantemos o mais alto nível de qualidade. Passamos meses aperfeiçoando nossos produtos para garantir que eles satisfizessem até os clientes mais exigentes. Do nosso lado, podemos garantir alta qualidade, design detalhado, execução artesanal e seleção cuidadosa de materiais.',
   aboutTitle: 'Um Pouco Sobre A Nossa História',
   featuresTitle: 'Principais Características dos Comedouros para seu Pet',
   features: [

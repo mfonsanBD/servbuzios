@@ -2,6 +2,12 @@
 import { useState } from 'react'
 import { NextSeo } from 'next-seo'
 
+import {
+  MdOutlineMailOutline,
+  MdOutlinePhone,
+  MdOutlinePinDrop
+} from 'react-icons/md'
+
 import Base from 'templates/Base'
 import Heading from 'components/Heading'
 import TitleArea from 'components/TitleArea'
@@ -45,26 +51,16 @@ const ContatoTemplate = () => {
 
       <S.Wrapper>
         <S.ContactLeft>
-          <Heading lineLeft size="huge">
-            Envie sua Mensagem
-          </Heading>
+          <Heading size="huge">Envie sua Mensagem</Heading>
 
           <S.Form>
             <TextField
-              name="nome"
+              name="name"
               label="Nome Completo"
               placeholder="Digite seu nome completo"
               type="text"
-              error={fieldError?.nome}
-              onInputChange={(v) => handleInput('nome', v!)}
-            />
-            <TextField
-              name="email"
-              label="E-mail"
-              placeholder="Insira seu melhor e-mail"
-              type="text"
-              error={fieldError?.email}
-              onInputChange={(v) => handleInput('email', v!)}
+              error={fieldError?.name}
+              onInputChange={(v) => handleInput('name', v!)}
             />
             <TextField
               name="telephone"
@@ -77,19 +73,36 @@ const ContatoTemplate = () => {
 
             <S.TextAreaField>
               <label htmlFor="message">Mensagem</label>
-              <textarea
-                id="message"
-                name="message"
-                rows={4}
-                cols={50}
-              ></textarea>
+              <textarea id="message" name="message" rows={4} cols={50} />
             </S.TextAreaField>
 
             <Button>Enviar Mensagem</Button>
           </S.Form>
         </S.ContactLeft>
 
-        <S.ContactRight></S.ContactRight>
+        <S.ContactRight>
+          <S.ContactBox
+            href="https://api.whatsapp.com/send?phone=5521969572953"
+            target="_blank"
+          >
+            <MdOutlinePhone size={25} />
+            <p>(21) 96957-2953</p>
+          </S.ContactBox>
+          <S.ContactBox
+            href="mailto:contato@woofbowlstand.com.br"
+            target="_blank"
+          >
+            <MdOutlineMailOutline size={25} />
+            <p>contato@woofbowlstand.com.br</p>
+          </S.ContactBox>
+          <S.ContactBox
+            href="https://www.google.com/maps/place/R.+Prof.+Eur%C3%ADco+Rab%C3%AAlo+-+Maracan%C3%A3,+Rio+de+Janeiro+-+RJ,+20271-150/@-22.912238,-43.230535,16z/data=!4m5!3m4!1s0x997e5c59580343:0xee230f06897df6bf!8m2!3d-22.9127135!4d-43.2304898?hl=pt-BR"
+            target="_blank"
+          >
+            <MdOutlinePinDrop size={25} />
+            <p>Maracanã - RJ - 20271-150</p>
+          </S.ContactBox>
+        </S.ContactRight>
       </S.Wrapper>
 
       <iframe
