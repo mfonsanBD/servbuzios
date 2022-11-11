@@ -19,7 +19,7 @@ const EmBreveTemplate = () => (
       <div>
         <S.Title>Em Breve!</S.Title>
         <S.Description>
-          Estaremos lançando nosso site em breve. Enquanto isso acompanhe a
+          Estaremos lançando nosso site em breve. Enquanto isso, acompanhe a
           gente em nosso Instagram.
         </S.Description>
         <Button
