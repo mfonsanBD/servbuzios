@@ -48,7 +48,7 @@ export const AboutLeft = styled.div`
 export const AboutText = styled.p`
   ${({ theme }) => css`
     color: ${theme.colors.gray};
-    font-weight: ${theme.font.light};
+    font-weight: ${theme.font.normal};
   `}
 `
 

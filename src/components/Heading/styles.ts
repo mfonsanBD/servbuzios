@@ -7,7 +7,7 @@ import { HeadingProps } from '.'
 export const Wrapper = styled.div<HeadingProps>`
   ${({ theme, color, align }) => css`
     color: ${theme.colors[color!]};
-    font-weight: ${theme.font.light};
+    font-weight: ${theme.font.normal};
     text-align: ${align};
     line-height: 1;
     position: relative;
