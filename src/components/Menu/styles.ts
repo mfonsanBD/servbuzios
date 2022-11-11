@@ -23,15 +23,16 @@ export const Wrapper = styled.menu<MenuFullProps>`
 export const LogoWrapper = styled.div`
   ${media.lessThan('medium')`
     position: relative;
+    cursor: pointer;
   `}
 `
 
 export const IconWrapper = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.white};
-    cursor: pointer;
-    width: 3.2rem;
-    height: 3.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
   `}
 `
 
@@ -52,6 +53,8 @@ export const MenuNav = styled.div`
   ${({ theme }) => css`
     ${media.greaterThan('medium')`
 			margin-left: ${theme.spacings.small};
+      display: flex;
+      align-items: center;
 		`}
   `}
 `
@@ -61,7 +64,7 @@ export const MenuLink = styled.a`
     position: relative;
     color: ${theme.colors.white};
     font-size: ${theme.font.sizes.medium};
-    margin: 0.3rem ${theme.spacings.small} 0;
+    margin: 0 ${theme.spacings.small};
     text-decoration: none;
     text-align: center;
 
@@ -140,4 +143,17 @@ export const MenuFull = styled.nav<MenuFullProps>`
       transition: transform 0.3s ease-in-out;
     }
   `}
+`
+
+export const SocialMedias = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+
+  a {
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
 `

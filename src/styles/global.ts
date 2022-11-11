@@ -2,43 +2,27 @@ import { createGlobalStyle, css } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
-    font-family: 'Poppins';
+    font-family: 'Roboto';
     font-style: normal;
     font-weight: 100;
     font-display: swap;
-    src: local('Poppins Thin'), url('/fonts/poppins-v20-latin-100.woff2') format('woff2')
+    src: local('Roboto Thin'), url('/fonts/roboto-v30-latin-100.woff2') format('woff2')
   }
 
   @font-face {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 300;
-    font-display: swap;
-    src: local('Poppins Light'), url('/fonts/poppins-v20-latin-300.woff2') format('woff2')
-  }
-
-  @font-face {
-    font-family: 'Poppins';
+    font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: local('Poppins Regular'), url('/fonts/poppins-v20-latin-regular.woff2') format('woff2')
+    src: local('Roboto Regular'), url('/fonts/roboto-v30-latin-regular.woff2') format('woff2')
   }
 
   @font-face {
-    font-family: 'Poppins';
+    font-family: 'Roboto';
     font-style: normal;
-    font-weight: 600;
+    font-weight: 500;
     font-display: swap;
-    src: local('Poppins SemiBold'), url('/fonts/poppins-v20-latin-600.woff2') format('woff2')
-  }
-
-  @font-face {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 800;
-    font-display: swap;
-    src: local('Poppins ExtraBold'), url('/fonts/poppins-v20-latin-800.woff2') format('woff2')
+    src: local('Roboto SemiBold'), url('/fonts/roboto-v30-latin-500.woff2') format('woff2')
   }
 
   * {

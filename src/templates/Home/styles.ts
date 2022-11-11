@@ -25,7 +25,7 @@ export const AboutSection = styled.section`
   ${({ theme }) => css`
     padding: 12rem ${theme.spacings.small};
     position: relative;
-    display: flex;
+    display: none;
     flex-direction: column-reverse;
     align-items: center;
     gap: 8rem;
@@ -69,10 +69,10 @@ export const AboutRight = styled.div`
 
 export const FeaturesSection = styled.section`
   ${({ theme }) => css`
-    padding: 0 ${theme.spacings.small} 12rem;
+    padding: 12rem ${theme.spacings.small};
 
     ${media.greaterThan('medium')`
-      padding: 0 ${theme.spacings.xxlarge} 12rem;
+      padding: 12rem ${theme.spacings.xxlarge};
     `}
   `}
 `
@@ -107,7 +107,7 @@ export const FeaturesArea = styled.div`
 
 export const ProductsSection = styled.section`
   ${({ theme }) => css`
-    background-color: ${theme.colors.light};
+    background-color: ${theme.colors.black};
     padding: 12rem ${theme.spacings.small};
 
     ${media.greaterThan('medium')`
@@ -118,7 +118,7 @@ export const ProductsSection = styled.section`
 
 export const ProductsArea = styled.div`
   display: grid;
-  margin-top: 8rem;
+  margin-top: 5rem;
   grid-template-columns: repeat(auto-fill, minmax(37rem, 1fr));
   gap: 3.2rem;
 

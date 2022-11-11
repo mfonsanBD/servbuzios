@@ -3,7 +3,6 @@ import { GetStaticProps } from 'next'
 import homeData from 'templates/Home/data'
 
 import HomeTemplate, { HomeProps } from 'templates/Home'
-import { FeaturesMapper, ProductsMapper } from 'utils/mapper'
 
 export default function Home(props: HomeProps) {
   return <HomeTemplate {...props} />
@@ -17,9 +16,9 @@ export const getStaticProps: GetStaticProps = async () => {
       aboutText: homeData.aboutText,
       aboutTitle: homeData.aboutTitle,
       featuresTitle: homeData.featuresTitle,
-      features: FeaturesMapper(homeData.features),
+      features: homeData.features,
       productsTitle: homeData.productsTitle,
-      products: ProductsMapper(homeData.products),
+      products: homeData.products,
       meowTitle: homeData.meowTitle,
       newsTitle: homeData.newsTitle
     }

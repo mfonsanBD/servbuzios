@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
 export const Title = styled.h3`
   ${({ theme }) => css`
     color: ${theme.colors.lightBrown};
-    font-weight: ${theme.font.bold};
+    font-weight: ${theme.font.normal};
   `}
 `
 
