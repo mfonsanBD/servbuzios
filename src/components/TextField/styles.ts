@@ -8,14 +8,14 @@ export const InputWrapper = styled.div`
   ${({ theme }) => css`
     display: flex;
     align-items: center;
-    background: ${theme.colors.dark};
-    border-radius: 0.2rem;
+    background: ${theme.colors.inputBg};
+    border-radius: 0.3rem;
     padding: 0 ${theme.spacings.xsmall};
     border: 0.2rem solid;
-    border-color: ${theme.colors.dark};
+    border-color: ${theme.colors.inputBg};
 
     &:focus-within {
-      box-shadow: 0 0 0.5rem ${theme.colors.dark};
+      box-shadow: 0 0 0.5rem ${theme.colors.inputBg};
     }
   `}
 `
@@ -47,7 +47,7 @@ export const Input = styled.input`
 export const Label = styled.label`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.small};
-    color: ${theme.colors.gray};
+    color: ${theme.colors.dark};
     cursor: pointer;
   `}
 `

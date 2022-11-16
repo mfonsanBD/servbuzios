@@ -17,6 +17,11 @@ export default {
   argTypes: {
     onInput: { action: 'changed' },
     icon: { type: '' }
+  },
+  parameters: {
+    backgrounds: {
+      default: 'light'
+    }
   }
 } as Meta
 
