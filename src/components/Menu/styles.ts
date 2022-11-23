@@ -69,6 +69,8 @@ export const MenuLink = styled.a`
     text-align: center;
 
     &:hover {
+      color: ${theme.colors.lightBrown};
+
       &::after {
         content: '';
         position: absolute;
@@ -88,6 +90,107 @@ export const MenuLink = styled.a`
           left: 0;
         }
       }
+    }
+  `}
+`
+
+export const Button = styled.button`
+  ${({ theme }) => css`
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    color: ${theme.colors.white};
+    font-size: ${theme.font.sizes.medium};
+    margin: 0 ${theme.spacings.small};
+    text-decoration: none;
+    text-align: center;
+    outline: none;
+
+    &:hover {
+      color: ${theme.colors.lightBrown};
+
+      &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        height: 0.3rem;
+        background-color: ${theme.colors.lightBrown};
+        animation: hoverAnimation 0.2s forwards;
+      }
+
+      @keyframes hoverAnimation {
+        from {
+          width: 0;
+          left: 50%;
+        }
+        to {
+          width: 100%;
+          left: 0;
+        }
+      }
+    }
+  `}
+`
+
+export const ModalContent = styled.div`
+  ${({ theme }) => css`
+    width: 60rem;
+    border-radius: ${theme.border.radius};
+    background-color: ${theme.colors.white};
+    position: relative;
+  `}
+`
+
+export const ModalHeader = styled.div`
+  ${({ theme }) => css`
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: ${theme.colors.brown};
+    border-radius: ${theme.border.radius} ${theme.border.radius} 0 0;
+
+    svg {
+      color: ${theme.colors.white};
+      cursor: pointer;
+    }
+  `}
+`
+
+export const ModalTitle = styled.h3`
+  ${({ theme }) => css`
+    color: ${theme.colors.white};
+    font-weight: ${theme.font.bold};
+  `}
+`
+
+export const ModalMain = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 5rem;
+`
+
+export const Box = styled.a`
+  ${({ theme }) => css`
+    padding: 2rem;
+    width: 20rem;
+    background-color: ${theme.colors.light};
+    color: ${theme.colors.dark};
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: ${theme.border.radius};
+    transition: 0.3s;
+
+    &:hover {
+      background-color: ${theme.colors.inputBg};
+      color: ${theme.colors.dark};
     }
   `}
 `
@@ -146,14 +249,7 @@ export const MenuFull = styled.nav<MenuFullProps>`
 `
 
 export const SocialMedias = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  position: relative;
-
   a {
-    display: flex;
-    align-items: center;
-    margin: 0;
+    margin: 0 0.5rem;
   }
 `

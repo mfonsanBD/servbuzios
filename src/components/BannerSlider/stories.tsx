@@ -1,5 +1,7 @@
-import { Story, Meta } from '@storybook/react'
-import BannerSlider, { BannerSliderProps } from '.'
+import React from 'react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+
+import BannerSlider from '.'
 
 import items from './mock'
 
@@ -13,9 +15,9 @@ export default {
       default: 'black'
     }
   }
-} as Meta
+} as ComponentMeta<typeof BannerSlider>
 
-export const Default: Story<BannerSliderProps> = (args) => (
+export const Default: ComponentStory<typeof BannerSlider> = (args) => (
   <div style={{ maxWidth: '144rem', maxHeight: '68.6rem', margin: '0 auto' }}>
     <BannerSlider {...args} />
   </div>

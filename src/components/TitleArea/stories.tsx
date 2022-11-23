@@ -1,5 +1,7 @@
-import { Story, Meta } from '@storybook/react'
-import TitleArea, { TitleAreaProps } from '.'
+import React from 'react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+
+import TitleArea from '.'
 
 export default {
   title: 'TitleArea',
@@ -7,6 +9,8 @@ export default {
   args: {
     title: 'Sobre Nós'
   }
-} as Meta
+} as ComponentMeta<typeof TitleArea>
 
-export const Default: Story<TitleAreaProps> = (args) => <TitleArea {...args} />
+export const Default: ComponentStory<typeof TitleArea> = (args) => (
+  <TitleArea {...args} />
+)

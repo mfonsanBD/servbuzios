@@ -3,7 +3,6 @@ import media from 'styled-media-query'
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
-    background-color: ${theme.colors.white};
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,7 +43,7 @@ export const Content = styled.div`
 
 export const Title = styled.h3`
   ${({ theme }) => css`
-    color: ${theme.colors.dark};
+    color: ${theme.colors.white};
   `}
 `
 

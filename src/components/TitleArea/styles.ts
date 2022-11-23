@@ -37,6 +37,9 @@ export const Content = styled.div`
   position: absolute;
   text-align: center;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 export const Title = styled.h1`

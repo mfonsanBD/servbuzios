@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import styled, { css, DefaultTheme } from 'styled-components'
 import { darken } from 'polished'
 
@@ -5,7 +6,7 @@ import { ButtonProps } from '.'
 
 export type WrapperProps = {
   hasIcon: boolean
-} & Pick<ButtonProps, 'size' | 'fullWidth' | 'minimal'>
+} & Pick<ButtonProps, 'size' | 'color' | 'fullWidth' | 'minimal'>
 
 const wrapperModifiers = {
   small: (theme: DefaultTheme) => css`
@@ -50,12 +51,12 @@ const wrapperModifiers = {
 }
 
 export const Wrapper = styled.button<WrapperProps>`
-  ${({ theme, size, fullWidth, minimal, disabled }) => css`
+  ${({ theme, size, color, fullWidth, minimal, disabled }) => css`
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: ${theme.colors.lightBrown};
-    color: ${theme.colors.dark};
+    background: ${theme.colors[color!]};
+    color: ${color === 'lightBrown' ? theme.colors.dark : theme.colors.white};
     border: 0;
     cursor: pointer;
     border-radius: ${theme.border.radius};
@@ -65,7 +66,7 @@ export const Wrapper = styled.button<WrapperProps>`
     text-decoration: none;
 
     &:hover {
-      background: ${minimal ? 'none' : darken(0.1, theme.colors.lightBrown)};
+      background: ${minimal ? 'none' : darken(0.1, theme.colors[color!])};
       color: ${theme.colors.white};
     }
 

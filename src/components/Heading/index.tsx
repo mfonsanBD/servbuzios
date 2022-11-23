@@ -2,7 +2,7 @@ import * as S from './styles'
 
 export type HeadingProps = {
   children: React.ReactNode
-  color?: 'white' | 'lightBrown'
+  color?: 'white' | 'lightBrown' | 'dark'
   size?: 'small' | 'medium' | 'huge'
   align?: 'center' | 'left'
   subtitle?: string

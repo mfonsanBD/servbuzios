@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
+import * as HeadingStyles from 'components/Heading/styles'
+
 export const AboutSection = styled.section`
   ${({ theme }) => css`
     padding: 8rem ${theme.spacings.small};
@@ -11,8 +13,12 @@ export const AboutSection = styled.section`
     gap: 5rem;
 
     ${media.greaterThan('medium')`
-      padding: 12rem ${theme.spacings.xxlarge};
+      padding: 12rem 15rem;
       flex-direction: row;
+
+      ${HeadingStyles.Wrapper} {
+        margin-bottom: 3rem;
+      }
     `}
   `}
 `
@@ -34,7 +40,7 @@ export const AboutText = styled.p`
 
 export const AboutRight = styled.div`
   ${({ theme }) => css`
-    width: 100%;
+    width: 90%;
     min-height: 38.8rem;
     position: relative;
     border-radius: ${theme.border.radius};

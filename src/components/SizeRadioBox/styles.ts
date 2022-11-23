@@ -2,9 +2,9 @@ import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.label`
   ${({ theme }) => css`
-    width: 15rem;
-    height: 10rem;
-    padding: ${theme.spacings.medium};
+    width: 100%;
+    height: 8rem;
+    padding: ${theme.spacings.xxsmall};
     position: relative;
     display: flex;
     flex-direction: column;
@@ -25,7 +25,7 @@ export const Wrapper = styled.label`
   `}
 `
 
-export const Label = styled.h1`
+export const Label = styled.h3`
   ${({ theme }) => css`
     color: ${theme.colors.dark};
     line-height: 1;
@@ -33,7 +33,7 @@ export const Label = styled.h1`
   `}
 `
 
-export const Description = styled.p`
+export const Description = styled.small`
   ${({ theme }) => css`
     color: ${theme.colors.dark};
     line-height: 1;
@@ -47,16 +47,16 @@ export const Input = styled.input`
     align-items: center;
     justify-content: center;
     appearance: none;
-    width: 1.8rem;
-    height: 1.8rem;
+    width: 1.3rem;
+    height: 1.3rem;
     border: 0.2rem solid ${theme.colors.inputBg};
     border-radius: 50%;
     background: ${theme.colors.inputBg};
     transition: background ${theme.transition.fast};
     outline: none;
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 0.5rem;
+    right: 0.5rem;
     cursor: pointer;
 
     &:focus {
@@ -69,9 +69,9 @@ export const Input = styled.input`
       opacity: 0;
       position: absolute;
 
-      width: 3px;
+      width: 2px;
       border-bottom: 3px solid ${theme.colors.lightBrown};
-      height: 7px;
+      height: 5px;
       border-right: 3px solid ${theme.colors.lightBrown};
 
       transform: rotate(45deg);

@@ -1,6 +1,7 @@
-import { Story, Meta } from '@storybook/react'
+import React from 'react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import Button, { ButtonProps } from '.'
+import Button from '.'
 
 export default {
   title: 'Button',
@@ -10,15 +11,19 @@ export default {
       type: 'string'
     }
   }
-} as Meta
+} as ComponentMeta<typeof Button>
 
-export const Default: Story<ButtonProps> = (args) => <Button {...args} />
+export const Default: ComponentStory<typeof Button> = (args) => (
+  <Button {...args} />
+)
 
 Default.args = {
   children: 'Buy Now'
 }
 
-export const asLink: Story<ButtonProps> = (args) => <Button {...args} />
+export const asLink: ComponentStory<typeof Button> = (args) => (
+  <Button {...args} />
+)
 
 asLink.parameters = {
   backgrounds: {

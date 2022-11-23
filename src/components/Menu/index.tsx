@@ -1,7 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import Logo from 'components/Logo'
+import ComedourosModal from 'components/Modal'
 import MediaMatch from 'components/MediaMatch'
 
 import * as S from './styles'
@@ -14,6 +16,17 @@ export type MenuPros = {
 
 const Menu = ({ logoColor = 'white' }: MenuPros) => {
   const [isOpen, setIsOpen] = useState(false)
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+
+  useEffect(() => {
+    const handleKeyUp = ({ key }: KeyboardEvent) => {
+      key === 'Escape' && setModalIsOpen(false)
+    }
+
+    window.addEventListener('keyup', handleKeyUp)
+
+    return () => window.removeEventListener('keyup', handleKeyUp)
+  }, [])
 
   return (
     <S.Wrapper isOpen={isOpen}>
@@ -54,12 +67,48 @@ const Menu = ({ logoColor = 'white' }: MenuPros) => {
       <MediaMatch greaterThan="medium">
         <S.MenuNav>
           <Link href="/" passHref>
-            <S.MenuLink>Inicio</S.MenuLink>
+            <S.MenuLink>Início</S.MenuLink>
           </Link>
 
           <Link href="/a-woof" passHref>
             <S.MenuLink>A Woof</S.MenuLink>
           </Link>
+
+          <S.Button onClick={() => setModalIsOpen(true)}>Comedouros</S.Button>
+          {modalIsOpen && (
+            <ComedourosModal>
+              <S.ModalContent>
+                <S.ModalHeader>
+                  <S.ModalTitle>
+                    Qual modelo de Comedouro você deseja?
+                  </S.ModalTitle>
+                  <MdClose size={28} onClick={() => setModalIsOpen(false)} />
+                </S.ModalHeader>
+
+                <S.ModalMain>
+                  <Link href="/modelo-curve" passHref>
+                    <S.Box>
+                      <img
+                        src="/img/types/curve-unit-dark.svg"
+                        alt="Silhueta do Comedouro Curve"
+                      />
+                      <h2>Curve</h2>
+                    </S.Box>
+                  </Link>
+
+                  <Link href="/modelo-flat" passHref>
+                    <S.Box>
+                      <img
+                        src="/img/types/flat-unit-dark.svg"
+                        alt="Silhueta do Comedouro Flat"
+                      />
+                      <h2>Flat</h2>
+                    </S.Box>
+                  </Link>
+                </S.ModalMain>
+              </S.ModalContent>
+            </ComedourosModal>
+          )}
 
           <Link href="/blog" passHref>
             <S.MenuLink>Blog</S.MenuLink>
@@ -97,7 +146,7 @@ const Menu = ({ logoColor = 'white' }: MenuPros) => {
 
         <S.MenuNav>
           <Link href="/" passHref>
-            <S.MenuLink>Inicio</S.MenuLink>
+            <S.MenuLink>Início</S.MenuLink>
           </Link>
 
           <Link href="/a-woof" passHref>

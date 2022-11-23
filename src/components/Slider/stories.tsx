@@ -1,12 +1,14 @@
-import { Story, Meta } from '@storybook/react'
+import React from 'react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+
 import { Settings } from 'react-slick'
-import Slider, { SliderProps } from '.'
+import Slider from '.'
 import styled from 'styled-components'
 
 export default {
   title: 'Slider',
   component: Slider
-} as Meta
+} as ComponentMeta<typeof Slider>
 
 const settings: Settings = {
   dots: true,
@@ -25,7 +27,7 @@ const Slide = styled.div`
   text-align: center;
 `
 
-export const Horizontal: Story<SliderProps> = () => (
+export const Horizontal: ComponentStory<typeof Slider> = () => (
   <Slider settings={settings}>
     <Slide>1</Slide>
     <Slide>2</Slide>
@@ -43,7 +45,7 @@ const verticalSettings: Settings = {
   slidesToShow: 1
 }
 
-export const Vertical: Story<SliderProps> = () => (
+export const Vertical: ComponentStory<typeof Slider> = () => (
   <Slider settings={verticalSettings}>
     <Slide>1</Slide>
     <Slide>2</Slide>

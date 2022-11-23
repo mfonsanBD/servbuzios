@@ -10,22 +10,19 @@ export const InputWrapper = styled.div`
     align-items: center;
     background: ${theme.colors.inputBg};
     border-radius: 0.3rem;
-    padding: 0 ${theme.spacings.xsmall};
+    padding: 0 ${theme.spacings.xxsmall};
     border: 0.2rem solid;
     border-color: ${theme.colors.inputBg};
-
-    &:focus-within {
-      box-shadow: 0 0 0.5rem ${theme.colors.inputBg};
-    }
+    margin-top: 0.5rem;
   `}
 `
 
 export const Input = styled.input`
   ${({ theme }) => css`
-    color: ${theme.colors.gray};
+    color: ${theme.colors.dark};
     font-family: ${theme.font.family};
     font-size: ${theme.font.sizes.medium};
-    padding: ${theme.spacings.xxsmall} 0;
+    padding: calc(${theme.spacings.xsmall} - 0.5rem) 0;
     background: transparent;
     border: 0;
     outline: none;

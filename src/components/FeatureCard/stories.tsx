@@ -1,8 +1,9 @@
-import { Story, Meta } from '@storybook/react'
+import React from 'react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import { MdOutlineDesignServices } from 'react-icons/md'
 
-import FeatureCard, { FeatureCardProps } from '.'
+import FeatureCard from '.'
 
 export default {
   title: 'FeatureCard',
@@ -18,9 +19,9 @@ export default {
       default: 'dark'
     }
   }
-} as Meta
+} as ComponentMeta<typeof FeatureCard>
 
-export const Default: Story<FeatureCardProps> = (args) => (
+export const Default: ComponentStory<typeof FeatureCard> = (args) => (
   <div style={{ width: '33.9rem', height: '18.9rem' }}>
     <FeatureCard {...args} />
   </div>

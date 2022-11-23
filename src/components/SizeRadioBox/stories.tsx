@@ -1,5 +1,7 @@
-import { Story, Meta } from '@storybook/react'
-import SizeRadioBox, { SizeRadioBoxProps } from '.'
+import React from 'react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+
+import SizeRadioBox from '.'
 
 export default {
   title: 'Form/SizeRadioBox',
@@ -7,9 +9,9 @@ export default {
   argTypes: {
     onCheck: { action: 'checked' }
   }
-} as Meta
+} as ComponentMeta<typeof SizeRadioBox>
 
-export const Default: Story<SizeRadioBoxProps> = (args) => (
+export const Default: ComponentStory<typeof SizeRadioBox> = (args) => (
   <div
     style={{
       display: 'flex',

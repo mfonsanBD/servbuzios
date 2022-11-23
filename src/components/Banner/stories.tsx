@@ -1,6 +1,7 @@
-import { Story, Meta } from '@storybook/react'
+import React from 'react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import Banner, { BannerProps } from '.'
+import Banner from '.'
 
 export default {
   title: 'Banner',
@@ -12,9 +13,9 @@ export default {
     img: 'comedouro-postural',
     htmlTitle: 'Comedouro<br>postural<br>feito sob<br>medida'
   }
-} as Meta
+} as ComponentMeta<typeof Banner>
 
-export const Default: Story<BannerProps> = (args) => (
+export const Default: ComponentStory<typeof Banner> = (args) => (
   <div style={{ maxWidth: '100%', margin: '0 auto' }}>
     <Banner {...args} />
   </div>

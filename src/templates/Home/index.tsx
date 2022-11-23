@@ -1,24 +1,14 @@
-import Image from 'next/image'
-
+/* eslint-disable @next/next/no-img-element */
 import Heading from 'components/Heading'
-import FeatureCard from 'components/FeatureCard'
 import ProductCard from 'components/ProductCard'
 
 import * as S from './styles'
-import { BiVector } from 'react-icons/bi'
-import { VscWand } from 'react-icons/vsc'
 import { BannerProps } from 'components/Banner'
 import BannerSlider from 'components/BannerSlider'
-import { MdOutlineDesignServices } from 'react-icons/md'
 
 import Base from 'templates/Base'
 import { NextSeo } from 'next-seo'
 import { SITE_NAME } from 'pages/_app'
-
-export type FeaturesData = {
-  title: string
-  description: string
-}
 
 export type ProductsData = {
   title: string
@@ -28,28 +18,11 @@ export type ProductsData = {
 
 export type HomeProps = {
   hero: BannerProps[]
-  aboutText: string
-  aboutTitle: string
-  featuresTitle: string
-  features: FeaturesData[]
   productsTitle: string
   products: ProductsData[]
-  meowTitle: string
-  meowSubtitle: string
-  newsTitle: string
 }
 
-const HomeTemplate = ({
-  hero,
-  aboutText,
-  aboutTitle,
-  featuresTitle,
-  features,
-  productsTitle,
-  products,
-  meowTitle,
-  newsTitle
-}: HomeProps) => {
+const HomeTemplate = ({ hero, productsTitle, products }: HomeProps) => {
   return (
     <Base>
       <NextSeo
@@ -68,46 +41,24 @@ const HomeTemplate = ({
         <BannerSlider items={hero} />
       </S.HeroSection>
 
-      <S.AboutSection id="about">
-        <S.AboutLeft>
-          <Heading size="huge">{aboutTitle}</Heading>
-          <S.AboutText>{aboutText}</S.AboutText>
-        </S.AboutLeft>
+      <S.AvaliacaoSection>
+        <S.AvaliacaoText>
+          <h1>Como Avaliar a Altura Ideal</h1>
+          <p>
+            A WOOF Bowl Stand sugere medir do{' '}
+            <span>“Ossinho Protuberante no Peito”</span> até o chão.
+          </p>
+        </S.AvaliacaoText>
 
-        <S.AboutRight>
-          <Image
-            src="/img/about-image.jpg"
-            alt="Sobre Nós"
-            layout="fill"
-            objectFit="cover"
+        <S.ImagemArea>
+          {/* <S.Extremidade>Extremidade do Esterno</S.Extremidade>
+          <S.Chao>Extremidade do Esterno</S.Chao> */}
+          <img
+            src="/img/como-avaliar-altura-ideal.png"
+            alt="Cachorro com detalhes de como tirar medida para escolher o melhor comendouro"
           />
-        </S.AboutRight>
-      </S.AboutSection>
-
-      <S.FeaturesSection id="features">
-        <S.FeaturesTitleArea>
-          <Heading size="huge">{featuresTitle}</Heading>
-        </S.FeaturesTitleArea>
-
-        <S.FeaturesArea>
-          {features.map((feature) => (
-            <FeatureCard
-              icon={
-                feature.title === 'Design Moderno' ? (
-                  <MdOutlineDesignServices size={52} />
-                ) : feature.title === 'Facilidade' ? (
-                  <VscWand size={52} />
-                ) : (
-                  <BiVector size={52} />
-                )
-              }
-              title={feature.title}
-              description={feature.description}
-              key={feature.title}
-            />
-          ))}
-        </S.FeaturesArea>
-      </S.FeaturesSection>
+        </S.ImagemArea>
+      </S.AvaliacaoSection>
 
       <S.ProductsSection id="products">
         <Heading size="huge">{productsTitle}</Heading>
@@ -124,16 +75,6 @@ const HomeTemplate = ({
           ))}
         </S.ProductsArea>
       </S.ProductsSection>
-
-      <S.NewsSection id="news">
-        <Heading size="huge">{newsTitle}</Heading>
-      </S.NewsSection>
-
-      <S.MeowSection>
-        <Heading color="white" align="center" size="huge">
-          {meowTitle}
-        </Heading>
-      </S.MeowSection>
     </Base>
   )
 }

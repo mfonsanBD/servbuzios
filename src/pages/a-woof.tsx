@@ -1,6 +1,6 @@
 import { GetStaticProps } from 'next'
 
-import homeData from 'templates/Home/data'
+import aboutData from 'utils/home'
 
 import AWoofTemplate, { AWoofTemplateProps } from 'templates/AWoof'
 
@@ -12,8 +12,8 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     revalidate: 60 * 60 * 24,
     props: {
-      aboutText: homeData.aboutText,
-      aboutTitle: homeData.aboutTitle
+      aboutText: aboutData.aboutText,
+      aboutTitle: aboutData.aboutTitle
     }
   }
 }

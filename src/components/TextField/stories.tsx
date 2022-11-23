@@ -1,7 +1,9 @@
-import { Story, Meta } from '@storybook/react'
+import React from 'react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+
 import { MdOutlineEmail } from 'react-icons/md'
 
-import TextField, { TextFieldProps } from '.'
+import TextField from '.'
 
 export default {
   title: 'Form/TextField',
@@ -23,15 +25,15 @@ export default {
       default: 'light'
     }
   }
-} as Meta
+} as ComponentMeta<typeof TextField>
 
-export const Default: Story<TextFieldProps> = (args) => (
+export const Default: ComponentStory<typeof TextField> = (args) => (
   <div style={{ maxWidth: 300, padding: 15 }}>
     <TextField {...args} />
   </div>
 )
 
-export const withError: Story<TextFieldProps> = (args) => (
+export const withError: ComponentStory<typeof TextField> = (args) => (
   <div style={{ maxWidth: 300, padding: 15 }}>
     <TextField {...args} />
   </div>

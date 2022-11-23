@@ -1,5 +1,7 @@
-import { Story, Meta } from '@storybook/react'
-import TypeRadioBox, { TypeRadioBoxProps } from '.'
+import React from 'react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+
+import TypeRadioBox from '.'
 
 export default {
   title: 'Form/TypeRadioBox',
@@ -7,9 +9,9 @@ export default {
   argTypes: {
     onCheck: { action: 'checked' }
   }
-} as Meta
+} as ComponentMeta<typeof TypeRadioBox>
 
-export const Flat: Story<TypeRadioBoxProps> = (args) => (
+export const Flat: ComponentStory<typeof TypeRadioBox> = (args) => (
   <div
     style={{
       display: 'flex',
@@ -51,7 +53,7 @@ export const Flat: Story<TypeRadioBoxProps> = (args) => (
   </div>
 )
 
-export const Curve: Story<TypeRadioBoxProps> = (args) => (
+export const Curve: ComponentStory<typeof TypeRadioBox> = (args) => (
   <div
     style={{
       display: 'flex',
