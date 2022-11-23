@@ -3,8 +3,8 @@ export default {
     type: 'website',
     locale: 'en_US',
     url: 'https://woofbowlstand.com.br/',
-    site_name: 'Woof Bowl Stand',
-    title: 'Woof Bowl Stand'
+    site_name: 'WOOF Bowl Stand',
+    title: 'WOOF Bowl Stand'
   },
   twitter: {
     handle: '@MikeFnscdSantos',

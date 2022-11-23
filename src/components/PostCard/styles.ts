@@ -44,9 +44,11 @@ export const Wrapper = styled.div`
 
       .content {
         position: absolute;
-        bottom: 3rem;
+        bottom: 2.5rem;
         left: 3rem;
         right: 3rem;
+        opacity: 0;
+        transition: 0.3s;
 
         h3 {
           color: ${theme.colors.white};
@@ -64,6 +66,10 @@ export const Wrapper = styled.div`
       }
 
       &:hover {
+        .content {
+          bottom: 3rem;
+          opacity: 1;
+        }
         ${ImageBox}:after {
           background-color: ${theme.colors.black};
           opacity: 0.8;

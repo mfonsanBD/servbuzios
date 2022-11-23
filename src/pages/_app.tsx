@@ -12,7 +12,7 @@ import SEO from '../../next-seo.config'
 import { ApolloProvider } from '@apollo/client'
 import client from 'graphql/client'
 
-export const SITE_NAME = 'Woof Bowl Stand'
+export const SITE_NAME = 'WOOF Bowl Stand'
 
 function App({ Component, pageProps }: AppProps) {
   return (
