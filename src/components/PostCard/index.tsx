@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 
 import Button from 'components/Button'
@@ -7,7 +8,6 @@ import * as S from './styles'
 
 import { TbMinusVertical } from 'react-icons/tb'
 import { formatDateBlog } from 'utils/formatDate'
-import { useState } from 'react'
 
 type CategoryData = {
   name: string
