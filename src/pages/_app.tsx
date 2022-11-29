@@ -4,22 +4,21 @@ import Head from 'next/head'
 import { AppProps } from 'next/app'
 import { DefaultSeo } from 'next-seo'
 import { ThemeProvider } from 'styled-components'
+import { SessionProvider } from 'next-auth/react'
 
 import theme from 'styles/theme'
 import GlobalStyles from 'styles/global'
 
 import SEO from '../../next-seo.config'
-import { ApolloProvider } from '@apollo/client'
-import client from 'graphql/client'
 
 export const SITE_NAME = 'WOOF Bowl Stand'
 
 function App({ Component, pageProps }: AppProps) {
   return (
-    <ApolloProvider client={client}>
+    <SessionProvider session={pageProps.session}>
       <ThemeProvider theme={theme}>
         <Head>
-          <title>Woof Bowl Stand</title>
+          <title>WOOF Bowl Stand</title>
           <link rel="shortcut icon" href="/img/icon-512.png" />
           <link rel="apple-touch-icon" href="/img/icon-512.png" />
           <link rel="manifest" href="/manifest.json" />
@@ -33,7 +32,7 @@ function App({ Component, pageProps }: AppProps) {
         <GlobalStyles />
         <Component {...pageProps} />
       </ThemeProvider>
-    </ApolloProvider>
+    </SessionProvider>
   )
 }
 

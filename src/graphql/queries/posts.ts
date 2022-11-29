@@ -1,6 +1,4 @@
-import { gql } from '@apollo/client'
-
-export const QUERY_POSTS = gql`
+export const QUERY_POSTS = `
   query QueryPosts {
     posts {
       nodes {

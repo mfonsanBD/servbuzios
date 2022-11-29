@@ -38,13 +38,13 @@ export default {
   products: [
     {
       title: 'Modelo Curve',
-      slug: 'novo-modelo-curve',
+      slug: 'modelo-curve',
       description:
         'Atenuado com base em formas clássicas que se encaixam em ambientes muito exigentes.'
     },
     {
       title: 'Modelo Flat',
-      slug: 'novo-modelo-curve',
+      slug: 'modelo-flat',
       description:
         'Atenuado com base em formas clássicas que se encaixam em ambientes muito exigentes.'
     }

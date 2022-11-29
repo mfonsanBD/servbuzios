@@ -6,7 +6,7 @@ import * as S from './styles'
 import { TbMinusVertical } from 'react-icons/tb'
 import { formatDateBlog } from 'utils/formatDate'
 
-type CategoryData = {
+export type CategoryData = {
   name: string
   slug: string
 }

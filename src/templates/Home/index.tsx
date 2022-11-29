@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import Heading from 'components/Heading'
 import ProductCard from 'components/ProductCard'
 
 import * as S from './styles'
@@ -22,7 +21,7 @@ export type HomeProps = {
   products: ProductsData[]
 }
 
-const HomeTemplate = ({ hero, productsTitle, products }: HomeProps) => {
+const HomeTemplate = ({ hero, products }: HomeProps) => {
   return (
     <Base>
       <NextSeo
@@ -61,12 +60,10 @@ const HomeTemplate = ({ hero, productsTitle, products }: HomeProps) => {
       </S.AvaliacaoSection>
 
       <S.ProductsSection id="products">
-        <Heading size="huge">{productsTitle}</Heading>
-
         <S.ProductsArea>
           {products.map((product) => (
             <ProductCard
-              image={`/img/${product.slug}.png`}
+              image={`/img/${product.slug}.jpg`}
               slug={product.slug}
               title={product.title}
               description={product.description}

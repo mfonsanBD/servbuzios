@@ -3,7 +3,7 @@ import media from 'styled-media-query'
 
 export const Wrapper = styled.div`
   width: 100%;
-  height: 25rem;
+  height: 30rem;
   background-image: url('/img/title-hero-background.png');
   background-position: center;
   background-repeat: no-repeat;
@@ -53,7 +53,15 @@ export const Title = styled.h1`
 export const NavArea = styled.div`
   display: flex;
   align-items: center;
-  gap: 1rem;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 1rem 0;
+  flex-wrap: wrap;
+
+  ${media.greaterThan('medium')`
+    padding: 0;
+    gap: 1rem;
+  `}
 `
 
 export const Link = styled.a`

@@ -9,12 +9,7 @@ export default function Blog(props: BlogTemplateProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const {
-    data: { posts }
-  } = await client.query({
-    query: QUERY_POSTS,
-    fetchPolicy: 'no-cache'
-  })
+  const { posts } = await client.request(QUERY_POSTS)
 
   return {
     // revalidate: 60 * 60 * 24,
