@@ -5,6 +5,7 @@ import { AppProps } from 'next/app'
 import { DefaultSeo } from 'next-seo'
 import { ThemeProvider } from 'styled-components'
 import { SessionProvider } from 'next-auth/react'
+import { Analytics } from '@vercel/analytics/react'
 
 import theme from 'styles/theme'
 import GlobalStyles from 'styles/global'
@@ -31,6 +32,7 @@ function App({ Component, pageProps }: AppProps) {
         <DefaultSeo {...SEO} />
         <GlobalStyles />
         <Component {...pageProps} />
+        <Analytics />
       </ThemeProvider>
     </SessionProvider>
   )

@@ -20,6 +20,7 @@
     ]
   },
   "dependencies": {
+    "@vercel/analytics": "^0.1.5",
     "framer-motion": "^6.5.1",
     "graphql": "^15.7.1",
     "graphql-request": "^3.6.1",
