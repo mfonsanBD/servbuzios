@@ -21,7 +21,13 @@ const ContatoTemplate = () => {
           url: `https://woofbowlstand.com.br/contato`,
           title: `${SITE_NAME} :: Entre em Contato`,
           description:
-            'Entre em contato com a gente para criar o Comedouro Postural do seu Aumigo'
+            'Entre em contato com a gente para criar o Comedouro Postural do seu Aumigo',
+          images: [
+            {
+              url: `${process.env.NEXTAUTH_URL}/img/Thumbnail.png`,
+              alt: `${SITE_NAME} :: Entre em Contato`
+            }
+          ]
         }}
       />
 

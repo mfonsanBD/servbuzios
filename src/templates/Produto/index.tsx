@@ -188,7 +188,13 @@ const ProdutoTemplate = ({ types }: ProdutoTemplateProps) => {
         openGraph={{
           url: `https://woofbowlstand.com.br/${router.route}`,
           title: `${SITE_NAME} :: ${pageTitle}`,
-          description: `Modelo`
+          description: `Modelo`,
+          images: [
+            {
+              url: `${process.env.NEXTAUTH_URL}/img/Thumbnail.png`,
+              alt: `${SITE_NAME} :: ${pageTitle}`
+            }
+          ]
         }}
       />
 

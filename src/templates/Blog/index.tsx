@@ -36,7 +36,13 @@ const BlogTemplate = ({ posts }: BlogTemplateProps) => {
           url: `https://woofbowlstand.com.br/blog`,
           title: `${SITE_NAME} :: Blog`,
           description:
-            'Acompanhe o nosso blog e saiba mais sobre nossa empresa e nossas dicas'
+            'Acompanhe o nosso blog e saiba mais sobre nossa empresa e nossas dicas',
+          images: [
+            {
+              url: `${process.env.NEXTAUTH_URL}/img/Thumbnail.png`,
+              alt: `${SITE_NAME} :: Blog`
+            }
+          ]
         }}
       />
 

@@ -32,7 +32,13 @@ const HomeTemplate = ({ hero, products }: HomeProps) => {
           url: `https://woofbowlstand.com.br`,
           title: `${SITE_NAME} :: O Comedouro Postural do seu Pet`,
           description:
-            'O Comedouro Postural WOOF Bowl Stand é projetado para cães e gatos, valoriza o design moderno atenuado com base em formas clássicas que se encaixam perfeitamente até em ambientes muito exigentes.'
+            'O Comedouro Postural WOOF Bowl Stand é projetado para cães e gatos, valoriza o design moderno atenuado com base em formas clássicas que se encaixam perfeitamente até em ambientes muito exigentes.',
+          images: [
+            {
+              url: `${process.env.NEXTAUTH_URL}/img/Thumbnail.png`,
+              alt: `${SITE_NAME} :: O Comedouro Postural do seu Pet`
+            }
+          ]
         }}
       />
 

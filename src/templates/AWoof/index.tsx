@@ -23,7 +23,13 @@ const AWoofTemplate = ({ aboutText, aboutTitle }: AWoofTemplateProps) => (
       openGraph={{
         url: `https://woofbowlstand.com.br/a-woof`,
         title: `${SITE_NAME} :: ${aboutTitle}`,
-        description: `${aboutText}`
+        description: `${aboutText}`,
+        images: [
+          {
+            url: `${process.env.NEXTAUTH_URL}/img/Thumbnail.png`,
+            alt: `${SITE_NAME} :: ${aboutTitle}`
+          }
+        ]
       }}
     />
 
