@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 
 import Logo from 'components/Logo'
 import { MenuPros } from 'components/Menu'
@@ -17,6 +18,7 @@ export type MenuAdminProps = {
 
 const MenuAdmin = ({ logoColor = 'dark', username, photo }: MenuAdminProps) => {
   const [isOpen, setIsOpen] = useState(false)
+  const route = useRouter()
 
   return (
     <S.Wrapper isOpen={isOpen}>
@@ -41,11 +43,19 @@ const MenuAdmin = ({ logoColor = 'dark', username, photo }: MenuAdminProps) => {
       <MediaMatch greaterThan="medium">
         <S.MenuNav>
           <Link href="/admin/app" passHref>
-            <S.MenuLink>Posts</S.MenuLink>
+            <S.MenuLink
+              className={route.asPath.includes('app') ? 'active' : ''}
+            >
+              Posts
+            </S.MenuLink>
           </Link>
 
           <Link href="/admin/categorias" passHref>
-            <S.MenuLink>Categorias</S.MenuLink>
+            <S.MenuLink
+              className={route.asPath.includes('categorias') ? 'active' : ''}
+            >
+              Categorias
+            </S.MenuLink>
           </Link>
 
           <UserDropdown username={username} photo={photo} />

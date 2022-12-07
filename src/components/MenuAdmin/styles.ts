@@ -4,7 +4,7 @@ import media from 'styled-media-query'
 export const Wrapper = styled.menu<MenuFullProps>`
   ${({ theme, isOpen }) => css`
     width: 100%;
-    background-color: ${theme.colors.white};
+    background-color: ${theme.colors.dark};
     padding: 3rem ${theme.spacings.small};
     display: flex;
     flex-direction: row-reverse;
@@ -65,12 +65,16 @@ export const MenuNav = styled.div`
 export const MenuLink = styled.a`
   ${({ theme }) => css`
     position: relative;
-    color: ${theme.colors.dark};
+    color: ${theme.colors.white};
     font-size: ${theme.font.sizes.medium};
     margin: 0 ${theme.spacings.small};
     text-decoration: none;
     text-align: center;
     font-weight: ${theme.font.bold};
+
+    &.active {
+      color: ${theme.colors.lightBrown};
+    }
 
     &:hover {
       color: ${theme.colors.lightBrown};

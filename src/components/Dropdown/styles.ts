@@ -22,7 +22,7 @@ const wrapperModifiers = {
 export const Title = styled.div`
   ${({ theme }) => css`
     cursor: pointer;
-    color: ${theme.colors.dark};
+    color: ${theme.colors.white};
     position: relative;
     display: flex;
     align-items: center;

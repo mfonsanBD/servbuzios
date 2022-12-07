@@ -1,4 +1,4 @@
-import '../.jest/next-image.mock'
+import 'react-toastify/dist/ReactToastify.css'
 import { ThemeProvider } from 'styled-components'
 import { RouterContext } from 'next/dist/shared/lib/router-context'
 
@@ -14,7 +14,7 @@ export const parameters = {
     values: [
       {
         name: 'light',
-        value: theme.colors.background
+        value: theme.colors.light
       },
       {
         name: 'dark',

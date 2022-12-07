@@ -10,7 +10,7 @@ export type AdminBaseProps = {
 const AdminBase = ({ children, photo, username }: AdminBaseProps) => {
   return (
     <S.Wrapper>
-      <MenuAdmin username={username} photo={photo} />
+      <MenuAdmin logoColor="white" username={username} photo={photo} />
 
       <S.Main>{children}</S.Main>
     </S.Wrapper>

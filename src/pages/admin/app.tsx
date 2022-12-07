@@ -1,11 +1,11 @@
 import { GetServerSideProps, GetServerSidePropsContext } from 'next'
 
-import AppTemplate from 'templates/Admin/App'
+import AppTemplate, { AdminTemplateProps } from 'templates/Admin/App'
 
 import protectedRoutes from 'utils/protected-routes'
 
-export default function AppAdmin() {
-  return <AppTemplate />
+export default function AppAdmin(props: AdminTemplateProps) {
+  return <AppTemplate {...props} />
 }
 
 export const getServerSideProps: GetServerSideProps = async (
@@ -18,6 +18,13 @@ export const getServerSideProps: GetServerSideProps = async (
   }
 
   return {
-    props: {}
+    props: {
+      session,
+      posts: [
+        { image: '/img/about-image.jpg', title: 'Título 01', codigo: '123' },
+        { image: '/img/about-image.jpg', title: 'Título 02', codigo: '234' },
+        { image: '/img/about-image.jpg', title: 'Título 03', codigo: '345' }
+      ]
+    }
   }
 }

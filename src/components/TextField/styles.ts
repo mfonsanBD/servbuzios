@@ -46,6 +46,10 @@ export const Label = styled.label`
     font-size: ${theme.font.sizes.small};
     color: ${theme.colors.dark};
     cursor: pointer;
+
+    span {
+      color: ${theme.colors.danger};
+    }
   `}
 `
 
@@ -53,6 +57,7 @@ export const Error = styled.p`
   ${({ theme }) => css`
     color: ${theme.colors.danger};
     font-size: ${theme.font.sizes.xsmall};
+    margin-top: 0.5rem;
   `}
 `
 

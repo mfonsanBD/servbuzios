@@ -7,12 +7,12 @@ export default {
   title: 'PostCard',
   component: PostCard,
   args: {
-    image: '/img/about-image.jpg',
+    sourceUrl: '/img/about-image.jpg',
     title: 'Postagem 01',
+    slug: 'postagem-01',
     url: 'string',
     createdAt: '2022-09-14T02:17:17',
-    categoryLabel: 'Dicas',
-    categoryUrl: 'dicas'
+    categories: [{ name: 'Dicas', slug: 'dicas' }]
   }
 } as ComponentMeta<typeof PostCard>
 
