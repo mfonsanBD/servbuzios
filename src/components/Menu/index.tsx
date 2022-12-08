@@ -125,7 +125,7 @@ const Menu = ({ logoColor = 'white' }: MenuPros) => {
 
           <S.SocialMedias>
             <Link href="https://www.instagram.com/comedouroswoof/" passHref>
-              <S.MenuLink target="_blank">
+              <S.MenuLink target="_blank" title="Instagram">
                 <RiInstagramLine size={28} />
               </S.MenuLink>
             </Link>
@@ -134,7 +134,7 @@ const Menu = ({ logoColor = 'white' }: MenuPros) => {
               href="https://api.whatsapp.com/send?phone=5521969572953"
               passHref
             >
-              <S.MenuLink target="_blank">
+              <S.MenuLink target="_blank" title="WhatsApp">
                 <RiWhatsappLine size={28} />
               </S.MenuLink>
             </Link>
