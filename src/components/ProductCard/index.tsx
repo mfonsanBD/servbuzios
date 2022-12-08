@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Button from 'components/Button'
+import Image from 'next/image'
 import * as S from './styles'
 
 export type ProductCardProps = {
@@ -12,7 +13,7 @@ export type ProductCardProps = {
 const ProductCard = ({ image, title, slug, description }: ProductCardProps) => (
   <S.Wrapper>
     <S.ImageArea>
-      <img src={image} alt={title} />
+      <Image src={image} alt={title} layout="fill" objectFit="cover" />
     </S.ImageArea>
     <S.Content>
       <div>

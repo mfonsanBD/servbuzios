@@ -181,12 +181,12 @@ export const Box = styled.a`
     background-color: ${theme.colors.light};
     color: ${theme.colors.dark};
     display: flex;
-    gap: 1rem;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     border-radius: ${theme.border.radius};
     transition: 0.3s;
+    position: relative;
 
     &:hover {
       background-color: ${theme.colors.inputBg};

@@ -13,6 +13,6 @@ module.exports = withPWA({
     disable: !isProd
   },
   images: {
-    domains: ['localhost', 'res.cloudinary.com', 'source.unsplash.com']
+    domains: ['localhost', 'res.cloudinary.com', 'i0.wp.com']
   }
 })

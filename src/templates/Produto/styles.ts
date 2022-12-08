@@ -59,9 +59,14 @@ export const Types = styled.div`
   }
 
   ${media.greaterThan('medium')`
-  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
-  margin-top: 0;
-`}
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+    margin-top: 0;
+  `}
+
+  ${media.greaterThan('huge')`
+    grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+    margin-top: 0;
+  `}
 `
 
 export const LeftArea = styled.div`
@@ -101,9 +106,14 @@ export const Sizes = styled.div`
   }
 
   ${media.greaterThan('medium')`
-  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
-  margin-top: 0;
-`}
+    grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+    margin-top: 0;
+  `}
+
+  ${media.greaterThan('huge')`
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+    margin-top: 0;
+  `}
 `
 
 export const NoOptions = styled.div`
@@ -118,15 +128,17 @@ export const Message = styled.small`
   `}
 `
 
-export const RightArea = styled.div``
+export const RightArea = styled.div`
+  width: 100%;
+`
 
 export const ImageBox = styled.div`
   ${({ theme }) => css`
     width: 100%;
     height: 30rem;
     overflow: hidden;
+    position: relative;
     border-radius: ${theme.border.radius} ${theme.border.radius} 0 0;
-    z-index: 99;
 
     img {
       width: 100%;
@@ -136,7 +148,6 @@ export const ImageBox = styled.div`
 
     ${media.greaterThan('medium')`
       position: relative;
-      width: 45rem;
       height: 45rem;
     `}
   `}

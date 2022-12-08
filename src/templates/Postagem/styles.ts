@@ -20,12 +20,12 @@ export const CoverBox = styled.div`
     width: 100%;
     height: 25rem;
     overflow: hidden;
+    position: relative;
     border-radius: ${theme.border.radius} ${theme.border.radius} 0 0;
 
     img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
     }
 
     ${media.greaterThan('medium')`

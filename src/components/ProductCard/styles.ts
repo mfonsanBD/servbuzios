@@ -19,11 +19,11 @@ export const ImageArea = styled.div`
   width: 100%;
   height: 21.3rem;
   overflow: hidden;
+  position: relative;
 
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
     transition: 0.3s ease-in-out;
   }
 
@@ -39,6 +39,14 @@ export const Content = styled.div`
   flex-direction: column;
   gap: 1.5rem;
   padding: 2rem;
+
+  div {
+    text-align: center;
+
+    ${media.greaterThan('medium')`
+      text-align: left;
+    `}
+  }
 `
 
 export const Title = styled.h3`

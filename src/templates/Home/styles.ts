@@ -77,18 +77,30 @@ export const AvaliacaoText = styled.div`
 
 export const ImagemArea = styled.div`
   width: 100%;
+  height: 48rem;
   position: relative;
 
   img {
     width: 100%;
+    height: 100%;
   }
+
+  @media (max-width: 321px) {
+    height: 48rem;
+  }
+
+  ${media.lessThan('small')`
+    height: 48rem;
+  `}
 
   ${media.greaterThan('medium')`
     width: 35%;
+    height: 58rem;
+  `}
 
-    img {
-      width: 100%;
-    }
+  ${media.greaterThan('huge')`
+    width: 35%;
+    height: 85rem;
   `}
 `
 
@@ -98,7 +110,7 @@ export const Chao = styled.div``
 
 export const FeaturesSection = styled.section`
   ${({ theme }) => css`
-    padding: 12rem ${theme.spacings.small};
+    padding: 8rem ${theme.spacings.small};
 
     ${media.greaterThan('medium')`
       padding: 12rem ${theme.spacings.xxlarge};
@@ -140,21 +152,17 @@ export const FeaturesArea = styled.div`
 
 export const ProductsSection = styled.section`
   ${({ theme }) => css`
-    padding: 12rem ${theme.spacings.small};
+    padding: ${theme.spacings.small} ${theme.spacings.small} 8rem
+      ${theme.spacings.small};
 
     ${media.greaterThan('medium')`
       padding: 12rem ${theme.spacings.xxlarge};
-
-      ${HeadingStyles.Wrapper} {
-        margin-bottom: 3rem;
-      }
     `}
   `}
 `
 
 export const ProductsArea = styled.div`
   display: grid;
-  margin-top: 5rem;
   grid-template-columns: repeat(auto-fill, minmax(37rem, 1fr));
   gap: 3.2rem;
 

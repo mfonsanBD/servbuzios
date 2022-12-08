@@ -9,6 +9,7 @@ import MediaMatch from 'components/MediaMatch'
 import * as S from './styles'
 import { MdMenu, MdClose } from 'react-icons/md'
 import { RiWhatsappLine, RiInstagramLine } from 'react-icons/ri'
+import Image from 'next/image'
 
 export type MenuPros = {
   logoColor?: 'brown' | 'white' | 'dark'
@@ -88,7 +89,9 @@ const Menu = ({ logoColor = 'white' }: MenuPros) => {
                 <S.ModalMain>
                   <Link href="/modelo-curve" passHref>
                     <S.Box>
-                      <img
+                      <Image
+                        width={70}
+                        height={45}
                         src="/img/types/curve-unit-dark.svg"
                         alt="Silhueta do Comedouro Curve"
                       />
@@ -98,7 +101,9 @@ const Menu = ({ logoColor = 'white' }: MenuPros) => {
 
                   <Link href="/modelo-flat" passHref>
                     <S.Box>
-                      <img
+                      <Image
+                        width={70}
+                        height={45}
                         src="/img/types/flat-unit-dark.svg"
                         alt="Silhueta do Comedouro Flat"
                       />

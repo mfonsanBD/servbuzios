@@ -2,6 +2,7 @@
 import { CategoryData } from 'components/PostCard'
 import TitleArea from 'components/TitleArea'
 import { NextSeo } from 'next-seo'
+import Image from 'next/image'
 import Link from 'next/link'
 import { SITE_NAME } from 'pages/_app'
 import { TbMinusVertical } from 'react-icons/tb'
@@ -47,7 +48,12 @@ const PostagemTemplate = ({ post }: PostagemTemplateProps) => (
 
     <S.Wrapper>
       <S.CoverBox>
-        <img src={post.sourceUrl} alt={post.title} />
+        <Image
+          src={post.sourceUrl}
+          alt={post.title}
+          layout="fill"
+          objectFit="cover"
+        />
       </S.CoverBox>
 
       <S.PostData>

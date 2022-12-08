@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 import { TbTrash, TbEdit } from 'react-icons/tb'
 import Button from 'components/Button'
+import Image from 'next/image'
 
 export type AdminPostCardProps = {
   image: string
@@ -70,7 +71,7 @@ const AdminPostCard = ({ codigo, image, title }: AdminPostCardProps) => {
   return (
     <S.Wrapper>
       <S.ImageBox>
-        <img src={image} alt={title} />
+        <Image src={image} alt={title} layout="fill" />
       </S.ImageBox>
 
       <div>

@@ -8,6 +8,7 @@ import BannerSlider from 'components/BannerSlider'
 import Base from 'templates/Base'
 import { NextSeo } from 'next-seo'
 import { SITE_NAME } from 'pages/_app'
+import Image from 'next/image'
 
 export type ProductsData = {
   title: string
@@ -56,9 +57,9 @@ const HomeTemplate = ({ hero, products }: HomeProps) => {
         </S.AvaliacaoText>
 
         <S.ImagemArea>
-          {/* <S.Extremidade>Extremidade do Esterno</S.Extremidade>
-          <S.Chao>Extremidade do Esterno</S.Chao> */}
-          <img
+          <Image
+            layout="fill"
+            objectFit="cover"
             src="/img/como-avaliar-altura-ideal.png"
             alt="Cachorro com detalhes de como tirar medida para escolher o melhor comendouro"
           />

@@ -24,6 +24,7 @@ import {
   DefineFlatPrice,
   DefineSumPriceCurve
 } from 'utils/definePrice'
+import Image from 'next/image'
 
 const NoOptionsMessage = () => {
   return (
@@ -453,7 +454,7 @@ const ProdutoTemplate = ({ types }: ProdutoTemplateProps) => {
 
               <S.RightArea>
                 <S.ImageBox>
-                  <img src="/img/preview.jpg" alt="Preview" />
+                  <Image src="/img/preview.jpg" alt="Preview" layout="fill" />
                 </S.ImageBox>
 
                 <S.InfosArea>

@@ -7,6 +7,7 @@ import { TbChevronDown, TbLogout } from 'react-icons/tb'
 import Dropdown from 'components/Dropdown'
 
 import * as S from './styles'
+import Image from 'next/image'
 
 export type UserDropdownProps = {
   username: string
@@ -20,7 +21,7 @@ const UserDropdown = ({ username, photo }: UserDropdownProps) => {
       title={
         <S.Username>
           <S.ImageBox>
-            <img src={photo} alt={username} />
+            <Image src={photo} alt={username} layout="fill" />
           </S.ImageBox>
           {username}
           <TbChevronDown size={24} />

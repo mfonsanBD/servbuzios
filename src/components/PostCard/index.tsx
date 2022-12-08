@@ -5,6 +5,7 @@ import * as S from './styles'
 
 import { TbMinusVertical } from 'react-icons/tb'
 import { formatDateBlog } from 'utils/formatDate'
+import Image from 'next/image'
 
 export type CategoryData = {
   name: string
@@ -30,7 +31,7 @@ const PostCard = ({
     <S.Wrapper>
       <div className="card">
         <S.ImageBox>
-          <img src={sourceUrl} alt={title} />
+          <Image src={sourceUrl} alt={title} layout="fill" />
         </S.ImageBox>
 
         <div className="content">

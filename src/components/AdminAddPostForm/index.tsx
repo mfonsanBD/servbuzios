@@ -13,6 +13,7 @@ import { SendImageToCloudinary } from 'utils/sendImageToCloudinary'
 
 import * as S from './styles'
 import { TbTrash } from 'react-icons/tb'
+import Image from 'next/image'
 
 const NoOptionsMessage = () => {
   return (
@@ -255,7 +256,7 @@ const AdminAddPostForm = () => {
                 <S.DeletePreview onClick={() => handleRemovePreview()}>
                   <TbTrash size={20} />
                 </S.DeletePreview>
-                <img src={imageSrc} />
+                <Image src={imageSrc} layout="fill" alt="Preview" />
               </S.ImagePreview>
             )}
           </S.ImageArea>
