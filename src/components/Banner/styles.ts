@@ -2,27 +2,28 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-type ImageWrapperProps = {
-  img: string
-}
+import * as MediaMatchStyles from 'components/MediaMatch'
 
-export const Wrapper = styled.main<ImageWrapperProps>`
-  ${({ img }) => css`
-    width: 100%;
+export const Wrapper = styled.main`
+  width: 100%;
+  height: 100vh;
+  position: relative;
+`
+
+export const Cover = styled.div`
+  width: 100%;
+  height: 100vh;
+  position: relative;
+
+  ${MediaMatchStyles.default} {
     height: 100vh;
-    background-image: url('/img/slide/${img}-large-mobile.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    position: relative;
+  }
 
-    @media (max-width: 321px) {
-      background-image: url('/img/slide/${img}-small-mobile.png');
-    }
-
-    ${media.greaterThan('medium')`
-      background-image: url('/img/slide/${img}-desktop.png');
-    `}
-  `}
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `
 
 export const Caption = styled.div`
@@ -35,6 +36,9 @@ export const Caption = styled.div`
     flex-direction: column;
     justify-content: flex-end;
     flex: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
 
     ${media.greaterThan('medium')`
       width: 50%;

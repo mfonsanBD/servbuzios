@@ -11,6 +11,7 @@ export default {
   },
   args: {
     img: 'comedouro-postural',
+    title: 'Comedouro postural feito sob medida',
     htmlTitle: 'Comedouro<br>postural<br>feito sob<br>medida'
   }
 } as ComponentMeta<typeof Banner>

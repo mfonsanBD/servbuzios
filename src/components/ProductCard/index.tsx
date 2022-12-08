@@ -15,6 +15,7 @@ const ProductCard = ({ image, title, slug, description }: ProductCardProps) => (
     <S.ImageArea>
       <Image src={image} alt={title} layout="fill" objectFit="cover" />
     </S.ImageArea>
+
     <S.Content>
       <div>
         <S.Title>{title}</S.Title>
