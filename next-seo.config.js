@@ -3,8 +3,8 @@ export default {
     type: 'website',
     locale: 'pt_BR',
     url: 'https://woofbowlstand.com.br',
-    site_name: 'WOOF Bowl Stand',
-    title: 'WOOF Bowl Stand'
+    site_name: 'ServBúzios',
+    title: 'ServBúzios'
   },
   twitter: {
     handle: '@MikeFnscdSantos',

@@ -1,6 +1,6 @@
 {
-  "name": "Woof Bowl Stand",
-  "short_name": "Woof Bowl Stand",
+  "name": "ServBúzios Sindicato",
+  "short_name": "ServBúzios Sindicato",
   "icons": [
     {
       "src": "/img/icon-192.png",
@@ -13,9 +13,9 @@
       "sizes": "512x512"
     }
   ],
-  "background_color": "#E1C9AE",
+  "background_color": "#1F4665",
   "description": "O Comedouro Postural WOOF Bowl Stand é projetado para cães e gatos, valoriza o design moderno atenuado com base em formas clássicas que se encaixam perfeitamente até em ambientes muito exigentes.",
   "display": "fullscreen",
   "start_url": "/",
-  "theme_color": "#E1C9AF"
+  "theme_color": "#1F4665"
 }

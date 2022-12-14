@@ -1,17 +1,23 @@
 export default [
   {
-    img: 'comedouro-postural',
-    title: 'Comedouro Postural Feito Sob Medida',
-    htmlTitle: 'Comedouro<br>postural<br>feito sob<br>medida'
+    img: '/img/beach.jpg',
+    title: 'Reunião Extraordinária',
+    slug: 'reuniao-extraordinaria',
+    description:
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type.'
   },
   {
-    img: 'monte-seu-comedouro',
-    title: 'Monte seu Comedouro Personalizado',
-    htmlTitle: 'Monte seu<br>Comedouro<br>Personalizado'
+    img: '/img/beach.jpg',
+    title: 'Reunião Extraordinária',
+    slug: 'reuniao-extraordinaria',
+    description:
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type.'
   },
   {
-    img: 'saude-e-conforto',
-    title: 'Saúde e Conforto para o seu aumigo',
-    htmlTitle: 'Saúde e<br>Conforto<br>para o seu<br>aumigo'
+    img: '/img/beach.jpg',
+    title: 'Reunião Extraordinária',
+    slug: 'reuniao-extraordinaria',
+    description:
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type.'
   }
 ]

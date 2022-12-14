@@ -7,6 +7,6 @@ export const Wrapper = styled.div`
     flex-direction: column;
     align-items: center;
     margin-top: 5rem;
-    color: ${theme.colors.gray};
+    color: ${theme.colors.text};
   `}
 `

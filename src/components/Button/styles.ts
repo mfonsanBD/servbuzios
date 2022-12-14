@@ -31,10 +31,7 @@ const wrapperModifiers = {
     width: 100%;
   `,
 
-  minimal: (
-    theme: DefaultTheme,
-    color: 'lightBrown' | 'success' | 'dark' | 'danger' | 'inputBg'
-  ) => css`
+  minimal: (theme: DefaultTheme, color: 'primary' | 'white') => css`
     background: none;
     border: 2px solid ${theme.colors[color]};
     color: ${theme.colors[color]};
@@ -60,22 +57,19 @@ export const Wrapper = styled.button<WrapperProps>`
     align-items: center;
     justify-content: center;
     background: ${theme.colors[color!]};
-    color: ${color === 'lightBrown' || color === 'inputBg'
-      ? theme.colors.dark
-      : theme.colors.white};
+    color: ${color === 'primary' ? theme.colors.white : theme.colors.title};
     border: 0;
     cursor: pointer;
-    border-radius: ${theme.border.radius};
+    border-radius: ${theme.border.radiusLarge};
     padding: ${theme.spacings.xxsmall};
     font-family: ${theme.font.family};
     font-weight: ${theme.font.normal};
     text-decoration: none;
+    text-transform: uppercase;
 
     &:hover {
       background: ${minimal ? 'none' : darken(0.1, theme.colors[color!])};
-      color: ${color === 'lightBrown' || color === 'inputBg'
-        ? theme.colors.dark
-        : theme.colors.white};
+      color: ${color === 'primary' ? theme.colors.white : theme.colors.title};
     }
 
     ${!!size && wrapperModifiers[size](theme)}

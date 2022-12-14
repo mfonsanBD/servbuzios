@@ -5,12 +5,7 @@ import Heading from '.'
 
 export default {
   title: 'Heading',
-  component: Heading,
-  argTypes: {
-    children: {
-      type: 'string'
-    }
-  }
+  component: Heading
 } as ComponentMeta<typeof Heading>
 
 export const Default: ComponentStory<typeof Heading> = (args) => (
@@ -18,8 +13,8 @@ export const Default: ComponentStory<typeof Heading> = (args) => (
 )
 
 Default.args = {
-  children: 'Comedouro Postural',
-  color: 'lightBrown'
+  title: 'Notícias & Editais',
+  backgroundTitle: 'Notícias & Editais'
 }
 
 export const WithSubtitle: ComponentStory<typeof Heading> = (args) => (
@@ -33,8 +28,8 @@ WithSubtitle.parameters = {
 }
 
 WithSubtitle.args = {
-  children: 'Comedouro Postural',
-  color: 'white',
-  subtitle: 'O comedouro perfeito para o seu pet',
-  size: 'huge'
+  title: 'Notícias & Editais',
+  backgroundTitle: 'Notícias & Editais',
+  subtitle:
+    'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum numquam dolor ratione excepturi quibusdam autem quaerat magni neque earum omnis assumenda quasi beatae, illum veniam dolorum alias delectus fugit! Esse!'
 }

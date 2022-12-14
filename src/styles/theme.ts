@@ -4,14 +4,16 @@ export default {
     gutter: '3.2rem'
   },
   border: {
-    radius: '0.4rem'
+    radiusLarge: '0.5rem',
+    radiusNormal: '0.3rem'
   },
   font: {
     family:
-      "Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
-    thin: 100,
+      "Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+    thin: 300,
     normal: 400,
-    bold: 500,
+    semibold: 600,
+    bold: 900,
     sizes: {
       xsmall: '1.2rem',
       small: '1.4rem',
@@ -24,17 +26,16 @@ export default {
     }
   },
   colors: {
-    brown: '#BFA78D',
-    lightBrown: '#E1C9AF',
+    primary: '#1F4665',
+    secondary: '#244353',
+    tertiary: '#3990F5',
     white: '#FFFFFF',
-    light: '#F9F9F9',
-    inputBg: '#EAEAEA',
-    black: '#121214',
-    background: '#292728',
-    gray: '#999999',
-    dark: '#434343',
+    background: '#F9F9F9',
+    text: '#888888',
+    title: '#434343',
     success: '#3ECE7E',
-    danger: '#E46D78'
+    danger: '#E46D78',
+    gray: '#EAEAEA'
   },
   spacings: {
     xxsmall: '0.8rem',

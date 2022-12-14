@@ -18,7 +18,5 @@ export default {
 } as ComponentMeta<typeof BannerSlider>
 
 export const Default: ComponentStory<typeof BannerSlider> = (args) => (
-  <div style={{ maxWidth: '144rem', maxHeight: '68.6rem', margin: '0 auto' }}>
-    <BannerSlider {...args} />
-  </div>
+  <BannerSlider {...args} />
 )

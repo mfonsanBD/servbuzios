@@ -2,7 +2,7 @@ import { Story, Meta } from '@storybook/react'
 import PostsEmpty, { PostsEmptyProps } from '.'
 
 export default {
-  title: 'Admin/PostsEmpty',
+  title: 'PostsEmpty',
   component: PostsEmpty,
   args: {
     area: 'categoria'

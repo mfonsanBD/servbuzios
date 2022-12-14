@@ -1,9 +1,11 @@
+import { darken } from 'polished'
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
 export const Wrapper = styled.menu<MenuFullProps>`
   ${({ theme, isOpen }) => css`
     width: 100%;
+    background-color: ${theme.colors.white};
     padding: 3rem ${theme.spacings.small};
     display: flex;
     flex-direction: row-reverse;
@@ -29,7 +31,7 @@ export const LogoWrapper = styled.div`
 
 export const IconWrapper = styled.div`
   ${({ theme }) => css`
-    color: ${theme.colors.white};
+    color: ${theme.colors.text};
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -62,21 +64,42 @@ export const MenuNav = styled.div`
 export const MenuLink = styled.a`
   ${({ theme }) => css`
     position: relative;
-    color: ${theme.colors.white};
+    color: ${theme.colors.text};
     font-size: ${theme.font.sizes.medium};
     margin: 0 ${theme.spacings.small};
     text-decoration: none;
     text-align: center;
 
-    &:hover {
-      color: ${theme.colors.lightBrown};
+    &.active {
+      color: ${theme.colors.tertiary};
 
       &::after {
         content: '';
         position: absolute;
         display: block;
         height: 0.3rem;
-        background-color: ${theme.colors.lightBrown};
+        background-color: ${theme.colors.tertiary};
+        animation: hoverAnimation 0.2s forwards;
+      }
+
+      &:hover {
+        color: ${darken(0.1, theme.colors.tertiary)};
+
+        &::after {
+          background-color: ${darken(0.1, theme.colors.tertiary)};
+        }
+      }
+    }
+
+    &:hover {
+      color: ${darken(0.1, theme.colors.text)};
+
+      &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        height: 0.3rem;
+        background-color: ${darken(0.1, theme.colors.text)};
         animation: hoverAnimation 0.2s forwards;
       }
 
@@ -90,107 +113,6 @@ export const MenuLink = styled.a`
           left: 0;
         }
       }
-    }
-  `}
-`
-
-export const Button = styled.button`
-  ${({ theme }) => css`
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    position: relative;
-    color: ${theme.colors.white};
-    font-size: ${theme.font.sizes.medium};
-    margin: 0 ${theme.spacings.small};
-    text-decoration: none;
-    text-align: center;
-    outline: none;
-
-    &:hover {
-      color: ${theme.colors.lightBrown};
-
-      &::after {
-        content: '';
-        position: absolute;
-        display: block;
-        height: 0.3rem;
-        background-color: ${theme.colors.lightBrown};
-        animation: hoverAnimation 0.2s forwards;
-      }
-
-      @keyframes hoverAnimation {
-        from {
-          width: 0;
-          left: 50%;
-        }
-        to {
-          width: 100%;
-          left: 0;
-        }
-      }
-    }
-  `}
-`
-
-export const ModalContent = styled.div`
-  ${({ theme }) => css`
-    width: 60rem;
-    border-radius: ${theme.border.radius};
-    background-color: ${theme.colors.white};
-    position: relative;
-  `}
-`
-
-export const ModalHeader = styled.div`
-  ${({ theme }) => css`
-    width: 100%;
-    padding: 1rem 1rem 1rem 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: ${theme.colors.brown};
-    border-radius: ${theme.border.radius} ${theme.border.radius} 0 0;
-
-    svg {
-      color: ${theme.colors.white};
-      cursor: pointer;
-    }
-  `}
-`
-
-export const ModalTitle = styled.h3`
-  ${({ theme }) => css`
-    color: ${theme.colors.white};
-    font-weight: ${theme.font.bold};
-  `}
-`
-
-export const ModalMain = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  padding: 5rem;
-`
-
-export const Box = styled.a`
-  ${({ theme }) => css`
-    padding: 2rem;
-    width: 20rem;
-    background-color: ${theme.colors.light};
-    color: ${theme.colors.dark};
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: ${theme.border.radius};
-    transition: 0.3s;
-    position: relative;
-
-    &:hover {
-      background-color: ${theme.colors.inputBg};
-      color: ${theme.colors.dark};
     }
   `}
 `
