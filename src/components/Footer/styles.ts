@@ -82,18 +82,32 @@ export const Copyright = styled.div`
   `}
 `
 
-export const Copy = styled.small`
-  ${({ theme }) => css`
-    color: ${theme.colors.gray};
+export const DataArea = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 
-    ${media.lessThan('medium')`
-      text-align: center;
-    `}
+export const Name = styled.small`
+  ${({ theme }) => css`
+    color: ${theme.colors.white};
+    font-weight: ${theme.font.bold};
+  `}
+`
+
+export const Cnpj = styled.small`
+  ${({ theme }) => css`
+    color: ${theme.colors.white};
+  `}
+`
+
+export const Location = styled.small`
+  ${({ theme }) => css`
+    color: ${theme.colors.white};
   `}
 `
 
 export const CreatedBy = styled.small`
   ${({ theme }) => css`
-    color: ${theme.colors.gray};
+    color: ${theme.colors.white};
   `}
 `

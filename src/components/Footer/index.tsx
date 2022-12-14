@@ -96,7 +96,17 @@ const Footer = () => {
       </S.FooterArea>
 
       <S.Copyright>
-        <S.Copy>&copy; Copyright 2022 - Todos os direitos reservados.</S.Copy>
+        <S.DataArea>
+          <S.Name>
+            Sindicato dos Servidores Públicos Municipais de Armação dos Búzios
+          </S.Name>
+          <S.Cnpj>
+            <b>CNPJ:</b> 04.930.581/0001-11
+          </S.Cnpj>
+          <S.Location>
+            Estrada da Usina, 350 - Loja 03 - Armação dos Búzios, RJ - 28950-785
+          </S.Location>
+        </S.DataArea>
         <S.CreatedBy>
           Desenvolvido por:{' '}
           <a href="https://mikedev.com.br" target="_blank" rel="noreferrer">
