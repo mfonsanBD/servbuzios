@@ -15,3 +15,12 @@ export const DateAndTime = (date: string) => {
 
   return `${partValues[0]}${partValues[1]}${partValues[2]}${partValues[3]}${partValues[4]} - ${partValues[6]}h${partValues[7]}${partValues[8]}m`
 }
+
+export const NewsDate = (date: string) => {
+  return new Intl.DateTimeFormat('pt-BR', {
+    timeZone: 'UTC',
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric'
+  }).format(new Date(date))
+}

@@ -3,33 +3,41 @@ import styled, { css } from 'styled-components'
 export const Wrapper = styled.div`
   ${({ theme }) => css`
     position: relative;
-    width: 34.5rem;
-    height: 23rem;
+    width: 100%;
     background-color: ${theme.colors.gray};
     padding: ${theme.spacings.xsmall};
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     border-radius: ${theme.border.radiusLarge};
+    border-top: 5px solid ${theme.colors.text};
+  `}
+`
+
+export const Content = styled.div``
+
+export const Title = styled.p`
+  ${({ theme }) => css`
+    color: ${theme.colors.title};
+    text-align: center;
+    line-height: 1;
+    margin-bottom: 0.5rem;
   `}
 `
 
 export const DateArea = styled.small`
   ${({ theme }) => css`
-    background-color: ${theme.colors.white};
     color: ${theme.colors.text};
-    padding: ${theme.spacings.xsmall};
     line-height: 1;
-    border-radius: ${theme.border.radiusLarge};
-  `}
-`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 
-export const Title = styled.h3`
-  ${({ theme }) => css`
-    background-color: ${theme.colors.white};
-    color: ${theme.colors.title};
-    padding: ${theme.spacings.xsmall};
-    border-radius: ${theme.border.radiusLarge};
+    svg {
+      font-size: ${theme.font.sizes.large};
+      color: ${theme.colors.text};
+    }
   `}
 `

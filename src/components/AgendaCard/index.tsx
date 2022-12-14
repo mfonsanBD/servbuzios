@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+import { RiCalendar2Line } from 'react-icons/ri'
 import { DateAndTime } from 'utils/formatDate'
 import * as S from './styles'
 
@@ -9,8 +9,12 @@ export type AgendaCardProps = {
 
 const AgendaCard = ({ date, title }: AgendaCardProps) => (
   <S.Wrapper>
-    <S.DateArea>{DateAndTime(date)}</S.DateArea>
-    <S.Title>{title}</S.Title>
+    <S.Content>
+      <S.Title>{title}</S.Title>
+      <S.DateArea>
+        <RiCalendar2Line /> {DateAndTime(date)}
+      </S.DateArea>
+    </S.Content>
   </S.Wrapper>
 )
 

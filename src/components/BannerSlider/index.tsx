@@ -34,7 +34,7 @@ export type BannerSliderProps = {
 
 const settings: SliderSettings = {
   dots: false,
-  arrows: false,
+  arrows: true,
   autoplay: true,
   infinite: true,
   nextArrow: <ArrowRight />,
@@ -43,13 +43,13 @@ const settings: SliderSettings = {
     {
       breakpoint: 1170,
       settings: {
-        arrows: false
+        arrows: true
       }
     },
     {
       breakpoint: 1024,
       settings: {
-        arrows: false
+        arrows: true
       }
     },
     {
