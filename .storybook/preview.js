@@ -1,4 +1,3 @@
-import 'react-toastify/dist/ReactToastify.css'
 import { ThemeProvider } from 'styled-components'
 import { RouterContext } from 'next/dist/shared/lib/router-context'
 

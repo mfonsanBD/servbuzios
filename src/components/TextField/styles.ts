@@ -1,3 +1,4 @@
+import { lighten } from 'polished'
 import styled, { css, DefaultTheme } from 'styled-components'
 
 import { TextFieldProps } from '.'
@@ -74,7 +75,7 @@ const wrapperModifiers = {
     ${Label},
     ${Input} {
       cursor: not-allowed;
-      color: ${theme.colors.gray};
+      color: ${lighten(0.3, theme.colors.text)};
 
       &::placeholder {
         color: currentColor;
@@ -85,6 +86,7 @@ const wrapperModifiers = {
 
 export const Wrapper = styled.div<WrapperProps>`
   ${({ theme, error, disabled }) => css`
+    width: 100%;
     ${error && wrapperModifiers.error(theme)}
     ${disabled && wrapperModifiers.disabled(theme)}
   `}

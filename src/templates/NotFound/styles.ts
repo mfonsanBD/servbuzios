@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: ${theme.colors.brown};
+    background-color: ${theme.colors.background};
   `}
 `
 
@@ -24,7 +24,7 @@ export const Content = styled.div`
     justify-content: center;
     gap: 1rem;
     background-color: ${theme.colors.white};
-    border-radius: ${theme.border.radius};
+    border-radius: ${theme.border.radiusLarge};
     position: relative;
     margin: ${theme.spacings.small};
 
@@ -50,7 +50,7 @@ export const Content = styled.div`
     }
 
     h3 {
-      color: ${theme.colors.dark};
+      color: ${theme.colors.title};
       font-size: 2.8rem;
       z-index: 2;
       margin: 0;

@@ -63,17 +63,23 @@ const GlobalStyles = createGlobalStyle`
     ::placeholder {
       /* Chrome, Firefox, Opera, Safari 10.1+ */
       color: ${theme.colors.text};
+      font-family: ${theme.font.family};
+      font-size: ${theme.font.sizes.medium};
       opacity: 1; /* Firefox */
     }
 
     :-ms-input-placeholder {
       /* Internet Explorer 10-11 */
       color: ${theme.colors.text};
+      font-family: ${theme.font.family};
+      font-size: ${theme.font.sizes.medium};
     }
 
     ::-ms-input-placeholder {
       /* Microsoft Edge */
       color: ${theme.colors.text};
+      font-family: ${theme.font.family};
+      font-size: ${theme.font.sizes.medium};
     }
 
     a {

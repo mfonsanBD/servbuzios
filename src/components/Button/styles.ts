@@ -65,7 +65,6 @@ export const Wrapper = styled.button<WrapperProps>`
     font-family: ${theme.font.family};
     font-weight: ${theme.font.normal};
     text-decoration: none;
-    text-transform: uppercase;
 
     &:hover {
       background: ${minimal ? 'none' : darken(0.1, theme.colors[color!])};

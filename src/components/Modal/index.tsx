@@ -1,11 +1,9 @@
 import * as S from './styles'
 
-export type ComedouroModalProps = {
+export type ModalProps = {
   children: React.ReactNode
 }
 
-const ComedourosModal = ({ children }: ComedouroModalProps) => (
-  <S.Wrapper>{children}</S.Wrapper>
-)
+const Modal = ({ children }: ModalProps) => <S.Wrapper>{children}</S.Wrapper>
 
-export default ComedourosModal
+export default Modal

@@ -1,9 +1,9 @@
 import { GetStaticProps } from 'next'
 
-import HomeTemplate, { HomeProps } from 'templates/Home'
+import HomeTemplate from 'templates/Home'
 
-export default function Home(props: HomeProps) {
-  return <HomeTemplate {...props} />
+export default function Home() {
+  return <HomeTemplate />
 }
 
 export const getStaticProps: GetStaticProps = async () => {
