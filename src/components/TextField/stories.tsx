@@ -6,7 +6,7 @@ import { MdOutlineEmail } from 'react-icons/md'
 import TextField from '.'
 
 export default {
-  title: 'Form/TextField',
+  title: 'TextField',
   component: TextField,
   args: {
     label: 'E-mail',

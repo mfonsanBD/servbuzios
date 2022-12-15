@@ -3,13 +3,23 @@ import ConvenioCard, { ConvenioCardProps } from '.'
 
 export default {
   title: 'ConvenioCard',
-  component: ConvenioCard,
-  args: {
-    image: '/img/beach.jpg',
-    name: 'Nome Completo'
-  }
+  component: ConvenioCard
 } as Meta
 
-export const Default: Story<ConvenioCardProps> = (args) => (
+export const Horizontal: Story<ConvenioCardProps> = (args) => (
   <ConvenioCard {...args} />
 )
+
+Horizontal.args = {
+  image: '/img/beach.jpg',
+  name: 'Nome Completo'
+}
+
+export const Vertical: Story<ConvenioCardProps> = (args) => (
+  <ConvenioCard {...args} />
+)
+
+Vertical.args = {
+  image: '/img/hamburger.jpg',
+  name: 'Nome Completo'
+}

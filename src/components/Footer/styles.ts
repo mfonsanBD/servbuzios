@@ -6,7 +6,7 @@ export const Wrapper = styled.footer`
   ${({ theme }) => css`
     background-color: ${theme.colors.secondary};
     color: ${theme.colors.white};
-    padding: ${theme.spacings.small};
+    padding: ${theme.spacings.large} ${theme.spacings.small};
 
     ${media.greaterThan('medium')`
       padding: 4.5rem;
@@ -18,12 +18,15 @@ export const FooterArea = styled.div`
   ${({ theme }) => css`
     width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
     padding-bottom: ${theme.spacings.small};
+    gap: 4rem;
 
     ${media.greaterThan('medium')`
       padding-bottom: 4.5rem;
+      flex-direction: row;
     `}
   `}
 `
@@ -34,9 +37,15 @@ export const FooterTopBlock = styled.div`
   gap: 0.5rem;
 
   h4 {
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
     text-transform: capitalize;
   }
+
+  ${media.greaterThan('medium')`
+    h4 {
+      margin-bottom: 2rem;
+    }
+  `}
 `
 
 export const MenuLink = styled.a`
@@ -62,8 +71,12 @@ export const MenuLink = styled.a`
 export const SocialMedias = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.5rem;
+
+  ${media.greaterThan('medium')`
+    justify-content: center;
+  `}
 `
 
 export const Copyright = styled.div`
@@ -72,12 +85,14 @@ export const Copyright = styled.div`
     border-top: thin solid ${theme.colors.white};
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
+    gap: 2rem;
 
     ${media.greaterThan('medium')`
       padding-top: 4.5rem;
       flex-direction: row;
+      align-items: center;
     `}
   `}
 `

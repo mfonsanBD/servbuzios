@@ -67,6 +67,19 @@ const wrapperModifiers = {
     ${InputWrapper} {
       border-color: ${theme.colors.danger};
     }
+    ${Input} {
+      ::placeholder {
+        color: ${theme.colors.danger};
+      }
+
+      :-ms-input-placeholder {
+        color: ${theme.colors.danger};
+      }
+
+      ::-ms-input-placeholder {
+        color: ${theme.colors.danger};
+      }
+    }
     ${Label} {
       color: ${theme.colors.danger};
     }

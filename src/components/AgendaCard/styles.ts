@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
   ${({ theme }) => css`
     position: relative;
     width: 100%;
+    height: 15rem;
     background-color: ${theme.colors.gray};
     padding: ${theme.spacings.xsmall};
     display: flex;

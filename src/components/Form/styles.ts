@@ -1,13 +1,19 @@
 import { lighten } from 'polished'
 import styled, { css, DefaultTheme } from 'styled-components'
+import media from 'styled-media-query'
 
 export const Wrapper = styled.form``
 
 export const FormGroup = styled.div`
   width: 100%;
   display: flex;
+  flex-direction: column;
   gap: 2rem;
   margin-bottom: 2rem;
+
+  ${media.greaterThan('medium')`
+    flex-direction: row;
+  `}
 `
 
 export const Label = styled.label`
