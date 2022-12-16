@@ -2,17 +2,28 @@ import { lighten } from 'polished'
 import styled, { css, DefaultTheme } from 'styled-components'
 import media from 'styled-media-query'
 
-export const Wrapper = styled.form``
+export const Wrapper = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
 
 export const FormGroup = styled.div`
   width: 100%;
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
   gap: 2rem;
   margin-bottom: 2rem;
 
   ${media.greaterThan('medium')`
     flex-direction: row;
+  `}
+
+  ${media.greaterThan('huge')`
+    width: 60%;
   `}
 `
 
@@ -60,9 +71,14 @@ const textareaModifiers = {
 export const TextSection = styled.div<TextAreaProps>`
   ${({ theme, disabled }) => css`
     display: flex;
+    width: 100%;
     flex-direction: column;
     margin-bottom: 2rem;
     ${disabled && textareaModifiers.disabled(theme)}
+
+    ${media.greaterThan('huge')`
+      width: 60%;
+    `}
   `}
 `
 

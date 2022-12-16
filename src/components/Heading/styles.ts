@@ -49,12 +49,17 @@ export const Title = styled.h1<TitleProps>`
 export const Subtitle = styled.p`
   ${({ theme }) => css`
     color: ${theme.colors.text};
-    text-align: center;
     position: relative;
     word-wrap: break-word;
 
     ${media.greaterThan('medium')`
       word-wrap: normal;
+      text-align: center;
+    `}
+
+    ${media.greaterThan('huge')`
+      width: 107.4rem;
+      margin: 0 auto;
     `}
   `}
 `
