@@ -12,16 +12,29 @@ import {
 import * as S from './styles'
 import { useRouter } from 'next/router'
 
+export type SocialMedias = {
+  facebook: string
+  instagram: string
+  telegram: string
+  whatsapp: string
+}
+
 export type FooterProps = {
   sindicatoName: string
   sindicatoCNPJ: string
   sindicatoAddress: string
+  phone: string
+  email: string
+  redessociais: SocialMedias
 }
 
 const Footer = ({
   sindicatoAddress,
   sindicatoCNPJ,
-  sindicatoName
+  sindicatoName,
+  email,
+  phone,
+  redessociais
 }: FooterProps) => {
   const route = useRouter()
 
@@ -89,12 +102,12 @@ const Footer = ({
         <S.FooterTopBlock>
           <h4>Informações de Contato</h4>
 
-          <Link href="tel:22 97405-8388" passHref>
-            <S.MenuLink target="_blank">(22) 97405-8388</S.MenuLink>
+          <Link href={`tel:${phone}`} passHref>
+            <S.MenuLink target="_blank">{phone}</S.MenuLink>
           </Link>
 
-          <Link href="malto:servbuzios2022@gmail.com" passHref>
-            <S.MenuLink target="_blank">servbuzios2022@gmail.com</S.MenuLink>
+          <Link href={`mailto:${email}`} passHref>
+            <S.MenuLink target="_blank">{email}</S.MenuLink>
           </Link>
         </S.FooterTopBlock>
 
@@ -102,28 +115,25 @@ const Footer = ({
           <h4>Acompanhe nas Redes Sociais</h4>
 
           <S.SocialMedias>
-            <Link
-              href="https://chat.whatsapp.com/JOWAP2X0YXkGDJVVlYhimz"
-              passHref
-            >
+            <Link href={redessociais.whatsapp} passHref>
               <S.MenuLink target="_blank" title="WhatsApp">
                 <RiWhatsappLine size={32} />
               </S.MenuLink>
             </Link>
 
-            <Link href="https://www.facebook.com/uniaoevalorizacao/" passHref>
+            <Link href={redessociais.facebook} passHref>
               <S.MenuLink target="_blank" title="Facebook">
                 <RiFacebookCircleFill size={32} />
               </S.MenuLink>
             </Link>
 
-            <Link href="https://www.instagram.com/servbuzios" passHref>
+            <Link href={redessociais.instagram} passHref>
               <S.MenuLink target="_blank" title="Instagram">
                 <RiInstagramLine size={32} />
               </S.MenuLink>
             </Link>
 
-            <Link href="https://t.me/uniaoevalorizacao" passHref>
+            <Link href={redessociais.telegram} passHref>
               <S.MenuLink target="_blank" title="Telegram">
                 <RiTelegramFill size={32} />
               </S.MenuLink>

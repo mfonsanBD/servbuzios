@@ -34,12 +34,18 @@ const JuridicoTemplate = ({
   instagram,
   nome,
   oab,
-  whatsapp
+  whatsapp,
+  email,
+  phone,
+  redessociais
 }: JuridicoTemplateProps) => (
   <Base
     sindicatoAddress={sindicatoAddress}
     sindicatoCNPJ={sindicatoCNPJ}
     sindicatoName={sindicatoName}
+    email={email}
+    phone={phone}
+    redessociais={redessociais}
   >
     <NextSeo
       title={`${SITE_NAME} :: Jurídico`}

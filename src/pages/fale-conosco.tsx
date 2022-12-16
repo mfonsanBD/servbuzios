@@ -1,8 +1,9 @@
+import { FooterProps } from 'components/Footer'
 import { GetStaticProps } from 'next'
-import JuridicoTemplate, { JuridicoTemplateProps } from 'templates/Juridico'
+import FaleConoscoTemplate from 'templates/FaleConosco'
 
-export default function Juridico(props: JuridicoTemplateProps) {
-  return <JuridicoTemplate {...props} />
+export default function FaleConosco(props: FooterProps) {
+  return <FaleConoscoTemplate {...props} />
 }
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -22,15 +23,7 @@ export const getStaticProps: GetStaticProps = async () => {
         instagram: 'string',
         telegram: 'string',
         whatsapp: 'string'
-      },
-      biografia:
-        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde illum odio odit laboriosam voluptatum doloremque numquam corrupti. Nihil accusamus voluptate, sint unde, deserunt neque assumenda id, velit nostrum aperiam iure?',
-      facebook: '/#',
-      foto: '/img/photo.jpg',
-      instagram: '/#',
-      nome: 'Dr. Advogado do Sindicato',
-      oab: '000.000',
-      whatsapp: '/#'
+      }
     }
   }
 }

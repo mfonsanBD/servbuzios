@@ -40,13 +40,19 @@ const HomeTemplate = ({
   convenios,
   sindicatoAddress,
   sindicatoCNPJ,
-  sindicatoName
+  sindicatoName,
+  email,
+  phone,
+  redessociais
 }: HomeTemplateProps) => {
   return (
     <Base
       sindicatoAddress={sindicatoAddress}
       sindicatoCNPJ={sindicatoCNPJ}
       sindicatoName={sindicatoName}
+      email={email}
+      phone={phone}
+      redessociais={redessociais}
     >
       <NextSeo
         title={`${SITE_NAME} :: Sindicato dos Servidores Públicos Municipais de Armação dos Búzios`}

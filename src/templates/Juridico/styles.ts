@@ -1,8 +1,8 @@
-import styled, { css } from 'styled-components'
+import { darken } from 'polished'
 import media from 'styled-media-query'
+import styled, { css } from 'styled-components'
 
 import * as HeadingStyles from 'components/Heading/styles'
-import { darken } from 'polished'
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`

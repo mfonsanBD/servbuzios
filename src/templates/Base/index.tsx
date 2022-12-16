@@ -11,7 +11,10 @@ const Base = ({
   children,
   sindicatoAddress,
   sindicatoCNPJ,
-  sindicatoName
+  sindicatoName,
+  email,
+  phone,
+  redessociais
 }: BaseProps) => (
   <S.Wrapper>
     <Menu />
@@ -22,6 +25,9 @@ const Base = ({
       sindicatoAddress={sindicatoAddress}
       sindicatoCNPJ={sindicatoCNPJ}
       sindicatoName={sindicatoName}
+      email={email}
+      phone={phone}
+      redessociais={redessociais}
     />
   </S.Wrapper>
 )

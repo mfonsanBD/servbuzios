@@ -15,12 +15,18 @@ const DiretoriaTemplate = ({
   peoples,
   sindicatoAddress,
   sindicatoCNPJ,
-  sindicatoName
+  sindicatoName,
+  email,
+  phone,
+  redessociais
 }: DiretoriaTemplateProps) => (
   <Base
     sindicatoAddress={sindicatoAddress}
     sindicatoCNPJ={sindicatoCNPJ}
     sindicatoName={sindicatoName}
+    email={email}
+    phone={phone}
+    redessociais={redessociais}
   >
     <NextSeo
       title={`${SITE_NAME} :: Diretoria`}
