@@ -12,13 +12,12 @@ import Heading from 'components/Heading'
 import AgendaCardSlider from 'components/AgendaCardSlider'
 import { AgendaCardProps } from 'components/AgendaCard'
 import NewsCard, { NewsCardProps } from 'components/NewsCard'
-import { ConvenioCardProps } from 'components/ConvenioCard'
-import ConvenioCardSlider from 'components/ConvenioCardSlider'
+import ConvenioCard, { ConvenioCardProps } from 'components/ConvenioCard'
 import { FooterProps } from 'components/Footer'
+import Button from 'components/Button'
 
 export type HomeTemplateProps = {
   banner: BannerProps[]
-  presidenteTitle: string
   presidenteImage: string
   presidenteText: string
   presidenteName: string
@@ -33,7 +32,6 @@ const HomeTemplate = ({
   banner,
   presidenteName,
   presidenteImage,
-  presidenteTitle,
   presidenteText,
   agenda,
   news,
@@ -69,7 +67,7 @@ const HomeTemplate = ({
           <Image src={presidenteImage} alt={presidenteName} layout="fill" />
         </S.PhotoArea>
         <S.InfoArea>
-          <S.PresidenteTitle>{presidenteTitle}</S.PresidenteTitle>
+          <S.PresidenteTitle>Fala, Presidente!</S.PresidenteTitle>
           <S.PresidenteText>{presidenteText}</S.PresidenteText>
           <S.PresidenteName>
             {presidenteName} - Presidente ServBúzios
@@ -106,12 +104,22 @@ const HomeTemplate = ({
 
         <S.SindicatoContent>
           <S.Text>{sindicatoText}</S.Text>
+          <div style={{ textAlign: 'center', marginTop: '3.2rem' }}>
+            <Button as="a" href="/fale-conosco">
+              Filie-se Agora!
+            </Button>
+          </div>
         </S.SindicatoContent>
       </S.SindicatoSection>
 
       <S.ConvenioSection>
         <Heading title="Convênios" backgroundTitle="Convênios" />
-        <ConvenioCardSlider items={convenios} />
+
+        <S.ConvenioArea>
+          {convenios.map((item, index) => (
+            <ConvenioCard key={index} {...item} />
+          ))}
+        </S.ConvenioArea>
       </S.ConvenioSection>
     </Base>
   )
