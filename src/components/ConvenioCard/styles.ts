@@ -31,6 +31,7 @@ export const ModalMain = styled.div`
   ${({ theme }) => css`
     z-index: ${theme.layers.modal};
     text-align: center;
+    position: relative;
 
     img {
       height: 65vh;

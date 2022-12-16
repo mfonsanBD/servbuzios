@@ -66,6 +66,7 @@ export const Wrapper = styled.div`
     background-color: ${theme.colors.white};
     border-radius: ${theme.border.radiusLarge};
     padding: calc(${theme.spacings.small} - 0.4rem);
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.05);
 
     &:hover {
       ${Cover} img {

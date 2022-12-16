@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
     align-items: center;
     justify-content: center;
     border-radius: ${theme.border.radiusLarge};
-    border-top: 5px solid ${theme.colors.text};
+    border-top: 5px solid ${theme.colors.tertiary};
   `}
 `
 

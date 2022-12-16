@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Image from 'next/image'
 import Link from 'next/link'
 
 import { NewsDate } from 'utils/formatDate'
@@ -23,7 +24,7 @@ const NewsCard = ({
   <S.Wrapper>
     <S.ImageAndBadge>
       <S.Cover>
-        <img src={image} alt={title} />
+        <Image src={image} alt={title} layout="fill" />
       </S.Cover>
       <S.Badge isNotice={isNotice}>{isNotice ? 'Notícia' : 'Edital'}</S.Badge>
     </S.ImageAndBadge>

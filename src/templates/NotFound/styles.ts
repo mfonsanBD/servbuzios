@@ -59,7 +59,7 @@ export const Content = styled.div`
     }
 
     p {
-      color: ${theme.colors.gray};
+      color: ${theme.colors.text};
       z-index: 2;
       margin-bottom: 1rem;
       text-align: center;

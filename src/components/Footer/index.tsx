@@ -10,8 +10,21 @@ import {
 } from 'react-icons/ri'
 
 import * as S from './styles'
+import { useRouter } from 'next/router'
 
-const Footer = () => {
+export type FooterProps = {
+  sindicatoName: string
+  sindicatoCNPJ: string
+  sindicatoAddress: string
+}
+
+const Footer = ({
+  sindicatoAddress,
+  sindicatoCNPJ,
+  sindicatoName
+}: FooterProps) => {
+  const route = useRouter()
+
   return (
     <S.Wrapper>
       <S.FooterArea>
@@ -25,27 +38,51 @@ const Footer = () => {
           <h4>Menu do Site</h4>
 
           <Link href="/" passHref>
-            <S.MenuLink className="active">Início</S.MenuLink>
+            <S.MenuLink className={route.pathname === '/' ? 'active' : ''}>
+              Início
+            </S.MenuLink>
           </Link>
 
           <Link href="/diretoria" passHref>
-            <S.MenuLink>Diretoria</S.MenuLink>
+            <S.MenuLink
+              className={route.pathname === '/diretoria' ? 'active' : ''}
+            >
+              Diretoria
+            </S.MenuLink>
           </Link>
 
           <Link href="/juridico" passHref>
-            <S.MenuLink>Jurídico</S.MenuLink>
+            <S.MenuLink
+              className={route.pathname === '/juridico' ? 'active' : ''}
+            >
+              Jurídico
+            </S.MenuLink>
           </Link>
 
           <Link href="/noticias-e-editais" passHref>
-            <S.MenuLink>Notícias & Editais</S.MenuLink>
+            <S.MenuLink
+              className={
+                route.pathname === '/noticias-e-editais' ? 'active' : ''
+              }
+            >
+              Notícias & Editais
+            </S.MenuLink>
           </Link>
 
           <Link href="/documentos" passHref>
-            <S.MenuLink>Documentos</S.MenuLink>
+            <S.MenuLink
+              className={route.pathname === '/documentos' ? 'active' : ''}
+            >
+              Documentos
+            </S.MenuLink>
           </Link>
 
           <Link href="/fale-conosco" passHref>
-            <S.MenuLink>Fale Conosco</S.MenuLink>
+            <S.MenuLink
+              className={route.pathname === '/fale-conosco' ? 'active' : ''}
+            >
+              Fale Conosco
+            </S.MenuLink>
           </Link>
         </S.FooterTopBlock>
 
@@ -97,15 +134,11 @@ const Footer = () => {
 
       <S.Copyright>
         <S.DataArea>
-          <S.Name>
-            Sindicato dos Servidores Públicos Municipais de Armação dos Búzios
-          </S.Name>
+          <S.Name>{sindicatoName}</S.Name>
           <S.Cnpj>
-            <b>CNPJ:</b> 04.930.581/0001-11
+            <b>CNPJ:</b> {sindicatoCNPJ}
           </S.Cnpj>
-          <S.Location>
-            Estrada da Usina, 350 - Loja 03 - Armação dos Búzios, RJ - 28950-785
-          </S.Location>
+          <S.Location>{sindicatoAddress}</S.Location>
         </S.DataArea>
         <S.CreatedBy>
           Desenvolvido por:{' '}

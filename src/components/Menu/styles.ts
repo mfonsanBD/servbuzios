@@ -6,18 +6,21 @@ export const Wrapper = styled.menu<MenuFullProps>`
   ${({ theme, isOpen }) => css`
     width: 100%;
     background-color: ${theme.colors.white};
-    padding: 3rem ${theme.spacings.small};
+    padding: 2rem ${theme.spacings.small};
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
     justify-content: space-between;
-    position: absolute;
     z-index: ${isOpen ? theme.layers.menu : `calc(${theme.layers.menu} - 1)`};
 
     ${media.greaterThan('medium')`
-      padding: 3rem ${theme.spacings.xxlarge};
+      padding: 1rem ${theme.spacings.xxlarge};
       flex-direction: row;
       align-items: center;
+    `}
+
+    ${media.greaterThan('huge')`
+      padding: 3rem ${theme.spacings.xxlarge};
     `}
   `}
 `
@@ -57,6 +60,7 @@ export const MenuNav = styled.div`
 			margin-left: ${theme.spacings.small};
       display: flex;
       align-items: center;
+      gap: calc(${theme.spacings.small} * 2);
 		`}
   `}
 `
@@ -66,7 +70,6 @@ export const MenuLink = styled.a`
     position: relative;
     color: ${theme.colors.text};
     font-size: ${theme.font.sizes.medium};
-    margin: 0 ${theme.spacings.small};
     text-decoration: none;
     text-align: center;
 

@@ -9,7 +9,7 @@ export const Wrapper = styled.footer`
     padding: ${theme.spacings.large} ${theme.spacings.small};
 
     ${media.greaterThan('medium')`
-      padding: 4.5rem;
+      padding: 4.5rem ${theme.spacings.xxlarge};
     `}
   `}
 `

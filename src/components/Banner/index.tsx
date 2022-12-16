@@ -1,5 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
-// import Image from 'next/image'
+import Image from 'next/image'
 import Button from 'components/Button'
 import * as S from './styles'
 
@@ -13,8 +12,7 @@ export type BannerProps = {
 const Banner = ({ img, title, description, slug }: BannerProps) => (
   <S.Wrapper>
     <S.Cover>
-      {/* <Image src={img} alt={title} layout="fill" objectFit="cover" /> */}
-      <img src={img} alt={title} />
+      <Image src={img} alt={title} layout="fill" objectFit="cover" />
     </S.Cover>
     <S.Caption>
       <S.Title>{title}</S.Title>

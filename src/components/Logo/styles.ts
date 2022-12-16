@@ -10,7 +10,7 @@ const wrapperModifiers = {
 
   large: () => css`
     width: 25rem;
-    height: 5.9rem;
+    height: 6.9rem;
   `,
 
   hideOnMobile: () => css`

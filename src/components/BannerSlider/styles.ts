@@ -27,12 +27,12 @@ export const Wrapper = styled.section`
 
     .slick-prev {
       align-items: flex-start;
-      left: calc(${theme.spacings.xxlarge} + 5rem);
+      left: ${theme.spacings.xxlarge};
     }
 
     .slick-next {
       align-items: flex-end;
-      right: calc(${theme.spacings.xxlarge} + 5rem);
+      right: ${theme.spacings.xxlarge};
     }
 
     .slick-prev.slick-disabled,

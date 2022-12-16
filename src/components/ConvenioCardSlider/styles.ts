@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
     overflow-x: hidden;
     ${media.greaterThan('medium')`
       padding-top: 3rem;
-      height: 18rem;
+      height: 10rem;
     `}
 
     .slick-track,

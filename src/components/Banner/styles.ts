@@ -3,8 +3,16 @@ import media from 'styled-media-query'
 
 export const Wrapper = styled.main`
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 10.9rem);
   position: relative;
+
+  ${media.greaterThan('medium')`
+    height: calc(100vh - 8.9rem);
+  `}
+
+  ${media.greaterThan('huge')`
+    height: calc(100vh - 11.9rem);
+  `}
 `
 
 export const Cover = styled.div`
@@ -42,7 +50,11 @@ export const Caption = styled.div`
 
     ${media.greaterThan('medium')`
       width: 50%;
-      padding: calc(${theme.spacings.xxlarge} + 5rem);
+      left: 50%;
+      bottom: 50%;
+      transform: translate(-50%, 50%);
+      text-align: center;
+      padding: calc(${theme.spacings.xxlarge} + 5rem) ${theme.spacings.xxlarge};
     `}
   `}
 `

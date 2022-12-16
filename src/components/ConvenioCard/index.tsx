@@ -6,6 +6,7 @@ import Logo from 'components/Logo'
 import * as S from './styles'
 import Modal from 'components/Modal'
 import { MdClose } from 'react-icons/md'
+import Image from 'next/image'
 
 export type ConvenioCardProps = {
   logo?: string
@@ -38,7 +39,7 @@ const ConvenioCard = ({ image, logo, name }: ConvenioCardProps) => {
           </S.CloseButton>
 
           <S.ModalMain>
-            <img src={image} alt={name} />
+            <Image src={image} alt={name} layout="fill" />
           </S.ModalMain>
         </Modal>
       )}

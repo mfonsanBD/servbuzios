@@ -1,19 +1,28 @@
 import Menu from 'components/Menu'
-import Footer from 'components/Footer'
+import Footer, { FooterProps } from 'components/Footer'
 
 import * as S from './styles'
 
 export type BaseProps = {
   children: React.ReactNode
-}
+} & FooterProps
 
-const Base = ({ children }: BaseProps) => (
+const Base = ({
+  children,
+  sindicatoAddress,
+  sindicatoCNPJ,
+  sindicatoName
+}: BaseProps) => (
   <S.Wrapper>
     <Menu />
 
     <S.Content>{children}</S.Content>
 
-    <Footer />
+    <Footer
+      sindicatoAddress={sindicatoAddress}
+      sindicatoCNPJ={sindicatoCNPJ}
+      sindicatoName={sindicatoName}
+    />
   </S.Wrapper>
 )
 
