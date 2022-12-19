@@ -125,7 +125,11 @@ const HomeTemplate = ({
       </S.SindicatoSection>
 
       <S.ConvenioSection>
-        <Heading title="Convênios" backgroundTitle="Convênios" />
+        <Heading
+          title="Convênios"
+          backgroundTitle="Convênios"
+          subtitle="Clique no logotipo da empresa para ver suas promoções"
+        />
 
         <S.ConvenioArea>
           {convenios.map((item, index) => (
