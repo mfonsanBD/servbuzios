@@ -22,25 +22,25 @@ export const getStaticProps: GetStaticProps = async () => {
       agenda: agendaMock,
       news: [
         {
-          image: '/img/beach.jpg',
-          title: 'Reunião Extraordinária',
+          imagem: '/img/beach.jpg',
+          titulo: 'Reunião Extraordinária',
           slug: 'reuniao-extraordinaria',
           createdAt: '2022-12-13T18:41:54.480Z',
-          isNotice: true
+          tipo: 'Noticia'
         },
         {
-          image: '/img/beach.jpg',
-          title: 'Reunião Extraordinária',
+          imagem: '/img/beach.jpg',
+          titulo: 'Reunião Extraordinária',
           slug: 'reuniao-extraordinaria',
           createdAt: '2022-12-13T18:41:54.480Z',
-          isNotice: false
+          tipo: 'Edital'
         },
         {
-          image: '/img/beach.jpg',
-          title: 'Reunião Extraordinária',
+          imagem: '/img/beach.jpg',
+          titulo: 'Reunião Extraordinária',
           slug: 'reuniao-extraordinaria',
           createdAt: '2022-12-13T18:41:54.480Z',
-          isNotice: true
+          tipo: 'Noticia'
         }
       ],
       sindicatoImage: '/img/sindicato.jpg',

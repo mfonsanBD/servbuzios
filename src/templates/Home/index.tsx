@@ -97,6 +97,12 @@ const HomeTemplate = ({
             <NewsCard key={index} {...item} />
           ))}
         </S.NewsAreaHome>
+
+        <S.SeeMoreArea>
+          <Button as="a" href="/noticias-e-editais">
+            Ver Mais
+          </Button>
+        </S.SeeMoreArea>
       </S.NeESection>
 
       <S.SindicatoSection>

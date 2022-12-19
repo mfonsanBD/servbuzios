@@ -11,8 +11,8 @@ export const Horizontal: Story<ConvenioCardProps> = (args) => (
 )
 
 Horizontal.args = {
-  image: '/img/beach.jpg',
-  name: 'Nome Completo'
+  imagem: '/img/beach.jpg',
+  empresa: 'Nome Completo'
 }
 
 export const Vertical: Story<ConvenioCardProps> = (args) => (
@@ -20,6 +20,6 @@ export const Vertical: Story<ConvenioCardProps> = (args) => (
 )
 
 Vertical.args = {
-  image: '/img/hamburger.jpg',
-  name: 'Nome Completo'
+  imagem: '/img/hamburger.jpg',
+  empresa: 'Nome Completo'
 }

@@ -23,11 +23,11 @@ export const Cover = styled.div`
   `}
 `
 
-type BadgeProps = Pick<NewsCardProps, 'isNotice'>
+type BadgeProps = Pick<NewsCardProps, 'tipo'>
 
 export const Badge = styled.div<BadgeProps>`
-  ${({ theme, isNotice }) => css`
-    background-color: ${isNotice
+  ${({ theme, tipo }) => css`
+    background-color: ${tipo === 'Noticia'
       ? theme.colors.tertiary
       : theme.colors.success};
     position: absolute;

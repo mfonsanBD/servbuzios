@@ -126,6 +126,12 @@ export const NewsAreaHome = styled.div`
   `}
 `
 
+export const SeeMoreArea = styled.div`
+  width: 100%;
+  margin: 8rem 0;
+  text-align: center;
+`
+
 export const SindicatoSection = styled.section`
   margin-bottom: 70rem;
   position: relative;

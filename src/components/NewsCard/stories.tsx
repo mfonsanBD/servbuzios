@@ -17,11 +17,11 @@ export const News: Story<NewsCardProps> = (args) => (
 )
 
 News.args = {
-  image: '/img/beach.jpg',
-  title: 'Reunião Extraordinária',
+  imagem: '/img/beach.jpg',
+  titulo: 'Reunião Extraordinária',
   slug: 'reuniao-extraordinaria',
   createdAt: '2022-12-13T18:41:54.480Z',
-  isNotice: true
+  tipo: 'Noticia'
 }
 
 export const Edital: Story<NewsCardProps> = (args) => (
@@ -35,9 +35,9 @@ export const Edital: Story<NewsCardProps> = (args) => (
 )
 
 Edital.args = {
-  image: '/img/beach.jpg',
-  title: 'Reunião Extraordinária',
+  imagem: '/img/beach.jpg',
+  titulo: 'Reunião Extraordinária',
   slug: 'reuniao-extraordinaria',
   createdAt: '2022-12-13T18:41:54.480Z',
-  isNotice: false
+  tipo: 'Edital'
 }

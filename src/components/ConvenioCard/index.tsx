@@ -12,9 +12,10 @@ import Image from 'next/image'
 export type ConvenioCardProps = {
   imagem: string
   empresa: string
+  logotipo?: string
 }
 
-const ConvenioCard = ({ imagem, empresa }: ConvenioCardProps) => {
+const ConvenioCard = ({ imagem, empresa, logotipo }: ConvenioCardProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const [larguraImagem, setLarguraImagem] = useState<number>()
   const [alturaImagem, setAlturaImagem] = useState<number>()

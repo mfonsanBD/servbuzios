@@ -7,31 +7,25 @@ import { NewsDate } from 'utils/formatDate'
 import * as S from './styles'
 
 export type NewsCardProps = {
-  image: string
-  title: string
+  imagem: string
+  titulo: string
   slug: string
-  isNotice: boolean
+  tipo: string
   createdAt: string
 }
 
-const NewsCard = ({
-  createdAt,
-  image,
-  isNotice,
-  slug,
-  title
-}: NewsCardProps) => (
+const NewsCard = ({ createdAt, imagem, tipo, slug, titulo }: NewsCardProps) => (
   <S.Wrapper>
     <S.ImageAndBadge>
       <S.Cover>
-        <Image src={image} alt={title} layout="fill" />
+        <Image src={imagem} alt={titulo} layout="fill" />
       </S.Cover>
-      <S.Badge isNotice={isNotice}>{isNotice ? 'Notícia' : 'Edital'}</S.Badge>
+      <S.Badge tipo={tipo}>{tipo === 'Noticia' ? 'Notícia' : 'Edital'}</S.Badge>
     </S.ImageAndBadge>
 
     <S.Content>
       <Link href={`/noticia/${slug}`} passHref>
-        <S.Title>{title}</S.Title>
+        <S.Title>{titulo}</S.Title>
       </Link>
 
       <S.CreatedAt>Postado em: {NewsDate(createdAt)}</S.CreatedAt>
