@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components'
-import media from 'styled-media-query'
 
 export const Wrapper = styled.div``
 
@@ -27,20 +26,22 @@ export const CloseButton = styled.div`
   `}
 `
 
-export const ModalMain = styled.div`
-  ${({ theme }) => css`
-    z-index: ${theme.layers.modal};
-    text-align: center;
+type ModalMainProps = {
+  largura: number
+  altura: number
+}
+
+export const ModalMain = styled.div<ModalMainProps>`
+  ${({ theme, largura, altura }) => css`
+    width: ${largura > altura ? '70%' : '30%'};
+    height: 90vh;
     position: relative;
+    z-index: ${theme.layers.modal};
 
     img {
-      height: 65vh;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
-
-    ${media.greaterThan('medium')`
-      img {
-        height: 80vh;
-      }
-    `}
   `}
 `

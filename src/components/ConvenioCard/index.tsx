@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState, useEffect } from 'react'
+import { getImageSize } from 'react-image-size'
 
 import Logo from 'components/Logo'
 
@@ -9,13 +10,21 @@ import { MdClose } from 'react-icons/md'
 import Image from 'next/image'
 
 export type ConvenioCardProps = {
-  logo?: string
-  image: string
-  name: string
+  imagem: string
+  empresa: string
 }
 
-const ConvenioCard = ({ image, logo, name }: ConvenioCardProps) => {
+const ConvenioCard = ({ imagem, empresa }: ConvenioCardProps) => {
   const [isOpen, setIsOpen] = useState(false)
+  const [larguraImagem, setLarguraImagem] = useState<number>()
+  const [alturaImagem, setAlturaImagem] = useState<number>()
+
+  const openModal = async () => {
+    const { width, height } = await getImageSize(imagem)
+    setLarguraImagem(width)
+    setAlturaImagem(height)
+    setIsOpen(true)
+  }
 
   useEffect(() => {
     const handleKeyUp = ({ key }: KeyboardEvent) => {
@@ -28,7 +37,7 @@ const ConvenioCard = ({ image, logo, name }: ConvenioCardProps) => {
   }, [])
   return (
     <S.Wrapper>
-      <S.ClickedArea onClick={() => setIsOpen(true)}>
+      <S.ClickedArea onClick={() => openModal()}>
         <Logo color="text" />
       </S.ClickedArea>
 
@@ -38,8 +47,8 @@ const ConvenioCard = ({ image, logo, name }: ConvenioCardProps) => {
             <MdClose size={28} />
           </S.CloseButton>
 
-          <S.ModalMain>
-            <Image src={image} alt={name} layout="fill" />
+          <S.ModalMain largura={larguraImagem!} altura={alturaImagem!}>
+            <Image src={imagem} alt={empresa} layout="fill" />
           </S.ModalMain>
         </Modal>
       )}
