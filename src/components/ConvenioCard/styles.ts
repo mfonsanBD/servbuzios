@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
 
 export const Wrapper = styled.div``
 
@@ -33,10 +34,15 @@ type ModalMainProps = {
 
 export const ModalMain = styled.div<ModalMainProps>`
   ${({ theme, largura, altura }) => css`
-    width: ${largura > altura ? '70%' : '30%'};
-    height: 90vh;
+    width: 90%;
+    height: ${largura > altura ? '28vh' : '65vh'};
     position: relative;
     z-index: ${theme.layers.modal};
+
+    ${media.greaterThan('medium')`
+      width: ${largura > altura ? '70%' : '30%'};
+      height: 90vh;
+    `}
 
     img {
       width: 100%;
