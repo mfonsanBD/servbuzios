@@ -3,6 +3,7 @@
 import Head from 'next/head'
 import { AppProps } from 'next/app'
 import { DefaultSeo } from 'next-seo'
+import NextNProgress from 'nextjs-progressbar'
 import { ThemeProvider } from 'styled-components'
 import { Analytics } from '@vercel/analytics/react'
 
@@ -24,11 +25,18 @@ function App({ Component, pageProps }: AppProps) {
         <meta name="theme-color" content="#1F4665" />
         <meta
           name="description"
-          content="O Comedouro Postural WOOF Bowl Stand é projetado para cães e gatos, valoriza o design moderno atenuado com base em formas clássicas que se encaixam perfeitamente até em ambientes muito exigentes."
+          content="O sindicato tem como objetivo negociar e buscar a organização coletiva, intervir legalmente em ações judiciais e participar da elaboração da legislação laboral, tratando dos problemas coletivos que surgem decorrentes do exercício da profissão."
         />
       </Head>
       <DefaultSeo {...SEO} />
       <GlobalStyles />
+      <NextNProgress
+        color={theme.colors.tertiary}
+        startPosition={0.3}
+        stopDelayMs={200}
+        height={5}
+        showOnShallow={true}
+      />
       <Component {...pageProps} />
       <Analytics />
     </ThemeProvider>
