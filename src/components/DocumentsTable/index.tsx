@@ -1,9 +1,9 @@
-import { RiDownloadLine, RiEyeLine } from 'react-icons/ri'
+import { RiDownloadLine } from 'react-icons/ri'
 import * as S from './styles'
 
 export type DocData = {
-  name: string
-  url: string
+  documento: string
+  arquivo: string
 }
 
 export type DocumentsProps = {
@@ -16,7 +16,7 @@ const DocumentsTable = ({ items }: DocumentsProps) => (
       <S.Thead>
         <tr>
           <th align="left">Documento</th>
-          <th align="right" style={{ width: '10%' }}>
+          <th align="center" style={{ width: '10%' }}>
             Ações
           </th>
         </tr>
@@ -25,10 +25,9 @@ const DocumentsTable = ({ items }: DocumentsProps) => (
       <S.Tbody>
         {items.map((item, index) => (
           <tr key={index}>
-            <td>{item.name}</td>
-            <td align="right">
+            <td>{item.documento}</td>
+            <td align="center">
               <S.Divisor>
-                <RiEyeLine />
                 <RiDownloadLine />
               </S.Divisor>
             </td>

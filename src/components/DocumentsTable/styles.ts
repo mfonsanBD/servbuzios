@@ -35,7 +35,7 @@ export const Divisor = styled.div`
   ${({ theme }) => css`
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     gap: 1rem;
 
     svg {

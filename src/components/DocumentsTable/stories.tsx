@@ -6,12 +6,12 @@ export default {
   component: DocumentsTable,
   args: {
     items: [
-      { name: 'Documento 01', url: '#' },
-      { name: 'Documento 02', url: '#' },
-      { name: 'Documento 03', url: '#' },
-      { name: 'Documento 04', url: '#' },
-      { name: 'Documento 05', url: '#' },
-      { name: 'Documento 06', url: '#' }
+      { documento: 'Documento 01', arquivo: '#' },
+      { documento: 'Documento 02', arquivo: '#' },
+      { documento: 'Documento 03', arquivo: '#' },
+      { documento: 'Documento 04', arquivo: '#' },
+      { documento: 'Documento 05', arquivo: '#' },
+      { documento: 'Documento 06', arquivo: '#' }
     ]
   }
 } as Meta
