@@ -5,7 +5,6 @@ import { AppProps } from 'next/app'
 import { DefaultSeo } from 'next-seo'
 import NextNProgress from 'nextjs-progressbar'
 import { ThemeProvider } from 'styled-components'
-import { Analytics } from '@vercel/analytics/react'
 
 import theme from 'styles/theme'
 import GlobalStyles from 'styles/global'
@@ -38,7 +37,6 @@ function App({ Component, pageProps }: AppProps) {
         showOnShallow={true}
       />
       <Component {...pageProps} />
-      <Analytics />
     </ThemeProvider>
   )
 }

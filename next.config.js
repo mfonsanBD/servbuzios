@@ -12,6 +12,6 @@ module.exports = withPWA({
     disable: !isProd
   },
   images: {
-    domains: ['pix10.agoda.net']
+    domains: ['pix10.agoda.net', 'media.graphassets.com']
   }
 })

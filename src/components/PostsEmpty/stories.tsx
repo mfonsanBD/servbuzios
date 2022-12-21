@@ -5,7 +5,7 @@ export default {
   title: 'PostsEmpty',
   component: PostsEmpty,
   args: {
-    area: 'categoria'
+    texto: 'Nenhuma categoria encontrada'
   }
 } as Meta
 

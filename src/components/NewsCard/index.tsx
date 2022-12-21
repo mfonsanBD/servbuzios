@@ -10,17 +10,15 @@ export type NewsCardProps = {
   imagem: string
   titulo: string
   slug: string
-  tipo: string
   createdAt: string
 }
 
-const NewsCard = ({ createdAt, imagem, tipo, slug, titulo }: NewsCardProps) => (
+const NewsCard = ({ createdAt, imagem, slug, titulo }: NewsCardProps) => (
   <S.Wrapper>
     <S.ImageAndBadge>
       <S.Cover>
         <Image src={imagem} alt={titulo} layout="fill" />
       </S.Cover>
-      <S.Badge tipo={tipo}>{tipo === 'Noticia' ? 'Notícia' : 'Edital'}</S.Badge>
     </S.ImageAndBadge>
 
     <S.Content>

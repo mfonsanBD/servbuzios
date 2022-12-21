@@ -1,10 +1,10 @@
 import * as S from './styles'
 
 export type PostsEmptyProps = {
-  area: string
+  texto: string
 }
 
-const PostsEmpty = ({ area }: PostsEmptyProps) => (
+const PostsEmpty = ({ texto }: PostsEmptyProps) => (
   <S.Wrapper>
     <svg
       width="184"
@@ -50,7 +50,7 @@ const PostsEmpty = ({ area }: PostsEmptyProps) => (
         </g>
       </g>
     </svg>
-    <p>Nenhum(a) {area} encontrado(a)</p>
+    <p>{texto}</p>
   </S.Wrapper>
 )
 

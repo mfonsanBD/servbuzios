@@ -7,6 +7,7 @@ import * as S from './styles'
 
 import { FieldErrors, ContactForm } from 'utils/validations'
 import Button from 'components/Button'
+import { SendContactMail } from 'utils/sendMail'
 
 export type FormProps = {
   isContact: boolean
@@ -33,7 +34,7 @@ const Form = ({ isContact }: FormProps) => {
     setValues((s) => ({ ...s, [field]: value }))
   }
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: any) => {
     event.preventDefault()
     setLoading(true)
 
@@ -47,8 +48,16 @@ const Form = ({ isContact }: FormProps) => {
 
     setFieldError({})
 
+    const formData = {} as any
+
+    Array.from(event.currentTarget.elements).forEach((field: any) => {
+      formData[field.name] = field.value
+    })
+
+    await SendContactMail(formData)
+
     if (isContact) {
-      alert('Página de Contato')
+      alert('Página do Contato')
     } else {
       alert('Página do Jurídico')
     }
@@ -103,6 +112,7 @@ const Form = ({ isContact }: FormProps) => {
         <S.Label>Mensagem</S.Label>
         <S.Textarea
           name="message"
+          value={message}
           placeholder="Digite sua mensagem aqui..."
           onChange={handleMessage}
           cols={30}

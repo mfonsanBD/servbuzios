@@ -1,4 +1,6 @@
 import { FooterProps } from 'components/Footer'
+import client from 'graphql/client'
+import CONTATO_QUERY from 'graphql/queries/contato'
 import { GetStaticProps } from 'next'
 import FaleConoscoTemplate from 'templates/FaleConosco'
 
@@ -7,22 +9,21 @@ export default function FaleConosco(props: FooterProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
+  const data = await client.request(CONTATO_QUERY)
+
   return {
-    // revalidate: 60 * 60 * 24,
-    revalidate: 10,
+    revalidate: 60 * 60,
     props: {
-      sindicatoName:
-        'Sindicato dos Servidores Públicos Municipais de Armação dos Búzios',
-      sindicatoCNPJ: '04.930.581/0001-11',
-      sindicatoAddress:
-        'Estrada da Usina, 350 - Loja 03 - Armação dos Búzios, RJ - 28950-785',
-      phone: '(22) 97405-8388',
-      email: 'servbuzios2022@gmail.com',
+      sindicatoName: data.dados[0].sindicatoName,
+      sindicatoCNPJ: data.dados[0].sindicatoCnpj,
+      sindicatoAddress: data.dados[0].sindicatoAddress,
+      phone: data.dados[0].phone,
+      email: data.dados[0].email,
       redessociais: {
-        facebook: 'string',
-        instagram: 'string',
-        telegram: 'string',
-        whatsapp: 'string'
+        facebook: data.dados[0].redesSociais.facebook,
+        instagram: data.dados[0].redesSociais.instagram,
+        telegram: data.dados[0].redesSociais.telegram,
+        whatsapp: data.dados[0].redesSociais.whatsapp
       }
     }
   }

@@ -1,10 +1,41 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
 export const Wrapper = styled.div``
 
 export const ClickedArea = styled.div`
-  cursor: pointer;
+  ${({ theme }) => css`
+    width: 100%;
+    height: 27rem;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: ${theme.border.radiusLarge};
+    border: thin solid ${theme.colors.gray};
+
+    ${media.greaterThan('321px' as any)`
+      height: 33rem;
+    `}
+
+    ${media.greaterThan('376px' as any)`
+      height: 38rem;
+    `}
+
+    ${media.greaterThan('medium')`
+      height: 30rem;
+    `}
+
+    ${media.greaterThan('huge')`
+      height: 28rem;
+    `}
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  `}
 `
 
 export const CloseButton = styled.div`
@@ -27,21 +58,31 @@ export const CloseButton = styled.div`
   `}
 `
 
-type ModalMainProps = {
-  largura: number
-  altura: number
-}
-
-export const ModalMain = styled.div<ModalMainProps>`
-  ${({ theme, largura, altura }) => css`
-    width: 90%;
-    height: ${largura > altura ? '28vh' : '65vh'};
+export const ModalMain = styled.div`
+  ${({ theme }) => css`
+    width: 30rem;
+    height: 30rem;
     position: relative;
     z-index: ${theme.layers.modal};
 
+    ${media.greaterThan('321px' as any)`
+      width: 35rem;
+      height: 35rem;
+    `}
+
+    ${media.greaterThan('376px' as any)`
+      width: 39rem;
+      height: 39rem;
+    `}
+
     ${media.greaterThan('medium')`
-      width: ${largura > altura ? '70%' : '30%'};
-      height: 90vh;
+      width: 50rem;
+      height: 50rem;
+    `}
+
+    ${media.greaterThan('huge')`
+      width: 70rem;
+      height: 70rem;
     `}
 
     img {

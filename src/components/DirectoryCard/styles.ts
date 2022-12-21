@@ -1,15 +1,9 @@
 import styled, { css } from 'styled-components'
-import { DirectoryCardProps } from '.'
 
-type WrapperProps = Pick<DirectoryCardProps, 'photo'>
-
-export const Wrapper = styled.div<WrapperProps>`
-  ${({ theme, photo }) => css`
+export const Wrapper = styled.div`
+  ${({ theme }) => css`
     width: 100%;
-    height: 28rem;
-    background-image: url(${photo});
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: ${theme.colors.white};
     display: flex;
     align-items: flex-end;
     justify-content: center;

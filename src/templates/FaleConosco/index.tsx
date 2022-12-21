@@ -52,7 +52,8 @@ const FaleConoscoTemplate = ({
 
         <S.Box>
           <TbPhoneCall />
-          <p>{phone}</p>
+          <p>{phone} - Fixo</p>
+          <p>(22) 99201-0835 - WhatsApp</p>
         </S.Box>
 
         <S.Box>

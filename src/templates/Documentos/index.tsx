@@ -1,5 +1,4 @@
 import { FooterProps } from 'components/Footer'
-import DocumentsTable, { DocData } from 'components/DocumentsTable'
 
 import Base from 'templates/Base'
 
@@ -7,14 +6,18 @@ import * as S from './styles'
 import Heading from 'components/Heading'
 import { NextSeo } from 'next-seo'
 import { SITE_NAME } from 'pages/_app'
+import PdfCard, { PdfCardProps } from 'components/PdfCard'
+import PostsEmpty from 'components/PostsEmpty'
 
 export type DocumentosTemplateProps = {
-  items: DocData[]
+  documentos: PdfCardProps[]
+  editais: PdfCardProps[]
 } & FooterProps
 
 const DocumentosTemplate = ({
   email,
-  items,
+  documentos,
+  editais,
   phone,
   redessociais,
   sindicatoAddress,
@@ -30,12 +33,12 @@ const DocumentosTemplate = ({
     redessociais={redessociais}
   >
     <NextSeo
-      title={`${SITE_NAME} :: Documentos`}
+      title={`${SITE_NAME} :: Documentos & Editais`}
       description="Documentos referentes ao nosso sindicato"
       canonical={`https://servbuzios.org.br/documentos`}
       openGraph={{
         url: `https://servbuzios.org.br/documentos`,
-        title: `${SITE_NAME} :: Documentos`,
+        title: `${SITE_NAME} :: Documentos & Editais`,
         description: 'Documentos referentes ao nosso sindicato'
       }}
     />
@@ -43,7 +46,27 @@ const DocumentosTemplate = ({
     <S.Wrapper>
       <Heading title="Documentos" backgroundTitle="Documentos" />
 
-      <DocumentsTable items={items} />
+      {documentos.length > 0 ? (
+        <S.DocsArea>
+          {documentos.map((item, index) => (
+            <PdfCard key={index} {...item} />
+          ))}
+        </S.DocsArea>
+      ) : (
+        <PostsEmpty texto="Nenhum documento encontrado no momento!" />
+      )}
+
+      <Heading title="Editais" backgroundTitle="Editais" />
+
+      {editais.length > 0 ? (
+        <S.DocsArea>
+          {editais.map((item, index) => (
+            <PdfCard key={index} {...item} />
+          ))}
+        </S.DocsArea>
+      ) : (
+        <PostsEmpty texto="Nenhum edital encontrado no momento!" />
+      )}
     </S.Wrapper>
   </Base>
 )

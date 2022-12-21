@@ -4,17 +4,17 @@ import { NextSeo } from 'next-seo'
 import Base from 'templates/Base'
 import { SITE_NAME } from 'pages/_app'
 
-import BannerSlider from 'components/BannerSlider'
-import { BannerProps } from 'components/Banner'
-
-import * as S from './styles'
+import Button from 'components/Button'
 import Heading from 'components/Heading'
-import AgendaCardSlider from 'components/AgendaCardSlider'
-import { AgendaCardProps } from 'components/AgendaCard'
+import PostsEmpty from 'components/PostsEmpty'
+import { BannerProps } from 'components/Banner'
+import { FooterProps } from 'components/Footer'
+import BannerSlider from 'components/BannerSlider'
+import AgendaCard, { AgendaCardProps } from 'components/AgendaCard'
 import NewsCard, { NewsCardProps } from 'components/NewsCard'
 import ConvenioCard, { ConvenioCardProps } from 'components/ConvenioCard'
-import { FooterProps } from 'components/Footer'
-import Button from 'components/Button'
+
+import * as S from './styles'
 
 export type HomeTemplateProps = {
   banner: BannerProps[]
@@ -74,7 +74,9 @@ const HomeTemplate = ({
         </S.PhotoArea>
         <S.InfoArea>
           <S.PresidenteTitle>Fala, Presidente!</S.PresidenteTitle>
-          <S.PresidenteText>{presidenteText}</S.PresidenteText>
+          <S.PresidenteText
+            dangerouslySetInnerHTML={{ __html: presidenteText }}
+          />
           <S.PresidenteName>
             {presidenteName} - Presidente ServBúzios
           </S.PresidenteName>
@@ -83,26 +85,38 @@ const HomeTemplate = ({
 
       <S.AgendaSection>
         <Heading title="Agenda" backgroundTitle="Agenda" />
-        <AgendaCardSlider items={agenda} />
+
+        {agenda.length > 0 ? (
+          <S.NewsAreaHome>
+            {agenda.map((item, index) => (
+              <AgendaCard key={index} {...item} />
+            ))}
+          </S.NewsAreaHome>
+        ) : (
+          <PostsEmpty texto="Nenhuma agenda encontrada no momento!" />
+        )}
       </S.AgendaSection>
 
       <S.NeESection>
-        <Heading
-          title="Notícias & Editais"
-          backgroundTitle="Notícias & Editais"
-        />
+        <Heading title="Notícias" backgroundTitle="Notícias" />
 
-        <S.NewsAreaHome>
-          {news.map((item, index) => (
-            <NewsCard key={index} {...item} />
-          ))}
-        </S.NewsAreaHome>
+        {news.length > 0 ? (
+          <>
+            <S.NewsAreaHome>
+              {news.map((item, index) => (
+                <NewsCard key={index} {...item} />
+              ))}
+            </S.NewsAreaHome>
 
-        <S.SeeMoreArea>
-          <Button as="a" href="/noticias-e-editais">
-            Ver Mais
-          </Button>
-        </S.SeeMoreArea>
+            <S.SeeMoreArea>
+              <Button as="a" href="/noticias">
+                Ver Mais
+              </Button>
+            </S.SeeMoreArea>
+          </>
+        ) : (
+          <PostsEmpty texto="Nenhuma notícia encontrada no momento!" />
+        )}
       </S.NeESection>
 
       <S.SindicatoSection>
@@ -115,7 +129,7 @@ const HomeTemplate = ({
         </S.SindicatoCover>
 
         <S.SindicatoContent>
-          <S.Text>{sindicatoText}</S.Text>
+          <S.Text dangerouslySetInnerHTML={{ __html: sindicatoText }} />
           <div style={{ textAlign: 'center', marginTop: '3.2rem' }}>
             <Button as="a" href="/fale-conosco">
               Filie-se Agora!
@@ -125,17 +139,17 @@ const HomeTemplate = ({
       </S.SindicatoSection>
 
       <S.ConvenioSection>
-        <Heading
-          title="Convênios"
-          backgroundTitle="Convênios"
-          subtitle="Clique no logotipo da empresa para ver suas promoções"
-        />
+        <Heading title="Convênios" backgroundTitle="Convênios" />
 
-        <S.ConvenioArea>
-          {convenios.map((item, index) => (
-            <ConvenioCard key={index} {...item} />
-          ))}
-        </S.ConvenioArea>
+        {convenios.length > 0 ? (
+          <S.ConvenioArea>
+            {convenios.map((item, index) => (
+              <ConvenioCard key={index} {...item} />
+            ))}
+          </S.ConvenioArea>
+        ) : (
+          <PostsEmpty texto="Nenhum convênio encontrado no momento!" />
+        )}
       </S.ConvenioSection>
     </Base>
   )

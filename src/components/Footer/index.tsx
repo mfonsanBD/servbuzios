@@ -11,6 +11,7 @@ import {
 
 import * as S from './styles'
 import { useRouter } from 'next/router'
+import { FormatWhatsAppLink } from 'utils/formatLinks'
 
 export type SocialMedias = {
   facebook: string
@@ -56,11 +57,13 @@ const Footer = ({
             </S.MenuLink>
           </Link>
 
-          <Link href="/diretoria" passHref>
+          <Link href="/diretoria-e-conselho" passHref>
             <S.MenuLink
-              className={route.pathname === '/diretoria' ? 'active' : ''}
+              className={
+                route.pathname === '/diretoria-e-conselho' ? 'active' : ''
+              }
             >
-              Diretoria
+              Diretoria & Conselho
             </S.MenuLink>
           </Link>
 
@@ -72,21 +75,21 @@ const Footer = ({
             </S.MenuLink>
           </Link>
 
-          <Link href="/noticias-e-editais" passHref>
+          <Link href="/noticias" passHref>
             <S.MenuLink
-              className={
-                route.pathname === '/noticias-e-editais' ? 'active' : ''
-              }
+              className={route.pathname.includes('noticia') ? 'active' : ''}
             >
-              Notícias & Editais
+              Notícias
             </S.MenuLink>
           </Link>
 
-          <Link href="/documentos" passHref>
+          <Link href="/documentos-e-editais" passHref>
             <S.MenuLink
-              className={route.pathname === '/documentos' ? 'active' : ''}
+              className={
+                route.pathname === '/documentos-e-editais' ? 'active' : ''
+              }
             >
-              Documentos
+              Documentos & Editais
             </S.MenuLink>
           </Link>
 
@@ -103,7 +106,11 @@ const Footer = ({
           <h4>Informações de Contato</h4>
 
           <Link href={`tel:${phone}`} passHref>
-            <S.MenuLink target="_blank">{phone}</S.MenuLink>
+            <S.MenuLink target="_blank">{phone} - Fixo</S.MenuLink>
+          </Link>
+
+          <Link href={FormatWhatsAppLink('(22) 99201-0835')} passHref>
+            <S.MenuLink target="_blank">(22) 99201-0835 - WhatsApp</S.MenuLink>
           </Link>
 
           <Link href={`mailto:${email}`} passHref>

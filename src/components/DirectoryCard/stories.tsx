@@ -5,7 +5,6 @@ export default {
   title: 'DirectoryCard',
   component: DirectoryCard,
   args: {
-    photo: '/img/beach.jpg',
     name: 'Nome Completo',
     role: 'Tesoureiro'
   }

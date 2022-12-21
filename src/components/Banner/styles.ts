@@ -49,7 +49,7 @@ export const Caption = styled.div`
     left: 0;
 
     ${media.greaterThan('medium')`
-      width: 50%;
+      width: 70%;
       left: 50%;
       bottom: 50%;
       transform: translate(-50%, 50%);
@@ -64,10 +64,17 @@ export const Title = styled.h1`
     color: ${theme.colors.white};
     font-family: ${theme.font.family};
     font-size: calc(${theme.font.sizes.xxxlarge} + 0.5rem);
-    line-height: 1;
+    line-height: 1.15;
     font-weight: ${theme.font.bold};
     text-transform: uppercase;
     margin-bottom: 2rem;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-clamp: 3;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    -webkit-box-orient: vertical;
 
     @media (max-width: 321px) {
       font-size: calc(${theme.font.sizes.xxlarge} + 1rem);
@@ -79,9 +86,16 @@ export const Title = styled.h1`
   `}
 `
 
-export const Description = styled.p`
+export const Description = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.white};
     margin-bottom: 2rem;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-box-orient: vertical;
   `}
 `

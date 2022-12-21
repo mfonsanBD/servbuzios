@@ -41,11 +41,13 @@ const Menu = () => {
             </S.MenuLink>
           </Link>
 
-          <Link href="/diretoria" passHref>
+          <Link href="/diretoria-e-conselho" passHref>
             <S.MenuLink
-              className={route.pathname === '/diretoria' ? 'active' : ''}
+              className={
+                route.pathname === '/diretoria-e-conselho' ? 'active' : ''
+              }
             >
-              Diretoria
+              Diretoria & Conselho
             </S.MenuLink>
           </Link>
 
@@ -57,21 +59,21 @@ const Menu = () => {
             </S.MenuLink>
           </Link>
 
-          <Link href="/noticias-e-editais" passHref>
+          <Link href="/noticias" passHref>
             <S.MenuLink
-              className={
-                route.pathname === '/noticias-e-editais' ? 'active' : ''
-              }
+              className={route.pathname.includes('noticia') ? 'active' : ''}
             >
-              Notícias & Editais
+              Notícias
             </S.MenuLink>
           </Link>
 
-          <Link href="/documentos" passHref>
+          <Link href="/documentos-e-editais" passHref>
             <S.MenuLink
-              className={route.pathname === '/documentos' ? 'active' : ''}
+              className={
+                route.pathname === '/documentos-e-editais' ? 'active' : ''
+              }
             >
-              Documentos
+              Documentos & Editais
             </S.MenuLink>
           </Link>
 
@@ -99,11 +101,13 @@ const Menu = () => {
             </S.MenuLink>
           </Link>
 
-          <Link href="/diretoria" passHref>
+          <Link href="/diretoria-e-conselho" passHref>
             <S.MenuLink
-              className={route.pathname === '/diretoria' ? 'active' : ''}
+              className={
+                route.pathname === '/diretoria-e-conselho' ? 'active' : ''
+              }
             >
-              Diretoria
+              Diretoria & Conselho
             </S.MenuLink>
           </Link>
 
@@ -115,21 +119,21 @@ const Menu = () => {
             </S.MenuLink>
           </Link>
 
-          <Link href="/noticias-e-editais" passHref>
+          <Link href="/noticias" passHref>
             <S.MenuLink
-              className={
-                route.pathname === '/noticias-e-editais' ? 'active' : ''
-              }
+              className={route.pathname.includes('noticia') ? 'active' : ''}
             >
-              Notícias & Editais
+              Notícias
             </S.MenuLink>
           </Link>
 
-          <Link href="/documentos" passHref>
+          <Link href="/documentos-e-editais" passHref>
             <S.MenuLink
-              className={route.pathname === '/documentos' ? 'active' : ''}
+              className={
+                route.pathname === '/documentos-e-editais' ? 'active' : ''
+              }
             >
-              Documentos
+              Documentos & Editais
             </S.MenuLink>
           </Link>
 

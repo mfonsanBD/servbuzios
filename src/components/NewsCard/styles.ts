@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components'
-import { NewsCardProps } from '.'
 
 export const ImageAndBadge = styled.div`
   display: flex;
@@ -23,22 +22,6 @@ export const Cover = styled.div`
   `}
 `
 
-type BadgeProps = Pick<NewsCardProps, 'tipo'>
-
-export const Badge = styled.div<BadgeProps>`
-  ${({ theme, tipo }) => css`
-    background-color: ${tipo === 'Noticia'
-      ? theme.colors.tertiary
-      : theme.colors.success};
-    position: absolute;
-    color: ${theme.colors.white};
-    top: 2rem;
-    left: 2rem;
-    padding: 0.5rem 2rem;
-    border-radius: ${theme.border.radiusNormal};
-  `}
-`
-
 export const Content = styled.div`
   ${({ theme }) => css`
     display: flex;
@@ -52,6 +35,14 @@ export const Title = styled.a`
     font-size: ${theme.font.sizes.xlarge};
     color: ${theme.colors.title};
     font-weight: ${theme.font.semibold};
+    line-height: 1.15;
+    margin-bottom: ${theme.spacings.xxsmall};
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-box-orient: vertical;
   `}
 `
 

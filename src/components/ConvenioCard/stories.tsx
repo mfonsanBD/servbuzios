@@ -6,20 +6,11 @@ export default {
   component: ConvenioCard
 } as Meta
 
-export const Horizontal: Story<ConvenioCardProps> = (args) => (
+export const Default: Story<ConvenioCardProps> = (args) => (
   <ConvenioCard {...args} />
 )
 
-Horizontal.args = {
+Default.args = {
   imagem: '/img/beach.jpg',
-  empresa: 'Nome Completo'
-}
-
-export const Vertical: Story<ConvenioCardProps> = (args) => (
-  <ConvenioCard {...args} />
-)
-
-Vertical.args = {
-  imagem: '/img/hamburger.jpg',
   empresa: 'Nome Completo'
 }

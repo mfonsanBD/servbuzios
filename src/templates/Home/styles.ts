@@ -61,7 +61,7 @@ export const PresidenteTitle = styled.h1`
   `}
 `
 
-export const PresidenteText = styled.p`
+export const PresidenteText = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.text};
   `}
@@ -174,7 +174,7 @@ export const SindicatoContent = styled.div`
   `}
 `
 
-export const Text = styled.p`
+export const Text = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.text};
     text-align: center;
@@ -199,7 +199,7 @@ export const ConvenioSection = styled.section`
 export const ConvenioArea = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(37rem, 1fr));
-  gap: 3rem;
+  gap: 2rem;
 
   @media (max-width: 321px) {
     grid-template-columns: repeat(auto-fill, minmax(27rem, 1fr)) !important;
@@ -210,7 +210,7 @@ export const ConvenioArea = styled.div`
   `}
 
   ${media.greaterThan('medium')`
-    grid-template-columns: repeat(auto-fill, minmax(23rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
     margin-top: 0;
   `}
 

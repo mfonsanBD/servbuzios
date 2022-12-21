@@ -1,13 +1,12 @@
 import * as S from './styles'
 
 export type DirectoryCardProps = {
-  photo: string
   name: string
   role: string
 }
 
-const DirectoryCard = ({ name, photo, role }: DirectoryCardProps) => (
-  <S.Wrapper photo={photo}>
+const DirectoryCard = ({ name, role }: DirectoryCardProps) => (
+  <S.Wrapper>
     <S.Content>
       <S.Name>{name}</S.Name>
       <S.Role>{role}</S.Role>

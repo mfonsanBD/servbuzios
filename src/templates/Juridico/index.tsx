@@ -1,43 +1,26 @@
+import AdvogadoCard, { AdvogadoCardProps } from 'components/AdvogadoCard'
+import Button from 'components/Button'
 import { FooterProps } from 'components/Footer'
 import Form from 'components/Form'
 import Heading from 'components/Heading'
 import { NextSeo } from 'next-seo'
-import Image from 'next/image'
-import Link from 'next/link'
 import { SITE_NAME } from 'pages/_app'
-import {
-  RiFacebookCircleFill,
-  RiInstagramLine,
-  RiWhatsappLine
-} from 'react-icons/ri'
 import Base from 'templates/Base'
 
 import * as S from './styles'
 
 export type JuridicoTemplateProps = {
-  foto: string
-  nome: string
-  oab: string
-  whatsapp: string
-  facebook: string
-  instagram: string
-  biografia: string
+  advogados: AdvogadoCardProps[]
 } & FooterProps
 
 const JuridicoTemplate = ({
   sindicatoAddress,
   sindicatoCNPJ,
   sindicatoName,
-  biografia,
-  facebook,
-  foto,
-  instagram,
-  nome,
-  oab,
-  whatsapp,
   email,
   phone,
-  redessociais
+  redessociais,
+  advogados
 }: JuridicoTemplateProps) => (
   <Base
     sindicatoAddress={sindicatoAddress}
@@ -69,38 +52,23 @@ const JuridicoTemplate = ({
       <Form isContact={false} />
     </S.Wrapper>
 
+    <S.Processo>
+      Acompanhe o processo coletivo N°: 0003436-63.2016.8.19.0078
+      <br />
+      <Button
+        as="a"
+        href="http://www4.tjrj.jus.br/consultaProcessoWebV2/consultaProc.do?v=2&FLAGNOME=&back=1&tipoConsulta=publica&numProcesso=2016.078.003346-6"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Clicando aqui
+      </Button>
+    </S.Processo>
+
     <S.AdvogadoSection>
-      <S.PhotoArea>
-        <Image src={foto} alt={nome} layout="fill" />
-      </S.PhotoArea>
-      <S.InfoArea>
-        <S.OutherDatas>
-          <S.Name>{nome}</S.Name>
-          <S.Datas>
-            <S.OAB>OAB/RJ: {oab}</S.OAB>
-            <S.SocialMedias>
-              <Link href={whatsapp} passHref>
-                <S.MenuLink target="_blank" title="WhatsApp">
-                  <RiWhatsappLine size={32} />
-                </S.MenuLink>
-              </Link>
-
-              <Link href={facebook} passHref>
-                <S.MenuLink target="_blank" title="Facebook">
-                  <RiFacebookCircleFill size={32} />
-                </S.MenuLink>
-              </Link>
-
-              <Link href={instagram} passHref>
-                <S.MenuLink target="_blank" title="Instagram">
-                  <RiInstagramLine size={32} />
-                </S.MenuLink>
-              </Link>
-            </S.SocialMedias>
-          </S.Datas>
-        </S.OutherDatas>
-        <S.Bio>{biografia}</S.Bio>
-      </S.InfoArea>
+      {advogados.map((advogado, index) => (
+        <AdvogadoCard key={index} {...advogado} />
+      ))}
     </S.AdvogadoSection>
   </Base>
 )

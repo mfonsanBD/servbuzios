@@ -20,3 +20,27 @@ export const Wrapper = styled.div`
     }
   `}
 `
+
+export const DocsArea = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(37rem, 1fr));
+  gap: 3rem;
+
+  @media (max-width: 321px) {
+    grid-template-columns: repeat(auto-fill, minmax(27rem, 1fr)) !important;
+  }
+
+  ${media.lessThan('small')`
+    grid-template-columns: repeat(auto-fill, minmax(32rem, 1fr));
+  `}
+
+  ${media.greaterThan('medium')`
+    grid-template-columns: repeat(auto-fill, minmax(29rem, 1fr));
+    margin-top: 0;
+  `}
+
+  ${media.greaterThan('huge')`
+    grid-template-columns: repeat(auto-fill, minmax(43rem, 1fr));
+    margin-top: 0;
+  `}
+`

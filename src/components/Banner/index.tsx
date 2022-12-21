@@ -16,7 +16,7 @@ const Banner = ({ img, title, description, slug }: BannerProps) => (
     </S.Cover>
     <S.Caption>
       <S.Title>{title}</S.Title>
-      <S.Description>{description}</S.Description>
+      <S.Description dangerouslySetInnerHTML={{ __html: description }} />
       <Button color="white" minimal as="a" href={`/noticia/${slug}`}>
         Leia Mais
       </Button>
