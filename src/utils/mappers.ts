@@ -47,3 +47,13 @@ export const BannerMapper = (banners: any[]) => {
       }))
     : []
 }
+
+export const DocsMapper = (docs: any[]) => {
+  return docs
+    ? docs.map((doc) => ({
+        imagem: doc.imagem.url,
+        titulo: doc.titulo,
+        arquivo: doc.arquivo.url
+      }))
+    : []
+}

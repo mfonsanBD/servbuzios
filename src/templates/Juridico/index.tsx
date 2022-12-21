@@ -6,8 +6,10 @@ import Heading from 'components/Heading'
 import { NextSeo } from 'next-seo'
 import { SITE_NAME } from 'pages/_app'
 import Base from 'templates/Base'
+import { ToastContainer } from 'react-toastify'
 
 import * as S from './styles'
+import 'react-toastify/dist/ReactToastify.css'
 
 export type JuridicoTemplateProps = {
   advogados: AdvogadoCardProps[]
@@ -70,6 +72,8 @@ const JuridicoTemplate = ({
         <AdvogadoCard key={index} {...advogado} />
       ))}
     </S.AdvogadoSection>
+
+    <ToastContainer />
   </Base>
 )
 

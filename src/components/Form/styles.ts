@@ -84,4 +84,5 @@ export const TextSection = styled.div<TextAreaProps>`
 
 export const ButtonArea = styled.div`
   text-align: center;
+  margin-top: 2rem;
 `

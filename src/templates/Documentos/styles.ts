@@ -40,7 +40,7 @@ export const DocsArea = styled.div`
   `}
 
   ${media.greaterThan('huge')`
-    grid-template-columns: repeat(auto-fill, minmax(43rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(33rem, 1fr));
     margin-top: 0;
   `}
 `

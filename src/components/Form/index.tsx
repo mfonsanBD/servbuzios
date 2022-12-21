@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react'
+import { toast } from 'react-toastify'
+import ReCAPTCHA from 'react-google-recaptcha'
 
 import TextField from 'components/TextField'
 
@@ -15,6 +17,7 @@ export type FormProps = {
 
 const Form = ({ isContact }: FormProps) => {
   const [loading, setLoading] = useState(false)
+  const [token, setToken] = useState<string | null>(null)
   const [fieldError, setFieldError] = useState<FieldErrors>({})
 
   const [message, setMessage] = useState<any>()
@@ -25,6 +28,10 @@ const Form = ({ isContact }: FormProps) => {
     phone: '',
     address: ''
   })
+
+  const handleTokenChange = (value: any) => {
+    setToken(value)
+  }
 
   const handleMessage = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMessage(event.target.value)
@@ -54,12 +61,62 @@ const Form = ({ isContact }: FormProps) => {
       formData[field.name] = field.value
     })
 
-    await SendContactMail(formData)
+    if (token !== null) {
+      if (isContact) {
+        const emailIsSend: string | any = await SendContactMail(
+          formData,
+          'Contato',
+          token
+        )
 
-    if (isContact) {
-      alert('Página do Contato')
+        if (emailIsSend === 'OK') {
+          setValues({
+            name: '',
+            mail: '',
+            phone: '',
+            address: ''
+          })
+          setMessage('')
+
+          toast.success(
+            'E-mail enviado com sucesso! Em breve responderemos sua mensagem.',
+            {
+              position: toast.POSITION.BOTTOM_CENTER
+            }
+          )
+        } else {
+          toast.error(emailIsSend, {
+            position: toast.POSITION.BOTTOM_CENTER
+          })
+        }
+      } else {
+        const emailIsSend = await SendContactMail(formData, 'Jurídica', token)
+
+        if (emailIsSend === 'OK') {
+          setValues({
+            name: '',
+            mail: '',
+            phone: '',
+            address: ''
+          })
+          setMessage('')
+
+          toast.success(
+            'E-mail enviado com sucesso! Em breve responderemos sua mensagem.',
+            {
+              position: toast.POSITION.BOTTOM_CENTER
+            }
+          )
+        } else {
+          toast.error(emailIsSend, {
+            position: toast.POSITION.BOTTOM_CENTER
+          })
+        }
+      }
     } else {
-      alert('Página do Jurídico')
+      toast.error('A marcação de "Não sou um robô" é obrigatório!', {
+        position: toast.POSITION.BOTTOM_CENTER
+      })
     }
 
     setLoading(false)
@@ -71,6 +128,7 @@ const Form = ({ isContact }: FormProps) => {
         <TextField
           label="Nome Completo"
           name="name"
+          value={values.name}
           placeholder="João da Silva"
           type="text"
           onInputChange={(v) => handleInput('name', v!)}
@@ -80,6 +138,7 @@ const Form = ({ isContact }: FormProps) => {
         <TextField
           label="E-mail"
           name="mail"
+          value={values.mail}
           placeholder="joaodasilva@gmail.com"
           type="text"
           onInputChange={(v) => handleInput('mail', v!)}
@@ -91,6 +150,7 @@ const Form = ({ isContact }: FormProps) => {
         <TextField
           label="Telefone"
           name="phone"
+          value={values.phone}
           placeholder="(21) 97480-4758"
           type="text"
           onInputChange={(v) => handleInput('phone', v!)}
@@ -100,6 +160,7 @@ const Form = ({ isContact }: FormProps) => {
         <TextField
           label="Endereço"
           name="address"
+          value={values.address}
           placeholder="Estrada da Usina - Armação dos Búzios, RJ - 28950000"
           type="text"
           onInputChange={(v) => handleInput('address', v!)}
@@ -120,6 +181,11 @@ const Form = ({ isContact }: FormProps) => {
           disabled={loading}
         />
       </S.TextSection>
+
+      <ReCAPTCHA
+        onChange={(v) => handleTokenChange(v!)}
+        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY!}
+      />
 
       <S.ButtonArea>
         <Button type="submit" disabled={loading}>

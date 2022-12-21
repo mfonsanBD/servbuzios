@@ -7,8 +7,10 @@ import { SITE_NAME } from 'pages/_app'
 import Base from 'templates/Base'
 
 import * as S from './styles'
+import 'react-toastify/dist/ReactToastify.css'
 
 import { TbMapPin, TbPhoneCall, TbMailOpened } from 'react-icons/tb'
+import { ToastContainer } from 'react-toastify'
 
 const FaleConoscoTemplate = ({
   email,
@@ -70,6 +72,8 @@ const FaleConoscoTemplate = ({
         referrerPolicy="no-referrer-when-downgrade"
       ></iframe>
     </S.MapBox>
+
+    <ToastContainer />
   </Base>
 )
 

@@ -19,7 +19,7 @@ export const PresidenteSection = styled.section`
     `}
 
     ${media.greaterThan('huge')`
-      padding: 12rem 25rem;
+      padding: 12rem 35rem;
     `}
   `}
 `
@@ -32,6 +32,10 @@ export const PhotoArea = styled.div`
     border-radius: ${theme.border.radiusLarge};
     position: relative;
 
+    ${media.greaterThan('medium')`
+      width: 80%;
+    `}
+
     img {
       width: 100%;
       height: 100%;
@@ -42,6 +46,7 @@ export const PhotoArea = styled.div`
 
 export const InfoArea = styled.div`
   ${({ theme }) => css`
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: ${theme.spacings.xsmall};

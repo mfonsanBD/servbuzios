@@ -4,6 +4,7 @@ import { GetStaticProps } from 'next'
 import DocumentosTemplate, {
   DocumentosTemplateProps
 } from 'templates/Documentos'
+import { DocsMapper } from 'utils/mappers'
 
 export default function Documentos(props: DocumentosTemplateProps) {
   return <DocumentosTemplate {...props} />
@@ -13,11 +14,10 @@ export const getStaticProps: GetStaticProps = async () => {
   const data = await client.request(DOCUMENTOS_QUERY)
 
   return {
-    // revalidate: 60 * 60 * 24,
-    revalidate: 10,
+    revalidate: 60 * 60 * 24,
     props: {
-      documentos: data.documentos,
-      editais: data.editais,
+      documentos: DocsMapper(data.documentos),
+      editais: DocsMapper(data.editais),
       sindicatoName: data.dados[0].sindicatoName,
       sindicatoCNPJ: data.dados[0].sindicatoCnpj,
       sindicatoAddress: data.dados[0].sindicatoAddress,
