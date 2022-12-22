@@ -55,7 +55,8 @@ const JuridicoTemplate = ({
     </S.Wrapper>
 
     <S.Processo>
-      Acompanhe o processo coletivo N°: 0003436-63.2016.8.19.0078
+      Acompanhe o processo coletivo do plano de carreira geral:
+      0003436-63.2016.8.19.0078
       <br />
       <Button
         as="a"

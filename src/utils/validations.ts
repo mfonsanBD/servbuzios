@@ -23,8 +23,8 @@ const fieldsValidations = {
   phone: Joi.string().required().messages({
     'string.empty': 'Telefone é um campo obrigatório.'
   }),
-  address: Joi.string().required().messages({
-    'string.empty': 'Endereço é um campo obrigatório.'
+  role: Joi.string().required().messages({
+    'string.empty': 'Cargo é um campo obrigatório.'
   })
 }
 
@@ -48,7 +48,7 @@ type FormProps = {
   name: string
   mail: string
   phone: string
-  address: string
+  role: string
 }
 
 export function ContactForm(values: FormProps) {

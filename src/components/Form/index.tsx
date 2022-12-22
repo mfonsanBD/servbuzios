@@ -26,7 +26,7 @@ const Form = ({ isContact }: FormProps) => {
     name: '',
     mail: '',
     phone: '',
-    address: ''
+    role: ''
   })
 
   const handleTokenChange = (value: any) => {
@@ -74,7 +74,7 @@ const Form = ({ isContact }: FormProps) => {
             name: '',
             mail: '',
             phone: '',
-            address: ''
+            role: ''
           })
           setMessage('')
 
@@ -97,7 +97,7 @@ const Form = ({ isContact }: FormProps) => {
             name: '',
             mail: '',
             phone: '',
-            address: ''
+            role: ''
           })
           setMessage('')
 
@@ -158,13 +158,13 @@ const Form = ({ isContact }: FormProps) => {
           disabled={loading}
         />
         <TextField
-          label="Endereço"
-          name="address"
-          value={values.address}
-          placeholder="Estrada da Usina - Armação dos Búzios, RJ - 28950000"
+          label="Cargo"
+          name="role"
+          value={values.role}
+          placeholder="Informe seu cargo ocupado"
           type="text"
-          onInputChange={(v) => handleInput('address', v!)}
-          error={fieldError?.address}
+          onInputChange={(v) => handleInput('role', v!)}
+          error={fieldError?.role}
           disabled={loading}
         />
       </S.FormGroup>

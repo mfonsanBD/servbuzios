@@ -8,7 +8,7 @@ export const SendContactMail = async (data: any, type: string, token: any) => {
     name: data.name,
     mail: data.mail,
     phone: data.phone,
-    address: data.address,
+    role: data.role,
     message: data.message,
     type,
     'g-recaptcha-response': token
