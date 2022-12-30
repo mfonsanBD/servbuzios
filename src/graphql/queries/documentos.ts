@@ -1,6 +1,6 @@
 const DOCUMENTOS_QUERY = /* GraphQL */ `
   query Documentos {
-    documentos {
+    documentos(first: 20) {
       titulo
       imagem {
         url
@@ -9,7 +9,7 @@ const DOCUMENTOS_QUERY = /* GraphQL */ `
         url
       }
     }
-    editais {
+    editais(first: 20) {
       titulo
       imagem {
         url
