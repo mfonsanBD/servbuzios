@@ -52,12 +52,6 @@ const Footer = ({
         <S.FooterTopBlock>
           <h4>Menu do Site</h4>
 
-          <Link href="/" passHref>
-            <S.MenuLink className={route.pathname === '/' ? 'active' : ''}>
-              Início
-            </S.MenuLink>
-          </Link>
-
           <Link href="/diretoria-e-conselho" passHref>
             <S.MenuLink
               className={
