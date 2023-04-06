@@ -59,11 +59,11 @@ const Menu = () => {
             </S.MenuLink>
           </Link>
 
-          <Link href="/noticias" passHref>
+          <Link href="/convenio" passHref>
             <S.MenuLink
-              className={route.pathname.includes('noticia') ? 'active' : ''}
+              className={route.pathname === '/convenio' ? 'active' : ''}
             >
-              Notícias
+              Convênios
             </S.MenuLink>
           </Link>
 
@@ -74,6 +74,14 @@ const Menu = () => {
               }
             >
               Documentos & Editais
+            </S.MenuLink>
+          </Link>
+
+          <Link href="/noticias" passHref>
+            <S.MenuLink
+              className={route.pathname.includes('noticia') ? 'active' : ''}
+            >
+              Notícias
             </S.MenuLink>
           </Link>
 
@@ -119,11 +127,11 @@ const Menu = () => {
             </S.MenuLink>
           </Link>
 
-          <Link href="/noticias" passHref>
+          <Link href="/convenio" passHref>
             <S.MenuLink
-              className={route.pathname.includes('noticia') ? 'active' : ''}
+              className={route.pathname === '/convenio' ? 'active' : ''}
             >
-              Notícias
+              Convênios
             </S.MenuLink>
           </Link>
 
@@ -134,6 +142,14 @@ const Menu = () => {
               }
             >
               Documentos & Editais
+            </S.MenuLink>
+          </Link>
+
+          <Link href="/noticias" passHref>
+            <S.MenuLink
+              className={route.pathname.includes('noticia') ? 'active' : ''}
+            >
+              Notícias
             </S.MenuLink>
           </Link>
 

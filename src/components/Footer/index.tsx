@@ -12,6 +12,7 @@ import {
 import * as S from './styles'
 import { useRouter } from 'next/router'
 import { FormatWhatsAppLink } from 'utils/formatLinks'
+import Image from 'next/image'
 
 export type SocialMedias = {
   facebook: string
@@ -75,11 +76,11 @@ const Footer = ({
             </S.MenuLink>
           </Link>
 
-          <Link href="/noticias" passHref>
+          <Link href="/convenio" passHref>
             <S.MenuLink
-              className={route.pathname.includes('noticia') ? 'active' : ''}
+              className={route.pathname === '/convenio' ? 'active' : ''}
             >
-              Notícias
+              Convênios
             </S.MenuLink>
           </Link>
 
@@ -90,6 +91,14 @@ const Footer = ({
               }
             >
               Documentos & Editais
+            </S.MenuLink>
+          </Link>
+
+          <Link href="/noticias" passHref>
+            <S.MenuLink
+              className={route.pathname.includes('noticia') ? 'active' : ''}
+            >
+              Notícias
             </S.MenuLink>
           </Link>
 
@@ -157,6 +166,40 @@ const Footer = ({
           </S.Cnpj>
           <S.Location>{sindicatoAddress}</S.Location>
         </S.DataArea>
+
+        <S.SindicatosLogos>
+          <Link href="https://www.cspb.org.br/" passHref>
+            <a target="_blank">
+              <Image
+                src="/img/cspb.png"
+                width={70}
+                height={70}
+                objectFit="cover"
+              />
+            </a>
+          </Link>
+          <Link href="https://ctb.org.br/" passHref>
+            <a target="_blank">
+              <Image
+                src="/img/ctb.png"
+                width={79}
+                height={60}
+                objectFit="cover"
+              />
+            </a>
+          </Link>
+          <Link href="https://www.feseprj.org/" passHref>
+            <a target="_blank">
+              <Image
+                src="/img/fesep.png"
+                width={70}
+                height={70}
+                objectFit="cover"
+              />
+            </a>
+          </Link>
+        </S.SindicatosLogos>
+
         <S.CreatedBy>
           Desenvolvido por:{' '}
           <a href="https://mikedev.com.br" target="_blank" rel="noreferrer">

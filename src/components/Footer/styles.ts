@@ -121,6 +121,13 @@ export const Location = styled.small`
   `}
 `
 
+export const SindicatosLogos = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+`
+
 export const CreatedBy = styled.small`
   ${({ theme }) => css`
     color: ${theme.colors.white};
