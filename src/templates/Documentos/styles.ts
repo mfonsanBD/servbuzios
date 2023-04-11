@@ -20,9 +20,13 @@ export const Wrapper = styled.div`
     }
 
     .tabs {
-      padding: 3rem 3rem 8rem 3rem;
+      padding: 3rem 1rem 8rem 1rem;
       background-color: ${theme.colors.white};
       border-radius: ${theme.border.radiusLarge};
+
+      ${media.greaterThan('medium')`
+        padding: 3rem 3rem 8rem 3rem;
+      `}
     }
 
     .tabList {
