@@ -30,14 +30,6 @@ const DocumentosTemplate = ({
   sindicatoCNPJ,
   sindicatoName
 }: DocumentosTemplateProps) => {
-  const documentos2022 = documentos.filter((doc) =>
-    NewsDate(doc.criadoEm).includes('2022')
-  )
-
-  const documentos2023 = documentos.filter((doc) =>
-    NewsDate(doc.criadoEm).includes('2023')
-  )
-
   const editais2022 = editais.filter((doc) =>
     NewsDate(doc.criadoEm).includes('2022')
   )
@@ -68,40 +60,15 @@ const DocumentosTemplate = ({
       <S.Wrapper>
         <Heading title="Documentos" backgroundTitle="Documentos" />
 
-        <Tabs className="tabs">
-          <TabList className="tabList">
-            <Tab className="tab">Documentos de 2022</Tab>
-            <Tab className="tab">Documentos de 2023</Tab>
-          </TabList>
-
-          <TabPanel className="tabPanel">
-            {documentos2022.length > 0 ? (
-              <S.DocsArea>
-                {documentos2022.map((item, index) => (
-                  <PdfCard key={index} {...item} />
-                ))}
-              </S.DocsArea>
-            ) : (
-              <S.EmptyArea>
-                <PostsEmpty texto="Nenhum documento de 2022 encontrado até o momento!" />
-              </S.EmptyArea>
-            )}
-          </TabPanel>
-
-          <TabPanel className="tabPanel">
-            {documentos2023.length > 0 ? (
-              <S.DocsArea>
-                {documentos2023.map((item, index) => (
-                  <PdfCard key={index} {...item} />
-                ))}
-              </S.DocsArea>
-            ) : (
-              <S.EmptyArea>
-                <PostsEmpty texto="Nenhum documento de 2023 encontrado até o momento!" />
-              </S.EmptyArea>
-            )}
-          </TabPanel>
-        </Tabs>
+        {documentos.length > 0 ? (
+          <S.DocsArea>
+            {documentos.map((item, index) => (
+              <PdfCard key={index} {...item} />
+            ))}
+          </S.DocsArea>
+        ) : (
+          <PostsEmpty texto="Nenhum documento de 2022 encontrado até o momento!" />
+        )}
 
         <Heading title="Editais" backgroundTitle="Editais" />
 
