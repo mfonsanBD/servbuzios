@@ -1,13 +1,19 @@
-import { FooterProps } from 'components/Footer'
+import { NextSeo } from 'next-seo'
+import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
 
 import Base from 'templates/Base'
 
+import { NewsDate } from 'utils/formatDate'
+
 import * as S from './styles'
-import Heading from 'components/Heading'
-import { NextSeo } from 'next-seo'
+import 'react-tabs/style/react-tabs.css'
+
 import { SITE_NAME } from 'pages/_app'
-import PdfCard, { PdfCardProps } from 'components/PdfCard'
+
+import Heading from 'components/Heading'
 import PostsEmpty from 'components/PostsEmpty'
+import { FooterProps } from 'components/Footer'
+import PdfCard, { PdfCardProps } from 'components/PdfCard'
 
 export type DocumentosTemplateProps = {
   documentos: PdfCardProps[]
@@ -23,52 +29,119 @@ const DocumentosTemplate = ({
   sindicatoAddress,
   sindicatoCNPJ,
   sindicatoName
-}: DocumentosTemplateProps) => (
-  <Base
-    sindicatoAddress={sindicatoAddress}
-    sindicatoCNPJ={sindicatoCNPJ}
-    sindicatoName={sindicatoName}
-    email={email}
-    phone={phone}
-    redessociais={redessociais}
-  >
-    <NextSeo
-      title={`${SITE_NAME} :: Documentos & Editais`}
-      description="Documentos referentes ao nosso sindicato"
-      canonical={`https://servbuzios.org.br/documentos`}
-      openGraph={{
-        url: `https://servbuzios.org.br/documentos`,
-        title: `${SITE_NAME} :: Documentos & Editais`,
-        description: 'Documentos referentes ao nosso sindicato'
-      }}
-    />
+}: DocumentosTemplateProps) => {
+  const documentos2022 = documentos.filter((doc) =>
+    NewsDate(doc.criadoEm).includes('2022')
+  )
 
-    <S.Wrapper>
-      <Heading title="Documentos" backgroundTitle="Documentos" />
+  const documentos2023 = documentos.filter((doc) =>
+    NewsDate(doc.criadoEm).includes('2023')
+  )
 
-      {documentos.length > 0 ? (
-        <S.DocsArea>
-          {documentos.map((item, index) => (
-            <PdfCard key={index} {...item} />
-          ))}
-        </S.DocsArea>
-      ) : (
-        <PostsEmpty texto="Nenhum documento encontrado no momento!" />
-      )}
+  const editais2022 = editais.filter((doc) =>
+    NewsDate(doc.criadoEm).includes('2022')
+  )
 
-      <Heading title="Editais" backgroundTitle="Editais" />
+  const editais2023 = editais.filter((doc) =>
+    NewsDate(doc.criadoEm).includes('2023')
+  )
+  return (
+    <Base
+      sindicatoAddress={sindicatoAddress}
+      sindicatoCNPJ={sindicatoCNPJ}
+      sindicatoName={sindicatoName}
+      email={email}
+      phone={phone}
+      redessociais={redessociais}
+    >
+      <NextSeo
+        title={`${SITE_NAME} :: Documentos & Editais`}
+        description="Documentos referentes ao nosso sindicato"
+        canonical={`https://servbuzios.org.br/documentos`}
+        openGraph={{
+          url: `https://servbuzios.org.br/documentos`,
+          title: `${SITE_NAME} :: Documentos & Editais`,
+          description: 'Documentos referentes ao nosso sindicato'
+        }}
+      />
 
-      {editais.length > 0 ? (
-        <S.DocsArea>
-          {editais.map((item, index) => (
-            <PdfCard key={index} {...item} />
-          ))}
-        </S.DocsArea>
-      ) : (
-        <PostsEmpty texto="Nenhum edital encontrado no momento!" />
-      )}
-    </S.Wrapper>
-  </Base>
-)
+      <S.Wrapper>
+        <Heading title="Documentos" backgroundTitle="Documentos" />
+
+        <Tabs className="tabs">
+          <TabList className="tabList">
+            <Tab className="tab">Documentos de 2022</Tab>
+            <Tab className="tab">Documentos de 2023</Tab>
+          </TabList>
+
+          <TabPanel className="tabPanel">
+            {documentos2022.length > 0 ? (
+              <S.DocsArea>
+                {documentos2022.map((item, index) => (
+                  <PdfCard key={index} {...item} />
+                ))}
+              </S.DocsArea>
+            ) : (
+              <S.EmptyArea>
+                <PostsEmpty texto="Nenhum documento de 2022 encontrado até o momento!" />
+              </S.EmptyArea>
+            )}
+          </TabPanel>
+
+          <TabPanel className="tabPanel">
+            {documentos2023.length > 0 ? (
+              <S.DocsArea>
+                {documentos2023.map((item, index) => (
+                  <PdfCard key={index} {...item} />
+                ))}
+              </S.DocsArea>
+            ) : (
+              <S.EmptyArea>
+                <PostsEmpty texto="Nenhum documento de 2023 encontrado até o momento!" />
+              </S.EmptyArea>
+            )}
+          </TabPanel>
+        </Tabs>
+
+        <Heading title="Editais" backgroundTitle="Editais" />
+
+        <Tabs className="tabs">
+          <TabList className="tabList">
+            <Tab className="tab">Editais de 2022</Tab>
+            <Tab className="tab">Editais de 2023</Tab>
+          </TabList>
+
+          <TabPanel className="tabPanel">
+            {editais2022.length > 0 ? (
+              <S.DocsArea>
+                {editais2022.map((item, index) => (
+                  <PdfCard key={index} {...item} />
+                ))}
+              </S.DocsArea>
+            ) : (
+              <S.EmptyArea>
+                <PostsEmpty texto="Nenhum Edital de 2022 encontrado até o momento!" />
+              </S.EmptyArea>
+            )}
+          </TabPanel>
+
+          <TabPanel className="tabPanel">
+            {editais2023.length > 0 ? (
+              <S.DocsArea>
+                {editais2023.map((item, index) => (
+                  <PdfCard key={index} {...item} />
+                ))}
+              </S.DocsArea>
+            ) : (
+              <S.EmptyArea>
+                <PostsEmpty texto="Nenhum Edital de 2022 encontrado até o momento!" />
+              </S.EmptyArea>
+            )}
+          </TabPanel>
+        </Tabs>
+      </S.Wrapper>
+    </Base>
+  )
+}
 
 export default DocumentosTemplate

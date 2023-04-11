@@ -18,13 +18,39 @@ export const Wrapper = styled.div`
         margin: 12rem 0 8rem;
       `}
     }
+
+    .tabs {
+      padding: 3rem 3rem 8rem 3rem;
+      background-color: ${theme.colors.white};
+      border-radius: ${theme.border.radiusLarge};
+    }
+
+    .tabList {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      align-items: center;
+      justify-content: center;
+      border-bottom: thin solid ${theme.colors.gray};
+    }
+
+    .tab {
+      outline: none;
+      cursor: pointer;
+      border-bottom: 3px solid ${theme.colors.white};
+    }
+
+    .react-tabs__tab--selected {
+      border-bottom: 3px solid ${theme.colors.tertiary};
+    }
   `}
 `
 
 export const DocsArea = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(37rem, 1fr));
-  gap: 3rem;
+  gap: 2rem;
 
   @media (max-width: 321px) {
     grid-template-columns: repeat(auto-fill, minmax(27rem, 1fr)) !important;
@@ -43,4 +69,12 @@ export const DocsArea = styled.div`
     grid-template-columns: repeat(auto-fill, minmax(33rem, 1fr));
     margin-top: 0;
   `}
+`
+
+export const EmptyArea = styled.div`
+  width: 100%;
+  height: 55rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `

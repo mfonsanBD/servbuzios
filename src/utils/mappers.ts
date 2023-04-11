@@ -52,6 +52,7 @@ export const DocsMapper = (docs: any[]) => {
   return docs
     ? docs.map((doc) => ({
         imagem: doc.imagem.url,
+        criadoEm: doc.createdAt,
         titulo: doc.titulo,
         arquivo: doc.arquivo.url
       }))

@@ -2,6 +2,7 @@ const DOCUMENTOS_QUERY = /* GraphQL */ `
   query Documentos {
     documentos(first: 20) {
       titulo
+      createdAt
       imagem {
         url
       }
@@ -11,6 +12,7 @@ const DOCUMENTOS_QUERY = /* GraphQL */ `
     }
     editais(first: 20) {
       titulo
+      createdAt
       imagem {
         url
       }
