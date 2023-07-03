@@ -57,7 +57,7 @@ const Menu = () => {
             <S.MenuLink
               className={route.pathname === '/convenio' ? 'active' : ''}
             >
-              Convênios
+              Convênios & Parcerias
             </S.MenuLink>
           </Link>
 
@@ -119,7 +119,7 @@ const Menu = () => {
             <S.MenuLink
               className={route.pathname === '/convenio' ? 'active' : ''}
             >
-              Convênios
+              Convênios & Parcerias
             </S.MenuLink>
           </Link>
 

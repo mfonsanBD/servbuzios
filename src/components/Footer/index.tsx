@@ -74,7 +74,7 @@ const Footer = ({
             <S.MenuLink
               className={route.pathname === '/convenio' ? 'active' : ''}
             >
-              Convênios
+              Convênios & Parcerias
             </S.MenuLink>
           </Link>
 
