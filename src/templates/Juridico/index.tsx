@@ -60,7 +60,7 @@ const JuridicoTemplate = ({
       <br />
       <Button
         as="a"
-        href="http://www4.tjrj.jus.br/consultaProcessoWebV2/consultaProc.do?v=2&FLAGNOME=&back=1&tipoConsulta=publica&numProcesso=2016.078.003346-6"
+        href="https://www3.tjrj.jus.br/consultaprocessual/#/consultapublica?numProcessoCNJ=0003436-63.2016.8.19.0078"
         target="_blank"
         rel="noreferrer"
       >
