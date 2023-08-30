@@ -20,6 +20,24 @@ const DOCUMENTOS_QUERY = /* GraphQL */ `
         url
       }
     }
+    jornais(first: 20) {
+      createdAt
+      imagem {
+        url
+      }
+      arquivo {
+        url
+      }
+    }
+    leis(first: 20) {
+      createdAt
+      imagem {
+        url
+      }
+      arquivo {
+        url
+      }
+    }
     dados {
       sindicatoName
       sindicatoCnpj

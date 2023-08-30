@@ -5,7 +5,7 @@ import * as S from './styles'
 export type PdfCardProps = {
   imagem: string
   criadoEm: string
-  titulo: string
+  titulo?: string
   arquivo: string
 }
 

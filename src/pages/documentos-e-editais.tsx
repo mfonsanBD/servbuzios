@@ -4,7 +4,7 @@ import { GetStaticProps } from 'next'
 import DocumentosTemplate, {
   DocumentosTemplateProps
 } from 'templates/Documentos'
-import { DocsMapper } from 'utils/mappers'
+import { DocsImageMapper, DocsMapper } from 'utils/mappers'
 
 export default function Documentos(props: DocumentosTemplateProps) {
   return <DocumentosTemplate {...props} />
@@ -18,6 +18,8 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       documentos: DocsMapper(data.documentos),
       editais: DocsMapper(data.editais),
+      artigos: DocsImageMapper(data.jornais),
+      leis: DocsImageMapper(data.leis),
       sindicatoName: data.dados[0].sindicatoName,
       sindicatoCNPJ: data.dados[0].sindicatoCnpj,
       sindicatoAddress: data.dados[0].sindicatoAddress,

@@ -18,12 +18,16 @@ import PdfCard, { PdfCardProps } from 'components/PdfCard'
 export type DocumentosTemplateProps = {
   documentos: PdfCardProps[]
   editais: PdfCardProps[]
+  artigos: PdfCardProps[]
+  leis: PdfCardProps[]
 } & FooterProps
 
 const DocumentosTemplate = ({
   email,
   documentos,
   editais,
+  artigos,
+  leis,
   phone,
   redessociais,
   sindicatoAddress,
@@ -106,6 +110,30 @@ const DocumentosTemplate = ({
             )}
           </TabPanel>
         </Tabs>
+
+        <Heading title="Jornal Buziando" backgroundTitle="Jornal Buziando" />
+
+        {artigos.length > 0 ? (
+          <S.DocsArea>
+            {artigos.map((item, index) => (
+              <PdfCard key={index} {...item} />
+            ))}
+          </S.DocsArea>
+        ) : (
+          <PostsEmpty texto="Nenhum artigo encontrado até o momento!" />
+        )}
+
+        <Heading title="Leis Importantes" backgroundTitle="Leis Importantes" />
+
+        {leis.length > 0 ? (
+          <S.DocsArea>
+            {leis.map((item, index) => (
+              <PdfCard key={index} {...item} />
+            ))}
+          </S.DocsArea>
+        ) : (
+          <PostsEmpty texto="Nenhuma lei encontrada até o momento!" />
+        )}
       </S.Wrapper>
     </Base>
   )
