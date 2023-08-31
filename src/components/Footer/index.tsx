@@ -196,8 +196,8 @@ const Footer = ({
 
         <S.CreatedBy>
           Desenvolvido por:{' '}
-          <a href="https://mikedev.com.br" target="_blank" rel="noreferrer">
-            Mike Santos
+          <a href="https://nextech.dev.br" target="_blank" rel="noreferrer">
+            NexTech Solution
           </a>
         </S.CreatedBy>
       </S.Copyright>

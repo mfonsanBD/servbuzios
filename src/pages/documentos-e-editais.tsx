@@ -19,7 +19,7 @@ export const getStaticProps: GetStaticProps = async () => {
       documentos: DocsMapper(data.documentos),
       editais: DocsMapper(data.editais),
       artigos: DocsImageMapper(data.jornais),
-      leis: DocsImageMapper(data.leis),
+      leis: DocsMapper(data.leis),
       sindicatoName: data.dados[0].sindicatoName,
       sindicatoCNPJ: data.dados[0].sindicatoCnpj,
       sindicatoAddress: data.dados[0].sindicatoAddress,

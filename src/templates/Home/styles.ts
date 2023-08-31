@@ -83,12 +83,38 @@ export const AgendaSection = styled.section`
     background-color: ${theme.colors.white};
     padding: 8rem ${theme.spacings.small};
 
+    div {
+      width: 100%;
+      height: fit-content;
+      display: flex;
+      justify-content: center;
+
+      iframe {
+        width: 100%;
+        height: 300px;
+        margin: 0 auto;
+      }
+    }
+
     ${HeadingStyles.Wrapper} {
       margin-bottom: 8rem;
     }
 
     ${media.greaterThan('medium')`
       padding: 12rem ${theme.spacings.xxlarge};
+
+      div {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        justify-content: center;
+
+        iframe {
+          width: 50%;
+          height: 500px;
+          margin: 0 auto;
+        }
+      }
     `}
   `}
 `

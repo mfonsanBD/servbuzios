@@ -31,6 +31,7 @@ const DOCUMENTOS_QUERY = /* GraphQL */ `
     }
     leis(first: 20) {
       createdAt
+      titulo
       imagem {
         url
       }

@@ -10,7 +10,7 @@ import PostsEmpty from 'components/PostsEmpty'
 import { BannerProps } from 'components/Banner'
 import { FooterProps } from 'components/Footer'
 import BannerSlider from 'components/BannerSlider'
-import AgendaCard, { AgendaCardProps } from 'components/AgendaCard'
+// import AgendaCard, { AgendaCardProps } from 'components/AgendaCard'
 import NewsCard, { NewsCardProps } from 'components/NewsCard'
 import ConvenioCard, { ConvenioCardProps } from 'components/ConvenioCard'
 
@@ -21,7 +21,7 @@ export type HomeTemplateProps = {
   presidenteImage: string
   presidenteText: string
   presidenteName: string
-  agenda: AgendaCardProps[]
+  // agenda: AgendaCardProps[]
   news: NewsCardProps[]
   sindicatoImage: string
   sindicatoText: string
@@ -33,7 +33,7 @@ const HomeTemplate = ({
   presidenteName,
   presidenteImage,
   presidenteText,
-  agenda,
+  // agenda,
   news,
   sindicatoImage,
   sindicatoText,
@@ -84,8 +84,11 @@ const HomeTemplate = ({
       </S.PresidenteSection>
 
       <S.AgendaSection>
-        <Heading title="Agenda" backgroundTitle="Agenda" />
-
+        <Heading
+          title="A Voz do Servidor"
+          backgroundTitle="A Voz do Servidor"
+        />
+        {/*
         {agenda.length > 0 ? (
           <S.NewsAreaHome>
             {agenda.map((item, index) => (
@@ -94,7 +97,15 @@ const HomeTemplate = ({
           </S.NewsAreaHome>
         ) : (
           <PostsEmpty texto="Nenhuma agenda encontrada no momento!" />
-        )}
+        )} */}
+        <div>
+          <iframe
+            src="https://www.youtube.com/embed/rsEn7BAd1dk?si=3GIcYMcVbdDfhy3N"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
+        </div>
       </S.AgendaSection>
 
       <S.NeESection>
