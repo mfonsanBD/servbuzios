@@ -1,6 +1,6 @@
 const HOME_CONVENIO = /* GraphQL */ `
   query Convenio {
-    convenios {
+    convenios(first: 1000) {
       empresa
       imagem {
         url

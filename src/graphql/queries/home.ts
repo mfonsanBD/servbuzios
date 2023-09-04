@@ -44,7 +44,7 @@ const HOME_QUERY = /* GraphQL */ `
             slug
             createdAt
           }
-          convenios {
+          convenios(first: 1000) {
             empresa
             imagem {
               url
