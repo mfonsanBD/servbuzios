@@ -14,7 +14,7 @@ export const Wrapper = styled.menu<MenuFullProps>`
     z-index: ${isOpen ? theme.layers.menu : `calc(${theme.layers.menu} - 1)`};
 
     ${media.greaterThan('medium')`
-      padding: 1rem ${theme.spacings.xxlarge};
+      padding: 1rem ${theme.spacings.large};
       flex-direction: row;
       align-items: center;
     `}
@@ -60,6 +60,10 @@ export const MenuNav = styled.div`
 			margin-left: ${theme.spacings.small};
       display: flex;
       align-items: center;
+      gap: ${theme.spacings.small};
+		`}
+
+    ${media.greaterThan('huge')`
       gap: calc(${theme.spacings.small} * 2);
 		`}
   `}
@@ -69,7 +73,7 @@ export const MenuLink = styled.a`
   ${({ theme }) => css`
     position: relative;
     color: ${theme.colors.text};
-    font-size: ${theme.font.sizes.medium};
+    font-size: 15px;
     text-decoration: none;
     text-align: center;
 

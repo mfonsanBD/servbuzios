@@ -7,6 +7,7 @@ import MediaMatch from 'components/MediaMatch'
 
 import * as S from './styles'
 import { MdMenu, MdClose } from 'react-icons/md'
+import Button from 'components/Button'
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -28,7 +29,7 @@ const Menu = () => {
       <S.LogoWrapper>
         <Link href="/" passHref>
           <a>
-            <Logo color="primary" />
+            <Logo color="primary" size="normal" />
           </a>
         </Link>
       </S.LogoWrapper>
@@ -86,6 +87,15 @@ const Menu = () => {
               Fale Conosco
             </S.MenuLink>
           </Link>
+
+          <Button
+            size="small"
+            as="a"
+            href="https://gestao-servbuzios.vercel.app/login"
+            target="_blank"
+          >
+            Área do Associado
+          </Button>
         </S.MenuNav>
       </MediaMatch>
 
@@ -148,6 +158,15 @@ const Menu = () => {
               Fale Conosco
             </S.MenuLink>
           </Link>
+
+          <Button
+            size="small"
+            as="a"
+            href="https://gestao-servbuzios.vercel.app/login"
+            target="_blank"
+          >
+            Área do Associado
+          </Button>
         </S.MenuNav>
       </S.MenuFull>
     </S.Wrapper>
