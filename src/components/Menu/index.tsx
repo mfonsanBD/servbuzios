@@ -91,7 +91,7 @@ const Menu = () => {
           <Button
             size="small"
             as="a"
-            href="https://gestao.servbuzios.org.br/login"
+            href="https://gestao.servbuzios.org.br"
             target="_blank"
           >
             Área do Associado
@@ -162,7 +162,7 @@ const Menu = () => {
           <Button
             size="small"
             as="a"
-            href="https://gestao.servbuzios.org.br/login"
+            href="https://gestao.servbuzios.org.br"
             target="_blank"
           >
             Área do Associado
