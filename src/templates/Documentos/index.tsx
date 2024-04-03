@@ -41,6 +41,10 @@ const DocumentosTemplate = ({
   const editais2023 = editais.filter((doc) =>
     NewsDate(doc.criadoEm).includes('2023')
   )
+
+  const editais2024 = editais.filter((doc) =>
+    NewsDate(doc.criadoEm).includes('2024')
+  )
   return (
     <Base
       sindicatoAddress={sindicatoAddress}
@@ -80,6 +84,7 @@ const DocumentosTemplate = ({
           <TabList className="tabList">
             <Tab className="tab">Editais de 2022</Tab>
             <Tab className="tab">Editais de 2023</Tab>
+            <Tab className="tab">Editais de 2024</Tab>
           </TabList>
 
           <TabPanel className="tabPanel">
@@ -105,7 +110,21 @@ const DocumentosTemplate = ({
               </S.DocsArea>
             ) : (
               <S.EmptyArea>
-                <PostsEmpty texto="Nenhum Edital de 2022 encontrado até o momento!" />
+                <PostsEmpty texto="Nenhum Edital de 2023 encontrado até o momento!" />
+              </S.EmptyArea>
+            )}
+          </TabPanel>
+
+          <TabPanel className="tabPanel">
+            {editais2024.length > 0 ? (
+              <S.DocsArea>
+                {editais2024.map((item, index) => (
+                  <PdfCard key={index} {...item} />
+                ))}
+              </S.DocsArea>
+            ) : (
+              <S.EmptyArea>
+                <PostsEmpty texto="Nenhum Edital de 2024 encontrado até o momento!" />
               </S.EmptyArea>
             )}
           </TabPanel>

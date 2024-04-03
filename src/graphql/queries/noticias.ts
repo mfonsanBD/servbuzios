@@ -1,6 +1,6 @@
 const NEE_QUERY = /* GraphQL */ `
   query Noticia {
-    noticias(orderBy: createdAt_DESC) {
+    noticias(orderBy: createdAt_DESC, first: 1000) {
       imagem {
         url
       }
