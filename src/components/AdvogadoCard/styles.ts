@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
-    width: 100%;
+    width: 45%;
     background-color: ${theme.colors.white};
     padding: ${theme.spacings.medium};
     border-radius: ${theme.border.radiusLarge};
