@@ -15,6 +15,7 @@ import NewsCard, { NewsCardProps } from 'components/NewsCard'
 import ConvenioCard, { ConvenioCardProps } from 'components/ConvenioCard'
 
 import * as S from './styles'
+import VideoArea from 'components/VideoArea'
 
 export type HomeTemplateProps = {
   banner: BannerProps[]
@@ -88,24 +89,8 @@ const HomeTemplate = ({
           title="A Voz do Servidor"
           backgroundTitle="A Voz do Servidor"
         />
-        {/*
-        {agenda.length > 0 ? (
-          <S.NewsAreaHome>
-            {agenda.map((item, index) => (
-              <AgendaCard key={index} {...item} />
-            ))}
-          </S.NewsAreaHome>
-        ) : (
-          <PostsEmpty texto="Nenhuma agenda encontrada no momento!" />
-        )} */}
-        <div>
-          <iframe
-            src="https://www.youtube.com/embed/rsEn7BAd1dk?si=3GIcYMcVbdDfhy3N"
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          ></iframe>
-        </div>
+
+        <VideoArea url="https://www.youtube.com/embed/bm7LWkPHF7A?si=Sl3pgLz5MetfZmcp" />
       </S.AgendaSection>
 
       <S.NeESection>
