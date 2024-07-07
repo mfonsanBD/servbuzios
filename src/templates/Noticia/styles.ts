@@ -64,9 +64,28 @@ export const Text = styled.div`
     border-radius: ${theme.border.radiusLarge};
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.05);
 
+    img {
+      margin-top: 3rem;
+      max-height: 400px;
+      width: 100%;
+      object-fit: cover;
+    }
+
     ${media.greaterThan('medium')`
       width: 70%;
       padding: ${theme.spacings.large};
+
+      img {
+        margin-top: 5rem;
+        max-height: 1200px;
+      }
+    `}
+
+    ${media.greaterThan('huge')`
+      img {
+        margin-top: 5rem;
+        max-height: 1700px;
+      }
     `}
   `}
 `
