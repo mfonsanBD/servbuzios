@@ -1,6 +1,6 @@
 const DOCUMENTOS_QUERY = /* GraphQL */ `
   query Documentos {
-    documentos(first: 20) {
+    documentos(first: 100000) {
       titulo
       createdAt
       imagem {
@@ -10,7 +10,7 @@ const DOCUMENTOS_QUERY = /* GraphQL */ `
         url
       }
     }
-    editais(first: 20) {
+    editais(first: 100000) {
       titulo
       createdAt
       imagem {
@@ -20,7 +20,7 @@ const DOCUMENTOS_QUERY = /* GraphQL */ `
         url
       }
     }
-    jornais(first: 20) {
+    jornais(first: 100000) {
       createdAt
       imagem {
         url
@@ -29,7 +29,7 @@ const DOCUMENTOS_QUERY = /* GraphQL */ `
         url
       }
     }
-    leis(first: 20) {
+    leis(first: 100000) {
       createdAt
       titulo
       imagem {
