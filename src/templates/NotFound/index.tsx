@@ -14,7 +14,7 @@ const NotFoundTemplate = () => (
       canonical={`https://woofbowlstand.com.br`}
       openGraph={{
         url: `https://woofbowlstand.com.br`,
-        title: `${SITE_NAME} :: Página não Encontrada`,
+        title: `${SITE_NAME} :: Página Não Encontrada`,
         description:
           'Página que mostra que ela não foi encontrada nas rotas do site'
       }}
