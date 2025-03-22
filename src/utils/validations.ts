@@ -17,7 +17,7 @@ const fieldsValidations = {
     })
     .required()
     .messages({
-      'string.email': 'E-mail deve conter um e-mail válido',
+      'string.email': 'E-mail deve ser um e-mail válido',
       'string.empty': 'E-mail é um campo obrigatório.'
     }),
   phone: Joi.string().required().messages({
