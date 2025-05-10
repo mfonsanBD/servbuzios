@@ -34,21 +34,29 @@ const DocumentosTemplate = ({
   sindicatoCNPJ,
   sindicatoName
 }: DocumentosTemplateProps) => {
-  const editais2022 = editais.filter((doc) =>
-    NewsDate(doc.criadoEm).includes('2022')
-  )
+  const editais2022 = editais
+    .filter((doc) => NewsDate(doc.criadoEm).includes('2022'))
+    .sort(
+      (a, b) => new Date(b.criadoEm).getTime() - new Date(a.criadoEm).getTime()
+    )
 
-  const editais2023 = editais.filter((doc) =>
-    NewsDate(doc.criadoEm).includes('2023')
-  )
+  const editais2023 = editais
+    .filter((doc) => NewsDate(doc.criadoEm).includes('2023'))
+    .sort(
+      (a, b) => new Date(b.criadoEm).getTime() - new Date(a.criadoEm).getTime()
+    )
 
-  const editais2024 = editais.filter((doc) =>
-    NewsDate(doc.criadoEm).includes('2024')
-  )
+  const editais2024 = editais
+    .filter((doc) => NewsDate(doc.criadoEm).includes('2024'))
+    .sort(
+      (a, b) => new Date(b.criadoEm).getTime() - new Date(a.criadoEm).getTime()
+    )
 
-  const editais2025 = editais.filter((doc) =>
-    NewsDate(doc.criadoEm).includes('2025')
-  )
+  const editais2025 = editais
+    .filter((doc) => NewsDate(doc.criadoEm).includes('2025'))
+    .sort(
+      (a, b) => new Date(b.criadoEm).getTime() - new Date(a.criadoEm).getTime()
+    )
   return (
     <Base
       sindicatoAddress={sindicatoAddress}
@@ -86,36 +94,22 @@ const DocumentosTemplate = ({
 
         <Tabs className="tabs">
           <TabList className="tabList">
-            <Tab className="tab">Editais de 2022</Tab>
-            <Tab className="tab">Editais de 2023</Tab>
-            <Tab className="tab">Editais de 2024</Tab>
             <Tab className="tab">Editais de 2025</Tab>
+            <Tab className="tab">Editais de 2024</Tab>
+            <Tab className="tab">Editais de 2023</Tab>
+            <Tab className="tab">Editais de 2022</Tab>
           </TabList>
 
           <TabPanel className="tabPanel">
-            {editais2022.length > 0 ? (
+            {editais2025.length > 0 ? (
               <S.DocsArea>
-                {editais2022.map((item, index) => (
+                {editais2025.map((item, index) => (
                   <PdfCard key={index} {...item} />
                 ))}
               </S.DocsArea>
             ) : (
               <S.EmptyArea>
-                <PostsEmpty texto="Nenhum Edital de 2022 encontrado até o momento!" />
-              </S.EmptyArea>
-            )}
-          </TabPanel>
-
-          <TabPanel className="tabPanel">
-            {editais2023.length > 0 ? (
-              <S.DocsArea>
-                {editais2023.map((item, index) => (
-                  <PdfCard key={index} {...item} />
-                ))}
-              </S.DocsArea>
-            ) : (
-              <S.EmptyArea>
-                <PostsEmpty texto="Nenhum Edital de 2023 encontrado até o momento!" />
+                <PostsEmpty texto="Nenhum Edital de 2025 encontrado até o momento!" />
               </S.EmptyArea>
             )}
           </TabPanel>
@@ -135,15 +129,29 @@ const DocumentosTemplate = ({
           </TabPanel>
 
           <TabPanel className="tabPanel">
-            {editais2025.length > 0 ? (
+            {editais2023.length > 0 ? (
               <S.DocsArea>
-                {editais2025.map((item, index) => (
+                {editais2023.map((item, index) => (
                   <PdfCard key={index} {...item} />
                 ))}
               </S.DocsArea>
             ) : (
               <S.EmptyArea>
-                <PostsEmpty texto="Nenhum Edital de 2025 encontrado até o momento!" />
+                <PostsEmpty texto="Nenhum Edital de 2023 encontrado até o momento!" />
+              </S.EmptyArea>
+            )}
+          </TabPanel>
+
+          <TabPanel className="tabPanel">
+            {editais2022.length > 0 ? (
+              <S.DocsArea>
+                {editais2022.map((item, index) => (
+                  <PdfCard key={index} {...item} />
+                ))}
+              </S.DocsArea>
+            ) : (
+              <S.EmptyArea>
+                <PostsEmpty texto="Nenhum Edital de 2022 encontrado até o momento!" />
               </S.EmptyArea>
             )}
           </TabPanel>
