@@ -163,6 +163,77 @@ export const SeeMoreArea = styled.div`
   text-align: center;
 `
 
+export const CTASection = styled.section`
+  ${({ theme }) => css`
+    background: ${theme.colors.dark};
+    padding: 8rem ${theme.spacings.small};
+
+    ${media.greaterThan('medium')`
+      padding: 12rem ${theme.spacings.xxlarge};
+    `}
+  `}
+`
+
+export const CTAContent = styled.div`
+  ${({ theme }) => css`
+    max-width: 80rem;
+    margin: 0 auto;
+    text-align: center;
+    color: ${theme.colors.white};
+
+    ${media.greaterThan('medium')`
+      max-width: 100rem;
+    `}
+  `}
+`
+
+export const CTATitle = styled.h2`
+  ${({ theme }) => css`
+    font-size: ${theme.font.sizes.xxxlarge};
+    font-weight: ${theme.font.bold};
+    margin-bottom: ${theme.spacings.medium};
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+
+    ${media.greaterThan('medium')`
+      font-size: ${theme.font.sizes.huge};
+      margin-bottom: ${theme.spacings.large};
+    `}
+  `}
+`
+
+export const CTADescription = styled.p`
+  ${({ theme }) => css`
+    font-size: ${theme.font.sizes.medium};
+    line-height: 1.6;
+    margin-bottom: ${theme.spacings.large};
+    opacity: 0.95;
+
+    ${media.greaterThan('medium')`
+      font-size: ${theme.font.sizes.large};
+      margin-bottom: ${theme.spacings.xlarge};
+    `}
+  `}
+`
+
+export const CTAButtonArea = styled.div`
+  display: flex;
+  justify-content: center;
+
+  a {
+    padding: 1.6rem 4rem !important;
+    font-size: 1.8rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1rem !important;
+
+    &:hover {
+      transform: translateY(-2px);
+      transition: all 0.3s ease;
+    }
+  }
+`
+
 export const SindicatoSection = styled.section`
   margin-bottom: 70rem;
   position: relative;

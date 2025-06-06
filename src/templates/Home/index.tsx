@@ -126,11 +126,6 @@ const HomeTemplate = ({
 
         <S.SindicatoContent>
           <S.Text dangerouslySetInnerHTML={{ __html: sindicatoText }} />
-          <div style={{ textAlign: 'center', marginTop: '3.2rem' }}>
-            <Button as="a" href="/fale-conosco">
-              Filie-se Agora!
-            </Button>
-          </div>
         </S.SindicatoContent>
       </S.SindicatoSection>
 
@@ -147,6 +142,28 @@ const HomeTemplate = ({
           <PostsEmpty texto="Nenhum convênio encontrado no momento!" />
         )}
       </S.ConvenioSection>
+
+      <S.CTASection>
+        <S.CTAContent>
+          <S.CTATitle>Torne-se um Associado!</S.CTATitle>
+          <S.CTADescription>
+            Faça parte da nossa luta pelos direitos dos servidores públicos
+            municipais. Junte-se a nós e tenha acesso a benefícios exclusivos,
+            representação sindical e participe das decisões que impactam sua
+            carreira.
+          </S.CTADescription>
+          <S.CTAButtonArea>
+            <Button
+              color="white"
+              as="a"
+              href="https://gestao.servbuzios.org.br/cadastro"
+              target="_blank"
+            >
+              Cadastre-se Agora!
+            </Button>
+          </S.CTAButtonArea>
+        </S.CTAContent>
+      </S.CTASection>
     </Base>
   )
 }

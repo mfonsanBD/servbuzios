@@ -196,8 +196,12 @@ const Footer = ({
 
         <S.CreatedBy>
           Desenvolvido por:{' '}
-          <a href="https://nextech.dev.br" target="_blank" rel="noreferrer">
-            NexTech Solution
+          <a
+            href="https://buzios.digital"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            Búzios Digital
           </a>
         </S.CreatedBy>
       </S.Copyright>

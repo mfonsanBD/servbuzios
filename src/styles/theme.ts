@@ -35,7 +35,8 @@ export default {
     title: '#434343',
     success: '#3ECE7E',
     danger: '#E46D78',
-    gray: '#EAEAEA'
+    gray: '#EAEAEA',
+    dark: '#232324'
   },
   spacings: {
     xxsmall: '0.8rem',
