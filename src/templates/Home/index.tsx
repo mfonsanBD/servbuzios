@@ -111,7 +111,7 @@ const HomeTemplate = ({
             </S.SeeMoreArea>
           </>
         ) : (
-          <PostsEmpty texto="Nenhuma notícia encontrada no momento!" />
+          <PostsEmpty texto="Nenhuma notícia encontrada aqui no momento!" />
         )}
       </S.NeESection>
 
