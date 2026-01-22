@@ -3,8 +3,6 @@ import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
 
 import Base from 'templates/Base'
 
-import { NewsDate } from 'utils/formatDate'
-
 import * as S from './styles'
 import 'react-tabs/style/react-tabs.css'
 
@@ -34,29 +32,25 @@ const DocumentosTemplate = ({
   sindicatoCNPJ,
   sindicatoName
 }: DocumentosTemplateProps) => {
-  const editais2022 = editais
-    .filter((doc) => NewsDate(doc.criadoEm).includes('2022'))
-    .sort(
-      (a, b) => new Date(b.criadoEm).getTime() - new Date(a.criadoEm).getTime()
-    )
+  const editaisPorAno = editais.reduce((acc, doc) => {
+    const ano = new Date(doc.criadoEm).getFullYear().toString()
+    if (!acc[ano]) {
+      acc[ano] = []
+    }
+    acc[ano].push(doc)
+    return acc
+  }, {} as Record<string, PdfCardProps[]>)
 
-  const editais2023 = editais
-    .filter((doc) => NewsDate(doc.criadoEm).includes('2023'))
-    .sort(
-      (a, b) => new Date(b.criadoEm).getTime() - new Date(a.criadoEm).getTime()
-    )
+  const anosOrdenados = Object.keys(editaisPorAno)
+    .sort((a, b) => parseInt(b) - parseInt(a))
+    .map((ano) => ({
+      ano,
+      editais: editaisPorAno[ano].sort(
+        (a, b) =>
+          new Date(b.criadoEm).getTime() - new Date(a.criadoEm).getTime()
+      )
+    }))
 
-  const editais2024 = editais
-    .filter((doc) => NewsDate(doc.criadoEm).includes('2024'))
-    .sort(
-      (a, b) => new Date(b.criadoEm).getTime() - new Date(a.criadoEm).getTime()
-    )
-
-  const editais2025 = editais
-    .filter((doc) => NewsDate(doc.criadoEm).includes('2025'))
-    .sort(
-      (a, b) => new Date(b.criadoEm).getTime() - new Date(a.criadoEm).getTime()
-    )
   return (
     <Base
       sindicatoAddress={sindicatoAddress}
@@ -94,67 +88,30 @@ const DocumentosTemplate = ({
 
         <Tabs className="tabs">
           <TabList className="tabList">
-            <Tab className="tab">Editais de 2025</Tab>
-            <Tab className="tab">Editais de 2024</Tab>
-            <Tab className="tab">Editais de 2023</Tab>
-            <Tab className="tab">Editais de 2022</Tab>
+            {anosOrdenados.map(({ ano }) => (
+              <Tab key={ano} className="tab">
+                Editais de {ano}
+              </Tab>
+            ))}
           </TabList>
 
-          <TabPanel className="tabPanel">
-            {editais2025.length > 0 ? (
-              <S.DocsArea>
-                {editais2025.map((item, index) => (
-                  <PdfCard key={index} {...item} />
-                ))}
-              </S.DocsArea>
-            ) : (
-              <S.EmptyArea>
-                <PostsEmpty texto="Nenhum Edital de 2025 encontrado até o momento!" />
-              </S.EmptyArea>
-            )}
-          </TabPanel>
-
-          <TabPanel className="tabPanel">
-            {editais2024.length > 0 ? (
-              <S.DocsArea>
-                {editais2024.map((item, index) => (
-                  <PdfCard key={index} {...item} />
-                ))}
-              </S.DocsArea>
-            ) : (
-              <S.EmptyArea>
-                <PostsEmpty texto="Nenhum Edital de 2024 encontrado até o momento!" />
-              </S.EmptyArea>
-            )}
-          </TabPanel>
-
-          <TabPanel className="tabPanel">
-            {editais2023.length > 0 ? (
-              <S.DocsArea>
-                {editais2023.map((item, index) => (
-                  <PdfCard key={index} {...item} />
-                ))}
-              </S.DocsArea>
-            ) : (
-              <S.EmptyArea>
-                <PostsEmpty texto="Nenhum Edital de 2023 encontrado até o momento!" />
-              </S.EmptyArea>
-            )}
-          </TabPanel>
-
-          <TabPanel className="tabPanel">
-            {editais2022.length > 0 ? (
-              <S.DocsArea>
-                {editais2022.map((item, index) => (
-                  <PdfCard key={index} {...item} />
-                ))}
-              </S.DocsArea>
-            ) : (
-              <S.EmptyArea>
-                <PostsEmpty texto="Nenhum Edital de 2022 encontrado até o momento!" />
-              </S.EmptyArea>
-            )}
-          </TabPanel>
+          {anosOrdenados.map(({ ano, editais }) => (
+            <TabPanel key={ano} className="tabPanel">
+              {editais.length > 0 ? (
+                <S.DocsArea>
+                  {editais.map((item, index) => (
+                    <PdfCard key={index} {...item} />
+                  ))}
+                </S.DocsArea>
+              ) : (
+                <S.EmptyArea>
+                  <PostsEmpty
+                    texto={`Nenhum Edital de ${ano} encontrado até o momento!`}
+                  />
+                </S.EmptyArea>
+              )}
+            </TabPanel>
+          ))}
         </Tabs>
 
         <Heading title="Jornal Buziando" backgroundTitle="Jornal Buziando" />
