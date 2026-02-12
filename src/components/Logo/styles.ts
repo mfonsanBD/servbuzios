@@ -4,18 +4,18 @@ import { LogoProps } from '.'
 
 const wrapperModifiers = {
   small: () => css`
-    width: 15rem;
-    height: 3.3rem;
+    width: 6rem;
+    height: 6rem;
   `,
 
   normal: () => css`
-    width: 20.9rem;
-    height: 5.5rem;
+    width: 9rem;
+    height: 9rem;
   `,
 
   large: () => css`
-    width: 25rem;
-    height: 6.9rem;
+    width: 12rem;
+    height: 12rem;
   `,
 
   hideOnMobile: () => css`
@@ -26,10 +26,6 @@ const wrapperModifiers = {
       svg{
         height: 7rem;
         pointer-events: none;
-      }
-
-      .text{
-        display: none;
       }
     `}
   `
@@ -42,5 +38,13 @@ export const Wrapper = styled.div<LogoProps>`
     }
     ${!!size && wrapperModifiers[size]};
     ${!!hideOnMobile && wrapperModifiers.hideOnMobile};
+
+    svg path.escuro {
+      fill: ${color === 'white'
+        ? theme.colors.white
+        : color === 'text'
+        ? theme.colors.text
+        : theme.colors.secondary};
+    }
   `}
 `

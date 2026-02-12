@@ -96,6 +96,14 @@ const Menu = () => {
           >
             Área do Associado
           </Button>
+          <Button
+            size="small"
+            as="a"
+            href="https://gestao.servbuzios.org.br/cadastro"
+            target="_blank"
+          >
+            Quero ser Associado
+          </Button>
         </S.MenuNav>
       </MediaMatch>
 
@@ -159,14 +167,24 @@ const Menu = () => {
             </S.MenuLink>
           </Link>
 
-          <Button
-            size="small"
-            as="a"
-            href="https://gestao.servbuzios.org.br"
-            target="_blank"
-          >
-            Área do Associado
-          </Button>
+          <S.MenuFullButtons>
+            <Button
+              as="a"
+              href="https://gestao.servbuzios.org.br/cadastro"
+              target="_blank"
+              color="white"
+            >
+              Quero ser Associado
+            </Button>
+
+            <Button
+              as="a"
+              href="https://gestao.servbuzios.org.br"
+              target="_blank"
+            >
+              Área do Associado
+            </Button>
+          </S.MenuFullButtons>
         </S.MenuNav>
       </S.MenuFull>
     </S.Wrapper>

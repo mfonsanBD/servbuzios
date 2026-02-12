@@ -60,11 +60,7 @@ export const MenuNav = styled.div`
 			margin-left: ${theme.spacings.small};
       display: flex;
       align-items: center;
-      gap: ${theme.spacings.small};
-		`}
-
-    ${media.greaterThan('huge')`
-      gap: calc(${theme.spacings.small} * 2);
+      gap: ${theme.spacings.xsmall};
 		`}
   `}
 `
@@ -75,7 +71,7 @@ export const MenuLink = styled.a`
     color: ${theme.colors.text};
     font-size: 15px;
     text-decoration: none;
-    text-align: center;
+    text-align: left;
 
     &.active {
       color: ${theme.colors.tertiary};
@@ -124,6 +120,17 @@ export const MenuLink = styled.a`
   `}
 `
 
+export const MenuFullButtons = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  ${media.greaterThan('medium')`
+    flex-direction: row;
+    margin-top: 0;
+  `}
+`
+
 type MenuFullProps = {
   isOpen: boolean
 }
@@ -160,17 +167,18 @@ export const MenuFull = styled.nav<MenuFullProps>`
 
     ${MenuNav} {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
       flex: 1;
       flex-direction: column;
+      padding: 0 ${theme.spacings.small};
+      gap: ${theme.spacings.small};
     }
 
     ${MenuLink} {
       color: ${theme.colors.white};
       font-weight: ${theme.font.bold};
       font-size: ${theme.font.sizes.xlarge};
-      margin-bottom: ${theme.spacings.small};
       transform: ${isOpen ? 'translateY(0)' : 'translateY(3rem)'};
       transition: transform 0.3s ease-in-out;
     }
