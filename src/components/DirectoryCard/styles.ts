@@ -35,6 +35,7 @@ export const Name = styled.h3`
 
 export const Role = styled.p`
   ${({ theme }) => css`
+    text-align: center;
     color: ${theme.colors.text};
     line-height: 1;
   `}
