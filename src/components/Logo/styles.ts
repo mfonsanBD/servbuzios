@@ -23,7 +23,7 @@ const wrapperModifiers = {
       width: 7rem;
       height: 7rem;
 
-      svg{
+      img {
         height: 7rem;
         pointer-events: none;
       }
@@ -32,19 +32,13 @@ const wrapperModifiers = {
 }
 
 export const Wrapper = styled.div<LogoProps>`
-  ${({ theme, color, size, hideOnMobile }) => css`
-    svg {
-      fill: ${theme.colors[color!]};
+  ${({ size, hideOnMobile }) => css`
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
     }
     ${!!size && wrapperModifiers[size]};
     ${!!hideOnMobile && wrapperModifiers.hideOnMobile};
-
-    svg path.escuro {
-      fill: ${color === 'white'
-        ? theme.colors.white
-        : color === 'text'
-        ? theme.colors.text
-        : theme.colors.secondary};
-    }
   `}
 `
