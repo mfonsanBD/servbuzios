@@ -1,72 +1,69 @@
 import styled, { css } from 'styled-components'
 
-import * as ButtonStyles from 'components/Button/styles'
-import media from 'styled-media-query'
+import { autoGrid, Container } from 'styles/shared'
 
-export const Wrapper = styled.div`
+export const Section = styled.section`
+  padding: 9.6rem 2.4rem;
+
+  @media (max-width: 600px) {
+    padding: 5.6rem 2.4rem;
+  }
+`
+
+export const Grid = styled(Container)`
+  ${autoGrid({ min: '42rem', gap: '5.6rem', fit: true })}
+  align-items: center;
+`
+
+export const Text = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+`
+
+export const Title = styled.h1`
   ${({ theme }) => css`
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: ${theme.colors.background};
+    font-size: clamp(3.6rem, 4vw, 5.4rem);
+    line-height: 1.06;
+    letter-spacing: -0.035em;
+    font-weight: ${theme.font.semibold};
+    color: ${theme.colors.title};
+    text-wrap: balance;
   `}
 `
 
-export const Content = styled.div`
+export const Description = styled.p`
   ${({ theme }) => css`
-    width: 100%;
-    padding: 2rem;
+    max-width: 52rem;
+    font-size: 1.7rem;
+    color: ${theme.colors.text};
+  `}
+`
+
+export const Shortcuts = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+`
+
+export const Panel = styled.div`
+  ${({ theme }) => css`
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
-    background-color: ${theme.colors.white};
-    border-radius: ${theme.border.radiusLarge};
-    position: relative;
-    margin: ${theme.spacings.small};
+    min-height: 38rem;
+    overflow: hidden;
+    border-radius: ${theme.border.radiusCard};
+    border: 0.6rem solid ${theme.colors.primary};
+    background: ${theme.colors.accent};
 
-    ${media.greaterThan('medium')`
-      width: 30%;
-      padding: 5rem 3rem;
-      margin: 0;
-    `}
-
-    h1 {
-      position: absolute;
-      font-size: 15rem;
-      z-index: 1;
-      color: rgba(0, 0, 0, 0.05);
-
-      @media (max-width: 321px) {
-        font-size: 12rem;
-      }
-
-      ${media.greaterThan('medium')`
-        font-size: 19rem;
-      `}
-    }
-
-    h3 {
-      color: ${theme.colors.title};
-      font-size: 2.8rem;
-      z-index: 2;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-
-    p {
-      color: ${theme.colors.text};
-      z-index: 2;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-
-    ${ButtonStyles.Wrapper} {
-      z-index: 2;
+    span {
+      font-size: clamp(11rem, 13vw, 19rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      font-weight: ${theme.font.bold};
+      color: ${theme.colors.primary};
     }
   `}
 `

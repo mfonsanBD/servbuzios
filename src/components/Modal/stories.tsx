@@ -9,7 +9,7 @@ export default {
 } as ComponentMeta<typeof Modal>
 
 export const Default: ComponentStory<typeof Modal> = () => (
-  <Modal>
-    <h2>Modal</h2>
+  <Modal label="Exemplo de modal" onClose={() => undefined}>
+    <h2 style={{ color: 'white' }}>Modal</h2>
   </Modal>
 )

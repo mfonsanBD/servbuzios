@@ -1,84 +1,233 @@
 import styled, { css } from 'styled-components'
-import media from 'styled-media-query'
 
-import * as HeadingStyles from 'components/Heading/styles'
+import { autoGrid, Container, DarkBlock } from 'styles/shared'
 
-export const Wrapper = styled.div`
+/* ---------- navegação da página ---------- */
+
+export const SectionNav = styled.nav`
   ${({ theme }) => css`
-    padding: 0 ${theme.spacings.small} 8rem;
+    display: flex;
+    gap: 0.2rem;
+    max-width: 100%;
+    margin-top: 0.6rem;
+    padding: 0.6rem;
+    overflow-x: auto;
+    background: ${theme.colors.white};
+    border-radius: ${theme.border.radiusPill};
+    box-shadow: ${theme.shadows.pill};
+  `}
+`
 
-    ${media.greaterThan('medium')`
-      padding: 0 ${theme.spacings.xxlarge} 12rem;
-    `}
+export const SectionLink = styled.a`
+  ${({ theme }) => css`
+    padding: 1.2rem 1.6rem;
+    border-radius: ${theme.border.radiusPill};
+    font-size: 1.4rem;
+    line-height: 2rem;
+    font-weight: ${theme.font.medium};
+    white-space: nowrap;
+    color: ${theme.colors.title};
+    transition: background ${theme.transition.fast},
+      color ${theme.transition.fast};
 
-    ${HeadingStyles.Wrapper} {
-      margin: 8rem 0;
-
-      ${media.greaterThan('medium')`
-        margin: 12rem 0 8rem;
-      `}
-    }
-
-    .tabs {
-      padding: 3rem 1rem 8rem 1rem;
-      background-color: ${theme.colors.white};
-      border-radius: ${theme.border.radiusLarge};
-
-      ${media.greaterThan('medium')`
-        padding: 3rem 3rem 8rem 3rem;
-      `}
-    }
-
-    .tabList {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-      margin-bottom: 3rem;
-      align-items: center;
-      justify-content: center;
-      border-bottom: thin solid ${theme.colors.gray};
-    }
-
-    .tab {
-      outline: none;
-      cursor: pointer;
-      border-bottom: 3px solid ${theme.colors.white};
-    }
-
-    .react-tabs__tab--selected {
-      border-bottom: 3px solid ${theme.colors.tertiary};
+    &:hover {
+      background: ${theme.colors.background};
+      color: ${theme.colors.primary};
     }
   `}
 `
 
-export const DocsArea = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(37rem, 1fr));
-  gap: 2rem;
+/* ---------- seções ---------- */
 
-  @media (max-width: 321px) {
-    grid-template-columns: repeat(auto-fill, minmax(27rem, 1fr)) !important;
+type SectionProps = {
+  $first?: boolean
+  $last?: boolean
+}
+
+export const Section = styled.section<SectionProps>`
+  ${({ $first, $last }) => css`
+    padding: ${$first ? '1.6rem' : '0'} 2.4rem ${$last ? '9.6rem' : '6.4rem'};
+    scroll-margin-top: 2.4rem;
+
+    @media (max-width: 600px) {
+      padding-bottom: ${$last ? '6.4rem' : '4.8rem'};
+    }
+  `}
+`
+
+export const Inner = styled(Container)`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+`
+
+export const SectionHead = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+`
+
+export const ListCard = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    padding: 1.2rem 2rem;
+    background: ${theme.colors.white};
+    border-radius: ${theme.border.radiusBlock};
+    box-shadow: ${theme.shadows.cardLarge};
+
+    @media (max-width: 600px) {
+      padding: 0.8rem 1.2rem;
+    }
+  `}
+`
+
+export const LawsGrid = styled.div`
+  ${autoGrid({ min: '42rem', gap: '0 3.2rem', fit: true })}
+`
+
+/* ---------- editais por ano ---------- */
+
+export const Years = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+`
+
+export const Year = styled.div`
+  ${({ theme }) => css`
+    background: ${theme.colors.white};
+    border-radius: 2.4rem;
+    box-shadow: ${theme.shadows.card};
+  `}
+`
+
+export const YearButton = styled.button`
+  ${({ theme }) => css`
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.6rem;
+    min-height: 6.4rem;
+    padding: 0 2.4rem;
+    border: 0;
+    border-radius: 2.4rem;
+    background: transparent;
+    font-family: inherit;
+    color: ${theme.colors.title};
+    text-align: left;
+    cursor: pointer;
+
+    svg {
+      flex: none;
+      width: 2.2rem;
+      height: 2.2rem;
+      color: ${theme.colors.primary};
+    }
+
+    &:hover strong {
+      color: ${theme.colors.primary};
+    }
+
+    @media (max-width: 600px) {
+      padding: 0 1.6rem;
+    }
+  `}
+`
+
+export const YearLabel = styled.span`
+  ${({ theme }) => css`
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.4rem 1.2rem;
+
+    strong {
+      font-size: 1.8rem;
+      font-weight: ${theme.font.semibold};
+      transition: color ${theme.transition.fast};
+    }
+
+    span {
+      font-size: 1.4rem;
+      color: ${theme.colors.textMuted};
+    }
+  `}
+`
+
+export const YearPanel = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0 1.6rem 1.2rem;
+
+  &[hidden] {
+    display: none;
   }
 
-  ${media.lessThan('small')`
-    grid-template-columns: repeat(auto-fill, minmax(32rem, 1fr));
-  `}
+  @media (max-width: 600px) {
+    padding: 0 0.8rem 0.8rem;
+  }
+`
 
-  ${media.greaterThan('medium')`
-    grid-template-columns: repeat(auto-fill, minmax(29rem, 1fr));
-    margin-top: 0;
-  `}
+/* ---------- jornal ---------- */
 
-  ${media.greaterThan('huge')`
-    grid-template-columns: repeat(auto-fill, minmax(33rem, 1fr));
-    margin-top: 0;
+export const Journal = styled(DarkBlock)`
+  ${autoGrid({ min: '30rem', gap: '4rem', fit: true })}
+  align-items: center;
+`
+
+export const JournalText = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.6rem;
+
+    h2 {
+      font-size: clamp(2.8rem, 3vw, 4rem);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      font-weight: ${theme.font.semibold};
+      color: ${theme.colors.accent};
+    }
+
+    p {
+      font-size: 1.6rem;
+      color: ${theme.colors.onDark};
+    }
   `}
 `
 
-export const EmptyArea = styled.div`
-  width: 100%;
-  height: 55rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+export const Covers = styled.div`
+  ${autoGrid({ min: '15rem', gap: '1.6rem' })}
+`
+
+export const CoverArt = styled.div`
+  ${({ theme }) => css`
+    position: relative;
+    width: 100%;
+    aspect-ratio: 210 / 297;
+    border-radius: 1.6rem;
+    overflow: hidden;
+    background: ${theme.colors.white};
+  `}
+`
+
+export const Cover = styled.a`
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: ${theme.colors.white};
+
+    span {
+      font-size: 1.4rem;
+      font-weight: ${theme.font.semibold};
+    }
+
+    &:hover span {
+      color: ${theme.colors.accent};
+    }
+  `}
 `

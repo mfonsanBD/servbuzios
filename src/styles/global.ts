@@ -1,39 +1,6 @@
-import { darken } from 'polished'
 import { createGlobalStyle, css } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
-  @font-face {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 300;
-    font-display: swap;
-    src: local('Poppins Thin'), url('/fonts/poppins-v20-latin-300.woff2') format('woff2')
-  }
-
-  @font-face {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: local('Poppins Regular'), url('/fonts/poppins-v20-latin-regular.woff2') format('woff2')
-  }
-
-  @font-face {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 600;
-    font-display: swap;
-    src: local('Poppins SemiBold'), url('/fonts/poppins-v20-latin-600.woff2') format('woff2')
-  }
-
-  @font-face {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 900;
-    font-display: swap;
-    src: local('Poppins Bold'), url('/fonts/poppins-v20-latin-900.woff2') format('woff2')
-  }
-
   * {
     margin: 0;
     padding: 0;
@@ -51,44 +18,61 @@ const GlobalStyles = createGlobalStyle`
     html {
       font-size: 62.5%;
       scroll-behavior: smooth;
-      outline: none !important;
     }
 
     body {
       font-family: ${theme.font.family};
       font-size: ${theme.font.sizes.medium};
+      line-height: 1.6;
+      color: ${theme.colors.title};
       background-color: ${theme.colors.background};
     }
 
+    button,
+    input,
+    textarea {
+      font-family: inherit;
+    }
+
+    ::selection {
+      background: ${theme.colors.accent};
+      color: ${theme.colors.secondary};
+    }
+
     ::placeholder {
-      /* Chrome, Firefox, Opera, Safari 10.1+ */
-      color: ${theme.colors.text};
+      color: ${theme.colors.textMuted};
       font-family: ${theme.font.family};
-      font-size: ${theme.font.sizes.medium};
-      opacity: 1; /* Firefox */
-    }
-
-    :-ms-input-placeholder {
-      /* Internet Explorer 10-11 */
-      color: ${theme.colors.text};
-      font-family: ${theme.font.family};
-      font-size: ${theme.font.sizes.medium};
-    }
-
-    ::-ms-input-placeholder {
-      /* Microsoft Edge */
-      color: ${theme.colors.text};
-      font-family: ${theme.font.family};
-      font-size: ${theme.font.sizes.medium};
+      opacity: 1;
     }
 
     a {
-      color: ${theme.colors.tertiary};
+      color: ${theme.colors.primary};
       text-decoration: none;
-      transition: 0.3s;
+      transition: color ${theme.transition.fast};
 
       &:hover {
-        color: ${darken(0.1, theme.colors.tertiary)};
+        color: ${theme.colors.secondary};
+      }
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 0.3rem solid ${theme.colors.tertiary};
+      outline-offset: 0.3rem;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
       }
     }
   `}

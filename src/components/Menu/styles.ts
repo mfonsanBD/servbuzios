@@ -1,192 +1,225 @@
-import { darken } from 'polished'
 import styled, { css } from 'styled-components'
-import media from 'styled-media-query'
 
-export const Wrapper = styled.menu<MenuFullProps>`
-  ${({ theme, isOpen }) => css`
-    width: 100%;
-    background-color: ${theme.colors.white};
-    padding: 2rem ${theme.spacings.small};
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: space-between;
-    z-index: ${isOpen ? theme.layers.menu : `calc(${theme.layers.menu} - 1)`};
+import { Container } from 'styles/shared'
 
-    ${media.greaterThan('medium')`
-      padding: 1rem ${theme.spacings.large};
-      flex-direction: row;
-      align-items: center;
-    `}
+// A navegação em pílula só cabe a partir desta largura; abaixo dela vira menu móvel.
+const DESKTOP = '1100px'
 
-    ${media.greaterThan('huge')`
-      padding: 3rem ${theme.spacings.xxlarge};
-    `}
-  `}
+export const Wrapper = styled.header`
+  padding: 2rem 2.4rem 0;
 `
 
-export const LogoWrapper = styled.div`
-  ${media.lessThan('medium')`
-    position: relative;
-    cursor: pointer;
-  `}
+export const Inner = styled(Container)`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem 2rem;
 `
 
-export const IconWrapper = styled.div`
+export const Brand = styled.a`
   ${({ theme }) => css`
-    color: ${theme.colors.text};
     display: flex;
     align-items: center;
     gap: 1rem;
-  `}
-`
+    min-height: 4.8rem;
+    color: ${theme.colors.title};
 
-export const MenuGroup = styled.div`
-  ${({ theme }) => css`
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    z-index: ${theme.layers.menu} + 1;
-
-    > div {
-      margin-left: ${theme.spacings.xsmall};
+    img {
+      width: 4.6rem;
+      height: 4.6rem;
     }
-  `}
-`
 
-export const MenuNav = styled.div`
-  ${({ theme }) => css`
-    ${media.greaterThan('medium')`
-			margin-left: ${theme.spacings.small};
-      display: flex;
-      align-items: center;
-      gap: ${theme.spacings.xsmall};
-		`}
-  `}
-`
+    span {
+      font-size: 2rem;
+      font-weight: ${theme.font.bold};
+      letter-spacing: -0.02em;
 
-export const MenuLink = styled.a`
-  ${({ theme }) => css`
-    position: relative;
-    color: ${theme.colors.text};
-    font-size: 15px;
-    text-decoration: none;
-    text-align: left;
-
-    &.active {
-      color: ${theme.colors.tertiary};
-
-      &::after {
-        content: '';
-        position: absolute;
-        display: block;
-        height: 0.3rem;
-        background-color: ${theme.colors.tertiary};
-        animation: hoverAnimation 0.2s forwards;
-      }
-
-      &:hover {
-        color: ${darken(0.1, theme.colors.tertiary)};
-
-        &::after {
-          background-color: ${darken(0.1, theme.colors.tertiary)};
-        }
+      /* em telas estreitas fica só o brasão: o link mantém o nome no aria-label */
+      @media (max-width: 420px) {
+        display: none;
       }
     }
 
     &:hover {
-      color: ${darken(0.1, theme.colors.text)};
-
-      &::after {
-        content: '';
-        position: absolute;
-        display: block;
-        height: 0.3rem;
-        background-color: ${darken(0.1, theme.colors.text)};
-        animation: hoverAnimation 0.2s forwards;
-      }
-
-      @keyframes hoverAnimation {
-        from {
-          width: 0;
-          left: 50%;
-        }
-        to {
-          width: 100%;
-          left: 0;
-        }
-      }
+      color: ${theme.colors.primary};
     }
   `}
 `
 
-export const MenuFullButtons = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+export const DesktopNav = styled.nav`
+  ${({ theme }) => css`
+    display: none;
+    gap: 0.2rem;
+    padding: 0.6rem;
+    background: ${theme.colors.white};
+    border-radius: ${theme.border.radiusPill};
+    box-shadow: ${theme.shadows.pill};
 
-  ${media.greaterThan('medium')`
-    flex-direction: row;
-    margin-top: 0;
+    @media (min-width: ${DESKTOP}) {
+      display: flex;
+    }
   `}
 `
 
-type MenuFullProps = {
-  isOpen: boolean
+export const NavLink = styled.a`
+  ${({ theme }) => css`
+    padding: 1.2rem 1.6rem;
+    border-radius: ${theme.border.radiusPill};
+    font-size: 1.4rem;
+    line-height: 2rem;
+    font-weight: ${theme.font.medium};
+    white-space: nowrap;
+    color: ${theme.colors.title};
+    transition: background ${theme.transition.fast},
+      color ${theme.transition.fast};
+
+    &:hover {
+      background: ${theme.colors.background};
+      color: ${theme.colors.primary};
+    }
+
+    &[aria-current='page'] {
+      background: ${theme.colors.accentSoft};
+      color: ${theme.colors.primary};
+      font-weight: ${theme.font.semibold};
+    }
+  `}
+`
+
+export const Actions = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  a {
+    white-space: nowrap;
+  }
+`
+
+export const DesktopOnly = styled.div`
+  display: none;
+
+  @media (min-width: ${DESKTOP}) {
+    display: block;
+  }
+`
+
+export const Toggle = styled.button`
+  ${({ theme }) => css`
+    flex: none;
+    width: 4.8rem;
+    height: 4.8rem;
+    border: 0;
+    border-radius: ${theme.border.radiusPill};
+    background: ${theme.colors.white};
+    color: ${theme.colors.title};
+    box-shadow: ${theme.shadows.pill};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    svg {
+      width: 2.2rem;
+      height: 2.2rem;
+    }
+
+    @media (min-width: ${DESKTOP}) {
+      display: none;
+    }
+  `}
+`
+
+type MobileMenuProps = {
+  $isOpen: boolean
 }
 
-export const MenuFull = styled.nav<MenuFullProps>`
-  ${({ theme, isOpen }) => css`
+export const MobileMenu = styled.nav<MobileMenuProps>`
+  ${({ theme, $isOpen }) => css`
+    position: fixed;
+    inset: 0;
+    z-index: ${theme.layers.menu};
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    background: rgba(18, 18, 20, 0.95);
-    position: fixed;
-    z-index: ${theme.layers.menu};
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100vh;
-    overflow: hidden;
-    transition: opacity 0.3s ease-in-out;
-    opacity: ${isOpen ? 1 : 0};
-    pointer-events: ${isOpen ? 'all' : 'none'};
-    visibility: ${isOpen ? 'visible' : 'hidden'};
+    gap: 2.4rem;
+    padding: 2rem 2.4rem 3.2rem;
+    background: ${theme.colors.primary};
+    color: ${theme.colors.white};
+    overflow-y: auto;
+    opacity: ${$isOpen ? 1 : 0};
+    visibility: ${$isOpen ? 'visible' : 'hidden'};
+    pointer-events: ${$isOpen ? 'all' : 'none'};
+    transition: opacity ${theme.transition.default},
+      visibility ${theme.transition.default};
 
-    > svg {
-      position: absolute;
-      top: 0;
-      right: 0;
-      margin: ${theme.spacings.xsmall};
-      cursor: pointer;
-      width: 3.2rem;
-      height: 3.2rem;
-      color: ${theme.colors.white};
-    }
-
-    ${MenuNav} {
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      flex: 1;
-      flex-direction: column;
-      padding: 0 ${theme.spacings.small};
-      gap: ${theme.spacings.small};
-    }
-
-    ${MenuLink} {
-      color: ${theme.colors.white};
-      font-weight: ${theme.font.bold};
-      font-size: ${theme.font.sizes.xlarge};
-      transform: ${isOpen ? 'translateY(0)' : 'translateY(3rem)'};
-      transition: transform 0.3s ease-in-out;
+    @media (min-width: ${DESKTOP}) {
+      display: none;
     }
   `}
 `
 
-export const SocialMedias = styled.div`
-  a {
-    margin: 0 0.5rem;
-  }
+export const MobileTop = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 4.8rem;
+    font-size: 1.4rem;
+    font-weight: ${theme.font.semibold};
+    color: ${theme.colors.accent};
+  `}
+`
+
+export const Close = styled.button`
+  ${({ theme }) => css`
+    width: 4.8rem;
+    height: 4.8rem;
+    border: 0;
+    border-radius: ${theme.border.radiusPill};
+    background: rgba(255, 255, 255, 0.12);
+    color: ${theme.colors.white};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    svg {
+      width: 2.2rem;
+      height: 2.2rem;
+    }
+  `}
+`
+
+export const MobileLinks = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`
+
+export const MobileLink = styled.a`
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    min-height: 5.6rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    font-size: 2.2rem;
+    letter-spacing: -0.02em;
+    font-weight: ${theme.font.semibold};
+    color: ${theme.colors.white};
+
+    &:hover {
+      color: ${theme.colors.accent};
+    }
+
+    &[aria-current='page'] {
+      color: ${theme.colors.accent};
+    }
+  `}
+`
+
+export const MobileButtons = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
 `

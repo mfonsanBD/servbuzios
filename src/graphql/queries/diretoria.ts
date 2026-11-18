@@ -8,6 +8,15 @@ const DIRETORIA_QUERY = /* GraphQL */ `
       nome
       cargo
     }
+    homesConnection {
+      edges {
+        node {
+          presidentePhoto {
+            url
+          }
+        }
+      }
+    }
     dados {
       sindicatoName
       sindicatoCnpj

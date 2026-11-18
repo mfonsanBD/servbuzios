@@ -35,11 +35,9 @@ const HOME_QUERY = /* GraphQL */ `
           }
           noticias(first: 3, orderBy: createdAt_DESC) {
             titulo
+            descricao
             imagem {
               url
-            }
-            texto {
-              html
             }
             slug
             createdAt
@@ -51,6 +49,20 @@ const HOME_QUERY = /* GraphQL */ `
             }
           }
         }
+      }
+    }
+    ultimasNoticias: noticias(first: 6, orderBy: createdAt_DESC) {
+      titulo
+      descricao
+      imagem {
+        url
+      }
+      slug
+      createdAt
+    }
+    conveniosConnection {
+      aggregate {
+        count
       }
     }
   }

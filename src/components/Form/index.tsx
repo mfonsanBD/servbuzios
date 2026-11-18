@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 import ReCAPTCHA from 'react-google-recaptcha'
+import { FiArrowRight } from 'react-icons/fi'
 
 import TextField from 'components/TextField'
 
@@ -13,9 +14,10 @@ import { SendContactMail } from 'utils/sendMail'
 
 export type FormProps = {
   isContact: boolean
+  title?: string
 }
 
-const Form = ({ isContact }: FormProps) => {
+const Form = ({ isContact, title }: FormProps) => {
   const [loading, setLoading] = useState(false)
   const [token, setToken] = useState<string | null>(null)
   const [fieldError, setFieldError] = useState<FieldErrors>({})
@@ -124,9 +126,11 @@ const Form = ({ isContact }: FormProps) => {
 
   return (
     <S.Wrapper onSubmit={handleSubmit}>
+      {!!title && <S.Title>{title}</S.Title>}
+
       <S.FormGroup>
         <TextField
-          label="Nome Completo"
+          label="Nome completo"
           name="name"
           value={values.name}
           placeholder="João da Silva"
@@ -170,8 +174,9 @@ const Form = ({ isContact }: FormProps) => {
       </S.FormGroup>
 
       <S.TextSection disabled={loading}>
-        <S.Label>Mensagem</S.Label>
+        <S.Label htmlFor="message">Mensagem</S.Label>
         <S.Textarea
+          id="message"
           name="message"
           value={message}
           placeholder="Digite sua mensagem aqui..."
@@ -182,15 +187,19 @@ const Form = ({ isContact }: FormProps) => {
         />
       </S.TextSection>
 
-      <ReCAPTCHA
-        onChange={(v) => handleTokenChange(v!)}
-        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY!}
-      />
+      <S.Captcha>
+        <ReCAPTCHA
+          onChange={(v) => handleTokenChange(v!)}
+          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY!}
+        />
+      </S.Captcha>
 
       <S.ButtonArea>
-        <Button type="submit" disabled={loading}>
-          {loading ? 'Enviando...' : 'Enviar Mensagem'}
+        <Button type="submit" size="large" disabled={loading}>
+          {loading ? 'Enviando...' : 'Enviar mensagem'}
+          {!loading && <FiArrowRight aria-hidden="true" />}
         </Button>
+        <S.Hint>Em breve responderemos sua mensagem.</S.Hint>
       </S.ButtonArea>
     </S.Wrapper>
   )

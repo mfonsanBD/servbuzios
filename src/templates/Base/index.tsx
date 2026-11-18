@@ -31,7 +31,7 @@ const Base = ({
       redessociais={redessociais}
     />
 
-    <ScrollToTop smooth width="20" height="20" color="#1F4665" />
+    <ScrollToTop smooth width="20" height="20" color="#0D4463" />
   </S.Wrapper>
 )
 

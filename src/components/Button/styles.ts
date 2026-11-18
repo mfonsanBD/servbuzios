@@ -8,45 +8,87 @@ export type WrapperProps = {
   hasIcon: boolean
 } & Pick<ButtonProps, 'size' | 'color' | 'fullWidth' | 'minimal'>
 
+type ButtonColor = NonNullable<ButtonProps['color']>
+
+const sizeModifiers = {
+  small: () => css`
+    min-height: 4.4rem;
+    padding: 0 1.8rem;
+    font-size: 1.4rem;
+  `,
+
+  medium: () => css`
+    min-height: 4.8rem;
+    padding: 0 2.2rem;
+    font-size: 1.5rem;
+  `,
+
+  large: () => css`
+    min-height: 5.6rem;
+    padding: 0 2.8rem;
+    font-size: 1.6rem;
+  `
+}
+
+const colorModifiers = {
+  primary: (theme: DefaultTheme) => css`
+    background: ${theme.colors.primary};
+    color: ${theme.colors.white};
+    box-shadow: ${theme.shadows.button};
+
+    &:hover {
+      background: ${darken(0.05, theme.colors.primary)};
+      color: ${theme.colors.white};
+    }
+  `,
+
+  white: (theme: DefaultTheme) => css`
+    background: ${theme.colors.white};
+    color: ${theme.colors.title};
+    box-shadow: ${theme.shadows.pill};
+
+    &:hover {
+      background: ${theme.colors.white};
+      color: ${theme.colors.primary};
+      box-shadow: ${theme.shadows.cardLarge};
+    }
+  `,
+
+  accent: (theme: DefaultTheme) => css`
+    background: ${theme.colors.accent};
+    color: ${theme.colors.secondary};
+
+    &:hover {
+      background: ${darken(0.06, theme.colors.accent)};
+      color: ${theme.colors.secondary};
+    }
+  `
+}
+
 const wrapperModifiers = {
-  small: (theme: DefaultTheme) => css`
-    height: 3rem;
-    font-size: ${theme.font.sizes.xsmall};
-    padding: ${theme.spacings.xxsmall} ${theme.spacings.xsmall};
-  `,
-
-  medium: (theme: DefaultTheme) => css`
-    height: 4rem;
-    font-size: ${theme.font.sizes.small};
-    padding: ${theme.spacings.xxsmall} ${theme.spacings.medium};
-  `,
-
-  large: (theme: DefaultTheme) => css`
-    height: 5rem;
-    font-size: ${theme.font.sizes.medium};
-    padding: ${theme.spacings.xxsmall} ${theme.spacings.xlarge};
-  `,
-
   fullWidth: () => css`
     width: 100%;
   `,
 
-  minimal: (theme: DefaultTheme, color: 'primary' | 'white') => css`
-    background: none;
-    border: 2px solid ${theme.colors[color]};
+  minimal: (theme: DefaultTheme, color: ButtonColor) => css`
+    background: transparent;
+    box-shadow: none;
+    border: 0.15rem solid currentColor;
     color: ${theme.colors[color]};
-    font-weight: ${theme.font.bold};
 
     &:hover {
-      color: ${darken(0.1, theme.colors[color])};
-      border: 2px solid ${darken(0.1, theme.colors[color])};
+      background: transparent;
+      box-shadow: none;
+      color: ${theme.colors[color]};
+      opacity: 0.85;
     }
   `,
 
   disabled: () => css`
     &:disabled {
       cursor: not-allowed;
-      filter: saturate(30%);
+      opacity: 0.6;
+      box-shadow: none;
     }
   `
 }
@@ -56,22 +98,36 @@ export const Wrapper = styled.button<WrapperProps>`
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: ${theme.colors[color!]};
-    color: ${color === 'primary' ? theme.colors.white : theme.colors.title};
     border: 0;
     cursor: pointer;
-    border-radius: ${theme.border.radiusLarge};
-    padding: ${theme.spacings.xxsmall};
+    border-radius: ${theme.border.radiusPill};
     font-family: ${theme.font.family};
-    font-weight: ${theme.font.normal};
+    font-weight: ${theme.font.semibold};
+    line-height: 1.2;
+    text-align: center;
     text-decoration: none;
+    transition: background ${theme.transition.fast},
+      box-shadow ${theme.transition.fast}, color ${theme.transition.fast},
+      transform ${theme.transition.fast};
 
-    &:hover {
-      background: ${minimal ? 'none' : darken(0.1, theme.colors[color!])};
-      color: ${color === 'primary' ? theme.colors.white : theme.colors.title};
+    > span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
     }
 
-    ${!!size && wrapperModifiers[size](theme)}
+    svg {
+      flex: none;
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+
+    &:active {
+      transform: translateY(0.1rem);
+    }
+
+    ${sizeModifiers[size!]()}
+    ${colorModifiers[color!](theme)}
     ${!!minimal && wrapperModifiers.minimal(theme, color!)}
     ${!!fullWidth && wrapperModifiers.fullWidth()}
     ${disabled && wrapperModifiers.disabled()}

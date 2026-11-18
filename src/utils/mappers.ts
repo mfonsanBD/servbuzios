@@ -22,6 +22,7 @@ export const NewsMapper = (noticias: any[]) => {
     ? noticias.map((noticia) => ({
         imagem: noticia.imagem.url,
         titulo: noticia.titulo,
+        descricao: noticia.descricao || '',
         slug: noticia.slug,
         createdAt: noticia.createdAt
       }))

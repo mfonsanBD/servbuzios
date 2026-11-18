@@ -1,8 +1,7 @@
-/* eslint-disable @next/next/no-img-element */
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { NewsDate } from 'utils/formatDate'
+import { IsoDay, LongDate } from 'utils/formatDate'
 
 import * as S from './styles'
 
@@ -11,22 +10,33 @@ export type NewsCardProps = {
   titulo: string
   slug: string
   createdAt: string
+  descricao?: string
 }
 
 const NewsCard = ({ createdAt, imagem, slug, titulo }: NewsCardProps) => (
   <S.Wrapper>
-    <S.ImageAndBadge>
-      <S.Cover>
-        <Image src={imagem} alt={titulo} layout="fill" />
+    {/* a arte repete o título: o link da imagem fica fora da ordem de tabulação */}
+    <Link href={`/noticia/${slug}`} passHref>
+      <S.Cover tabIndex={-1} aria-hidden="true">
+        <Image
+          src={imagem}
+          alt=""
+          layout="fill"
+          objectFit="cover"
+          objectPosition="top"
+          sizes="(max-width: 768px) 100vw, 400px"
+        />
       </S.Cover>
-    </S.ImageAndBadge>
+    </Link>
 
     <S.Content>
+      <S.CreatedAt dateTime={IsoDay(createdAt)}>
+        {LongDate(createdAt)}
+      </S.CreatedAt>
+
       <Link href={`/noticia/${slug}`} passHref>
         <S.Title>{titulo}</S.Title>
       </Link>
-
-      <S.CreatedAt>Postado em: {NewsDate(createdAt)}</S.CreatedAt>
     </S.Content>
   </S.Wrapper>
 )

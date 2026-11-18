@@ -12,6 +12,15 @@ const NOTICIA_QUERY = /* GraphQL */ `
         html
       }
     }
+    outras: noticias(first: 4, orderBy: createdAt_DESC) {
+      titulo
+      descricao
+      slug
+      createdAt
+      imagem {
+        url
+      }
+    }
     dados {
       sindicatoName
       sindicatoCnpj

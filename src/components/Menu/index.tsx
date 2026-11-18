@@ -1,192 +1,187 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import { FiMenu, FiUser, FiX } from 'react-icons/fi'
 
-import Logo from 'components/Logo'
-import MediaMatch from 'components/MediaMatch'
+import Button from 'components/Button'
 
 import * as S from './styles'
-import { MdMenu, MdClose } from 'react-icons/md'
-import Button from 'components/Button'
+
+export const MEMBER_AREA_URL = 'https://gestao.servbuzios.org.br'
+export const SIGNUP_URL = 'https://gestao.servbuzios.org.br/cadastro'
+
+export type MenuLinkItem = {
+  href: string
+  label: string
+  fullLabel: string
+  // prefixo de rota que também marca o link como ativo (ex.: /noticia/[slug])
+  match?: string
+}
+
+export const MENU_LINKS: MenuLinkItem[] = [
+  {
+    href: '/diretoria-e-conselho',
+    label: 'Diretoria',
+    fullLabel: 'Diretoria e conselho'
+  },
+  { href: '/juridico', label: 'Jurídico', fullLabel: 'Jurídico' },
+  {
+    href: '/convenio',
+    label: 'Convênios',
+    fullLabel: 'Convênios e parcerias'
+  },
+  {
+    href: '/documentos-e-editais',
+    label: 'Documentos',
+    fullLabel: 'Documentos e editais'
+  },
+  {
+    href: '/noticias',
+    label: 'Notícias',
+    fullLabel: 'Notícias',
+    match: '/noticia'
+  },
+  { href: '/fale-conosco', label: 'Fale conosco', fullLabel: 'Fale conosco' }
+]
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const { pathname, asPath } = useRouter()
 
-  const route = useRouter()
+  const isActive = (link: MenuLinkItem) =>
+    link.match ? pathname.startsWith(link.match) : pathname === link.href
+
+  // fecha o menu móvel ao trocar de página
+  useEffect(() => {
+    setIsOpen(false)
+  }, [asPath])
+
+  useEffect(() => {
+    const handleKeyUp = ({ key }: KeyboardEvent) => {
+      key === 'Escape' && setIsOpen(false)
+    }
+
+    window.addEventListener('keyup', handleKeyUp)
+
+    return () => window.removeEventListener('keyup', handleKeyUp)
+  }, [])
 
   return (
-    <S.Wrapper isOpen={isOpen}>
-      <MediaMatch lessThan="medium">
-        <S.IconWrapper>
-          <MdMenu
-            onClick={() => setIsOpen(true)}
-            aria-label="Open Menu"
-            size={32}
-          />
-        </S.IconWrapper>
-      </MediaMatch>
-
-      <S.LogoWrapper>
+    <S.Wrapper>
+      <S.Inner>
         <Link href="/" passHref>
-          <a>
-            <Logo color="primary" size="normal" />
-          </a>
+          <S.Brand aria-label="ServBúzios — página inicial">
+            <img src="/img/logo-cor.svg" alt="" width={46} height={46} />
+            <span>ServBúzios</span>
+          </S.Brand>
         </Link>
-      </S.LogoWrapper>
 
-      <MediaMatch greaterThan="medium">
-        <S.MenuNav>
-          <Link href="/diretoria-e-conselho" passHref>
-            <S.MenuLink
-              className={
-                route.pathname === '/diretoria-e-conselho' ? 'active' : ''
-              }
-            >
-              Diretoria & Conselho
-            </S.MenuLink>
-          </Link>
+        <S.DesktopNav aria-label="Navegação principal">
+          {MENU_LINKS.map((link) => (
+            <Link key={link.href} href={link.href} passHref>
+              <S.NavLink aria-current={isActive(link) ? 'page' : undefined}>
+                {link.label}
+              </S.NavLink>
+            </Link>
+          ))}
+        </S.DesktopNav>
 
-          <Link href="/juridico" passHref>
-            <S.MenuLink
-              className={route.pathname === '/juridico' ? 'active' : ''}
-            >
-              Jurídico
-            </S.MenuLink>
-          </Link>
-
-          <Link href="/convenio" passHref>
-            <S.MenuLink
-              className={route.pathname === '/convenio' ? 'active' : ''}
-            >
-              Convênios & Parcerias
-            </S.MenuLink>
-          </Link>
-
-          <Link href="/documentos-e-editais" passHref>
-            <S.MenuLink
-              className={
-                route.pathname === '/documentos-e-editais' ? 'active' : ''
-              }
-            >
-              Documentos & Editais
-            </S.MenuLink>
-          </Link>
-
-          <Link href="/noticias" passHref>
-            <S.MenuLink
-              className={route.pathname.includes('noticia') ? 'active' : ''}
-            >
-              Notícias
-            </S.MenuLink>
-          </Link>
-
-          <Link href="/fale-conosco" passHref>
-            <S.MenuLink
-              className={route.pathname === '/fale-conosco' ? 'active' : ''}
-            >
-              Fale Conosco
-            </S.MenuLink>
-          </Link>
-
-          <Button
-            size="small"
-            as="a"
-            href="https://gestao.servbuzios.org.br"
-            target="_blank"
-          >
-            Área do Associado
-          </Button>
-          <Button
-            size="small"
-            as="a"
-            href="https://gestao.servbuzios.org.br/cadastro"
-            target="_blank"
-          >
-            Quero ser Associado
-          </Button>
-        </S.MenuNav>
-      </MediaMatch>
-
-      <S.MenuFull aria-hidden={!isOpen} isOpen={isOpen}>
-        <MdClose
-          size={32}
-          aria-label="Close Menu"
-          onClick={() => setIsOpen(false)}
-        />
-
-        <S.MenuNav>
-          <Link href="/diretoria-e-conselho" passHref>
-            <S.MenuLink
-              className={
-                route.pathname === '/diretoria-e-conselho' ? 'active' : ''
-              }
-            >
-              Diretoria & Conselho
-            </S.MenuLink>
-          </Link>
-
-          <Link href="/juridico" passHref>
-            <S.MenuLink
-              className={route.pathname === '/juridico' ? 'active' : ''}
-            >
-              Jurídico
-            </S.MenuLink>
-          </Link>
-
-          <Link href="/convenio" passHref>
-            <S.MenuLink
-              className={route.pathname === '/convenio' ? 'active' : ''}
-            >
-              Convênios & Parcerias
-            </S.MenuLink>
-          </Link>
-
-          <Link href="/documentos-e-editais" passHref>
-            <S.MenuLink
-              className={
-                route.pathname === '/documentos-e-editais' ? 'active' : ''
-              }
-            >
-              Documentos & Editais
-            </S.MenuLink>
-          </Link>
-
-          <Link href="/noticias" passHref>
-            <S.MenuLink
-              className={route.pathname.includes('noticia') ? 'active' : ''}
-            >
-              Notícias
-            </S.MenuLink>
-          </Link>
-
-          <Link href="/fale-conosco" passHref>
-            <S.MenuLink
-              className={route.pathname === '/fale-conosco' ? 'active' : ''}
-            >
-              Fale Conosco
-            </S.MenuLink>
-          </Link>
-
-          <S.MenuFullButtons>
+        <S.Actions>
+          <S.DesktopOnly>
             <Button
               as="a"
-              href="https://gestao.servbuzios.org.br/cadastro"
+              href={MEMBER_AREA_URL}
               target="_blank"
+              rel="noreferrer"
               color="white"
+              size="medium"
             >
-              Quero ser Associado
+              <FiUser aria-hidden="true" />
+              Área do associado
             </Button>
+          </S.DesktopOnly>
 
-            <Button
-              as="a"
-              href="https://gestao.servbuzios.org.br"
-              target="_blank"
-            >
-              Área do Associado
-            </Button>
-          </S.MenuFullButtons>
-        </S.MenuNav>
-      </S.MenuFull>
+          <Button
+            as="a"
+            href={SIGNUP_URL}
+            target="_blank"
+            rel="noreferrer"
+            size="medium"
+          >
+            Associe-se
+          </Button>
+
+          <S.Toggle
+            type="button"
+            aria-label="Abrir menu"
+            aria-expanded={isOpen}
+            aria-controls="menu-movel"
+            onClick={() => setIsOpen(true)}
+          >
+            <FiMenu aria-hidden="true" />
+          </S.Toggle>
+        </S.Actions>
+      </S.Inner>
+
+      <S.MobileMenu
+        id="menu-movel"
+        aria-label="Menu"
+        aria-hidden={!isOpen}
+        $isOpen={isOpen}
+      >
+        <S.MobileTop>
+          <span>Menu</span>
+          <S.Close
+            type="button"
+            aria-label="Fechar menu"
+            onClick={() => setIsOpen(false)}
+          >
+            <FiX aria-hidden="true" />
+          </S.Close>
+        </S.MobileTop>
+
+        <S.MobileLinks>
+          <Link href="/" passHref>
+            <S.MobileLink aria-current={pathname === '/' ? 'page' : undefined}>
+              Início
+            </S.MobileLink>
+          </Link>
+          {MENU_LINKS.map((link) => (
+            <Link key={link.href} href={link.href} passHref>
+              <S.MobileLink aria-current={isActive(link) ? 'page' : undefined}>
+                {link.fullLabel}
+              </S.MobileLink>
+            </Link>
+          ))}
+        </S.MobileLinks>
+
+        <S.MobileButtons>
+          <Button
+            as="a"
+            href={SIGNUP_URL}
+            target="_blank"
+            rel="noreferrer"
+            color="accent"
+            size="large"
+            fullWidth
+          >
+            Quero ser associado
+          </Button>
+          <Button
+            as="a"
+            href={MEMBER_AREA_URL}
+            target="_blank"
+            rel="noreferrer"
+            color="white"
+            size="large"
+            fullWidth
+          >
+            <FiUser aria-hidden="true" />
+            Área do associado
+          </Button>
+        </S.MobileButtons>
+      </S.MobileMenu>
     </S.Wrapper>
   )
 }

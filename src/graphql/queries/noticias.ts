@@ -5,6 +5,7 @@ const NEE_QUERY = /* GraphQL */ `
         url
       }
       titulo
+      descricao
       slug
       createdAt
     }

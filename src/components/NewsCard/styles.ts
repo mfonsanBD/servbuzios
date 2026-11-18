@@ -1,68 +1,62 @@
 import styled, { css } from 'styled-components'
 
-export const ImageAndBadge = styled.div`
-  display: flex;
-  position: relative;
-`
-
-export const Cover = styled.div`
+export const Wrapper = styled.article`
   ${({ theme }) => css`
-    width: 100%;
-    height: 28rem;
-    border-radius: ${theme.border.radiusLarge};
-    overflow: hidden;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    padding: 1.2rem 1.2rem 2.4rem;
+    background: ${theme.colors.white};
+    border-radius: ${theme.border.radiusCard};
+    box-shadow: ${theme.shadows.card};
+    transition: box-shadow ${theme.transition.default},
+      transform ${theme.transition.default};
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: 0.3s;
+    &:hover {
+      box-shadow: ${theme.shadows.float};
+      transform: translateY(-0.2rem);
     }
   `}
 `
 
-export const Content = styled.div`
+// As artes das notícias são peças quadradas/verticais com o título no topo:
+// moldura 1:1 e corte ancorado em cima.
+export const Cover = styled.a`
   ${({ theme }) => css`
-    display: flex;
-    flex-direction: column;
-    margin-top: ${theme.spacings.xsmall};
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: ${theme.border.radiusInner};
+    overflow: hidden;
+    background: ${theme.colors.surfaceMuted};
+  `}
+`
+
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 0 1.2rem;
+`
+
+export const CreatedAt = styled.time`
+  ${({ theme }) => css`
+    font-size: 1.3rem;
+    color: ${theme.colors.textMuted};
   `}
 `
 
 export const Title = styled.a`
   ${({ theme }) => css`
-    font-size: ${theme.font.sizes.xlarge};
-    color: ${theme.colors.title};
+    font-size: 2rem;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
     font-weight: ${theme.font.semibold};
-    line-height: 1.15;
-    margin-bottom: ${theme.spacings.xxsmall};
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    line-clamp: 2;
-    -webkit-line-clamp: 2; /* number of lines to show */
-    -webkit-box-orient: vertical;
-  `}
-`
-
-export const CreatedAt = styled.small`
-  ${({ theme }) => css`
-    color: ${theme.colors.text};
-  `}
-`
-
-export const Wrapper = styled.div`
-  ${({ theme }) => css`
-    background-color: ${theme.colors.white};
-    border-radius: ${theme.border.radiusLarge};
-    padding: calc(${theme.spacings.small} - 0.4rem);
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.05);
+    color: ${theme.colors.title};
 
     &:hover {
-      ${Cover} img {
-        transform: scale(1.1);
-      }
+      color: ${theme.colors.primary};
     }
   `}
 `

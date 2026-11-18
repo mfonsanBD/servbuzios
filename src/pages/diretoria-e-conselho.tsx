@@ -16,6 +16,8 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       peoples: DirectoryMapper(data.diretorias),
       conselheiros: DirectoryMapper(data.conselheiros),
+      presidentePhoto:
+        data.homesConnection?.edges[0]?.node.presidentePhoto?.url ?? null,
       sindicatoName: data.dados[0].sindicatoName,
       sindicatoCNPJ: data.dados[0].sindicatoCnpj,
       sindicatoAddress: data.dados[0].sindicatoAddress,

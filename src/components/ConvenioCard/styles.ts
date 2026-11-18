@@ -1,94 +1,99 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import styled, { css } from 'styled-components'
-import media from 'styled-media-query'
 
-export const Wrapper = styled.div``
+type WrapperProps = {
+  $isOpen: boolean
+}
 
-export const ClickedArea = styled.div`
-  ${({ theme }) => css`
-    width: 100%;
-    height: 27rem;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    border-radius: ${theme.border.radiusLarge};
-    border: thin solid ${theme.colors.gray};
+export const Wrapper = styled.article<WrapperProps>`
+  ${({ theme, $isOpen }) => css`
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    padding: 1.2rem 1.2rem 2rem;
+    background: ${theme.colors.white};
+    border-radius: ${theme.border.radiusCard};
+    box-shadow: ${theme.shadows.card};
+    transition: box-shadow ${theme.transition.default},
+      transform ${theme.transition.default};
 
-    ${media.greaterThan('321px' as any)`
-      height: 33rem;
-    `}
-
-    ${media.greaterThan('376px' as any)`
-      height: 38rem;
-    `}
-
-    ${media.greaterThan('medium')`
-      height: 30rem;
-    `}
-
-    ${media.greaterThan('huge')`
-      height: 28rem;
-    `}
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    &:hover {
+      box-shadow: ${theme.shadows.float};
+      transform: translateY(-0.2rem);
     }
+
+    /* com o modal aberto, um transform no cartão prenderia o position: fixed do modal a ele */
+    ${$isOpen &&
+    css`
+      &,
+      &:hover {
+        transform: none;
+        transition: none;
+      }
+    `}
   `}
 `
 
-export const CloseButton = styled.div`
+export const Art = styled.div`
   ${({ theme }) => css`
-    position: absolute;
+    position: relative;
     width: 100%;
-    height: 100%;
-    top: 2rem;
-    right: 2rem;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-end;
+    aspect-ratio: 1 / 1;
+    border-radius: ${theme.border.radiusInner};
+    overflow: hidden;
+    background: ${theme.colors.surfaceMuted};
     cursor: pointer;
-    z-index: ${theme.layers.base};
+  `}
+`
+
+export const Body = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0 1rem;
+`
+
+export const Name = styled.h3`
+  ${({ theme }) => css`
+    font-size: 1.7rem;
+    line-height: 1.3;
+    font-weight: ${theme.font.semibold};
+    color: ${theme.colors.title};
+  `}
+`
+
+export const Open = styled.button`
+  ${({ theme }) => css`
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    min-height: 4.4rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font-family: inherit;
+    font-size: 1.4rem;
+    font-weight: ${theme.font.semibold};
+    color: ${theme.colors.primary};
+    cursor: pointer;
 
     svg {
-      color: ${theme.colors.white};
-      cursor: pointer;
+      flex: none;
+      transition: transform ${theme.transition.fast};
+    }
+
+    &:hover svg {
+      transform: translateX(0.3rem);
     }
   `}
 `
 
-export const ModalMain = styled.div`
+export const ModalFrame = styled.div`
   ${({ theme }) => css`
-    width: 30rem;
-    height: 30rem;
     position: relative;
-    z-index: ${theme.layers.modal};
-
-    ${media.greaterThan('321px' as any)`
-      width: 35rem;
-      height: 35rem;
-    `}
-
-    ${media.greaterThan('376px' as any)`
-      width: 39rem;
-      height: 39rem;
-    `}
-
-    ${media.greaterThan('medium')`
-      width: 50rem;
-      height: 50rem;
-    `}
-
-    ${media.greaterThan('huge')`
-      width: 70rem;
-      height: 70rem;
-    `}
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    width: min(90vw, 90vh, 72rem);
+    aspect-ratio: 1 / 1;
+    border-radius: ${theme.border.radiusInner};
+    overflow: hidden;
   `}
 `

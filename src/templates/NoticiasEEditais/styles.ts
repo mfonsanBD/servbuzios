@@ -1,102 +1,113 @@
 import styled, { css } from 'styled-components'
-import media from 'styled-media-query'
 
-import * as HeadingStyles from 'components/Heading/styles'
+import { autoGrid, Container } from 'styles/shared'
 
-export const Wrapper = styled.div`
+export const Section = styled.section`
+  padding: 1.6rem 2.4rem 9.6rem;
+
+  @media (max-width: 600px) {
+    padding: 0.8rem 2.4rem 7.2rem;
+  }
+`
+
+export const Inner = styled(Container)`
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+`
+
+export const Featured = styled.article`
   ${({ theme }) => css`
-    padding: 0 ${theme.spacings.small} 8rem;
+    ${autoGrid({ min: '44rem', gap: '1.6rem', fit: true })}
+    align-items: center;
+    padding: 1.6rem;
+    background: ${theme.colors.white};
+    border-radius: ${theme.border.radiusBlock};
+    box-shadow: ${theme.shadows.cardLarge};
+  `}
+`
 
-    ${media.greaterThan('medium')`
-      padding: 0 ${theme.spacings.xxlarge} 12rem;
-    `}
+export const FeaturedCover = styled.a`
+  ${({ theme }) => css`
+    position: relative;
+    display: block;
+    aspect-ratio: 4 / 3;
+    border-radius: 2.2rem;
+    overflow: hidden;
+    background: ${theme.colors.surfaceMuted};
+  `}
+`
 
-    ${HeadingStyles.Wrapper} {
-      margin: 8rem 0;
+export const FeaturedBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.4rem;
+  padding: 2rem 2.4rem;
 
-      ${media.greaterThan('medium')`
-        margin: 12rem 0 8rem;
-      `}
+  @media (max-width: 600px) {
+    padding: 1.2rem 0.8rem 0.8rem;
+  }
+`
+
+export const Meta = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem 1rem;
+    font-size: 1.3rem;
+    color: ${theme.colors.textMuted};
+
+    span {
+      padding: 0.3rem 1rem;
+      border-radius: ${theme.border.radiusPill};
+      background: ${theme.colors.accentSoft};
+      color: ${theme.colors.primary};
+      font-weight: ${theme.font.semibold};
     }
   `}
 `
 
-export const PostsArea = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8rem;
+export const FeaturedTitle = styled.a`
+  ${({ theme }) => css`
+    font-size: clamp(2.6rem, 2.6vw, 3.4rem);
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    font-weight: ${theme.font.semibold};
+    color: ${theme.colors.title};
+    overflow-wrap: anywhere;
+
+    &:hover {
+      color: ${theme.colors.primary};
+    }
+  `}
 `
 
-export const Posts = styled.div`
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(37rem, 1fr));
-  gap: 3rem;
-
-  @media (max-width: 321px) {
-    grid-template-columns: repeat(auto-fill, minmax(27rem, 1fr)) !important;
-  }
-
-  ${media.lessThan('small')`
-    grid-template-columns: repeat(auto-fill, minmax(32rem, 1fr));
+export const FeaturedText = styled.p`
+  ${({ theme }) => css`
+    font-size: 1.6rem;
+    color: ${theme.colors.text};
   `}
+`
 
-  ${media.greaterThan('medium')`
-    grid-template-columns: repeat(auto-fill, minmax(29rem, 1fr));
-    margin-top: 0;
-  `}
+export const Grid = styled.div`
+  ${autoGrid({ min: '32rem', gap: '2rem' })}
+  scroll-margin-top: 10rem;
 `
 
 export const PaginationArea = styled.div`
-  ${({ theme }) => css`
-    .custom-item {
-      border-radius: ${theme.border.radiusNormal};
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      min-width: 4rem;
-      min-height: 4rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-left: 0.25rem;
-      margin-right: 0.25rem;
-      cursor: pointer;
-      color: ${theme.colors.title};
-      background-color: ${theme.colors.white};
-      transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+`
 
-      &:hover,
-      &:active,
-      &:focus {
-        background-color: ${theme.colors.tertiary};
-        color: ${theme.colors.white};
-      }
-    }
-    .custom-item--active {
-      background-color: ${theme.colors.tertiary};
-      border-radius: ${theme.border.radiusNormal};
-      color: ${theme.colors.white};
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      min-width: 4rem;
-      min-height: 4rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-left: 0.25rem;
-      margin-right: 0.25rem;
-    }
-    .custom-item--disable {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-    .custom-root ul {
-      display: flex;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      align-items: center;
-      justify-content: center;
-    }
+export const Summary = styled.p`
+  ${({ theme }) => css`
+    font-size: 1.3rem;
+    color: ${theme.colors.textMuted};
+    font-variant-numeric: tabular-nums;
+    text-align: center;
   `}
 `

@@ -1,83 +1,54 @@
-import { lighten } from 'polished'
 import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.div`
-  ${({ theme }) => css`
-    width: 45%;
-    background-color: ${theme.colors.white};
-    padding: ${theme.spacings.medium};
-    border-radius: ${theme.border.radiusLarge};
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.05);
-  `}
-`
-
-export const Nome = styled.h2`
-  ${({ theme }) => css`
-    color: ${theme.colors.title};
-    line-height: 1;
-  `}
-`
-
-export const Oab = styled.p`
-  ${({ theme }) => css`
-    color: ${theme.colors.text};
-    margin-bottom: 1rem;
-  `}
-`
-
-export const SocialMedias = styled.div`
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-start;
-  gap: 0.5rem;
+  gap: 1.6rem;
 `
 
-export const MenuLink = styled.a`
+export const Initials = styled.div`
   ${({ theme }) => css`
-    color: ${theme.colors.primary};
-    transition: 0.3s;
-
-    &:hover {
-      color: ${lighten(0.1, theme.colors.primary)};
-    }
-  `}
-`
-
-export const ButtonsArea = styled.div`
-  ${({ theme }) => css`
+    flex: none;
+    width: 6.4rem;
+    height: 6.4rem;
+    border-radius: 2rem;
+    background: ${theme.colors.accent};
+    color: ${theme.colors.secondary};
     display: flex;
-    margin-top: 2rem;
     align-items: center;
-    justify-content: space-between;
-    gap: ${theme.spacings.xsmall};
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: ${theme.font.semibold};
   `}
 `
 
-export const AgendaButton = styled.a`
+export const Info = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 20rem;
+  min-width: 0;
+`
+
+export const Nome = styled.span`
   ${({ theme }) => css`
-    padding: ${theme.spacings.xsmall};
-    border-radius: ${theme.border.radiusNormal};
+    font-size: 1.8rem;
+    font-weight: ${theme.font.semibold};
+    color: ${theme.colors.title};
+  `}
+`
 
-    &.email {
-      border: thin solid ${theme.colors.text};
-      color: ${theme.colors.text};
-      transition: 0.3s;
+export const Oab = styled.span`
+  ${({ theme }) => css`
+    font-size: 1.4rem;
+    color: ${theme.colors.textMuted};
+  `}
+`
 
-      &:hover {
-        color: ${theme.colors.white};
-        background-color: ${theme.colors.text};
-      }
-    }
-
-    &.whatsapp {
-      border: thin solid ${theme.colors.success};
-      color: ${theme.colors.success};
-      transition: 0.3s;
-
-      &:hover {
-        color: ${theme.colors.white};
-        background-color: ${theme.colors.success};
-      }
-    }
+export const Phone = styled.span`
+  ${({ theme }) => css`
+    font-size: 1.4rem;
+    color: ${theme.colors.text};
+    font-variant-numeric: tabular-nums;
   `}
 `

@@ -1,65 +1,38 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-import media from 'styled-media-query'
 import styled, { css } from 'styled-components'
-import { HeadingProps } from '.'
 
-export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-`
+type WrapperProps = {
+  $align: 'left' | 'center'
+}
 
-type TitleProps = Pick<HeadingProps, 'backgroundTitle'>
+type ToneProps = {
+  $inverted: boolean
+}
 
-export const Title = styled.h1<TitleProps>`
-  ${({ theme, backgroundTitle }) => css`
-    color: ${theme.colors.title};
-    font-weight: ${theme.font.bold};
-    text-align: center;
-    line-height: 1;
-    position: relative;
-    word-wrap: break-word;
-    text-transform: uppercase;
-    font-size: ${theme.font.sizes.xxxlarge};
-
-    &::after {
-      content: '${backgroundTitle}';
-      width: 100%;
-      color: rgba(0, 0, 0, 0.05);
-      font-size: ${theme.font.sizes.huge};
-      position: absolute;
-      left: 50%;
-      top: -10px;
-      bottom: 0;
-      right: 0;
-      transform: translateX(-50%);
-    }
-
-    ${media.greaterThan('medium')`
-      word-wrap: normal;
-      font-size: ${theme.font.sizes.huge};
-
-      &::after {
-        font-size: calc(${theme.font.sizes.huge} + 2rem);
-      }
-    `}
+export const Wrapper = styled.div<WrapperProps>`
+  ${({ $align }) => css`
+    display: flex;
+    flex-direction: column;
+    align-items: ${$align === 'center' ? 'center' : 'flex-start'};
+    text-align: ${$align};
+    gap: 1.8rem;
   `}
 `
 
-export const Subtitle = styled.p`
-  ${({ theme }) => css`
-    color: ${theme.colors.text};
-    position: relative;
-    word-wrap: break-word;
+export const Title = styled.h2<ToneProps>`
+  ${({ theme, $inverted }) => css`
+    font-size: clamp(2.8rem, 3.2vw, 4.4rem);
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+    font-weight: ${theme.font.semibold};
+    color: ${$inverted ? theme.colors.accent : theme.colors.title};
+    text-wrap: balance;
+  `}
+`
 
-    ${media.greaterThan('medium')`
-      word-wrap: normal;
-      text-align: center;
-    `}
-
-    ${media.greaterThan('huge')`
-      width: 107.4rem;
-      margin: 0 auto;
-    `}
+export const Subtitle = styled.p<ToneProps>`
+  ${({ theme, $inverted }) => css`
+    max-width: 64rem;
+    font-size: 1.6rem;
+    color: ${$inverted ? theme.colors.onDark : theme.colors.text};
   `}
 `

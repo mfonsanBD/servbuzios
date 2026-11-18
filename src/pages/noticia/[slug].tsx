@@ -2,6 +2,7 @@ import client from 'graphql/client'
 import NOTICIA_QUERY from 'graphql/queries/noticia'
 import NEE_QUERY from 'graphql/queries/noticias'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import { NewsMapper } from 'utils/mappers'
 import NoticiaTemplate, { NoticiaTemplateProps } from 'templates/Noticia'
 
 export default function Noticia(props: NoticiaTemplateProps) {
@@ -39,6 +40,9 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       slug: data.noticia.slug,
       texto: data.noticia.texto.html,
       createdAt: data.noticia.createdAt,
+      related: NewsMapper(data.outras)
+        .filter((item) => item.slug !== slug)
+        .slice(0, 3),
       sindicatoName: data.dados[0].sindicatoName,
       sindicatoCNPJ: data.dados[0].sindicatoCnpj,
       sindicatoAddress: data.dados[0].sindicatoAddress,

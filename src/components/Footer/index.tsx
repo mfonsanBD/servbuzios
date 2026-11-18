@@ -1,18 +1,13 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link'
+import Image from 'next/image'
+import { FiChevronRight } from 'react-icons/fi'
 
-import Logo from 'components/Logo'
-
-import {
-  RiWhatsappLine,
-  RiFacebookCircleFill,
-  RiInstagramLine,
-  RiTelegramFill
-} from 'react-icons/ri'
+import Button from 'components/Button'
+import { MENU_LINKS, MEMBER_AREA_URL, SIGNUP_URL } from 'components/Menu'
+import { FormatWhatsAppLink } from 'utils/formatLinks'
 
 import * as S from './styles'
-import { useRouter } from 'next/router'
-import { FormatWhatsAppLink } from 'utils/formatLinks'
-import Image from 'next/image'
 
 export type SocialMedias = {
   facebook: string
@@ -30,6 +25,8 @@ export type FooterProps = {
   redessociais: SocialMedias
 }
 
+const WHATSAPP_NUMBER = '(22) 99201-0835'
+
 const Footer = ({
   sindicatoAddress,
   sindicatoCNPJ,
@@ -37,176 +34,156 @@ const Footer = ({
   email,
   phone,
   redessociais
-}: FooterProps) => {
-  const route = useRouter()
+}: FooterProps) => (
+  <S.Wrapper>
+    <S.Dark>
+      <S.Inner>
+        <S.Cta aria-labelledby="footer-cta-title">
+          <S.CtaText>
+            <h2 id="footer-cta-title">Torne-se um associado</h2>
+            <p>
+              Faça parte da nossa luta pelos direitos dos servidores públicos
+              municipais. Junte-se a nós e tenha acesso a benefícios exclusivos,
+              representação sindical e participe das decisões que impactam sua
+              carreira.
+            </p>
+          </S.CtaText>
+          <Button
+            as="a"
+            href={SIGNUP_URL}
+            target="_blank"
+            rel="noreferrer"
+            size="large"
+          >
+            Cadastre-se agora
+            <FiChevronRight aria-hidden="true" />
+          </Button>
+        </S.Cta>
 
-  return (
-    <S.Wrapper>
-      <S.FooterArea>
-        <Link href="/" passHref>
-          <a>
-            <Logo size="large" color="white" />
-          </a>
-        </Link>
+        <S.Columns>
+          <S.Column>
+            <h3>Navegação</h3>
+            {MENU_LINKS.map((link) => (
+              <Link key={link.href} href={link.href} passHref>
+                <S.FooterLink>{link.fullLabel}</S.FooterLink>
+              </Link>
+            ))}
+          </S.Column>
 
-        <S.FooterTopBlock>
-          <h4>Menu do Site</h4>
-
-          <Link href="/diretoria-e-conselho" passHref>
-            <S.MenuLink
-              className={
-                route.pathname === '/diretoria-e-conselho' ? 'active' : ''
-              }
+          <S.Column>
+            <h3>Associado</h3>
+            <S.FooterLink
+              href={MEMBER_AREA_URL}
+              target="_blank"
+              rel="noreferrer"
             >
-              Diretoria & Conselho
-            </S.MenuLink>
-          </Link>
+              Área do associado
+            </S.FooterLink>
+            <S.FooterLink href={SIGNUP_URL} target="_blank" rel="noreferrer">
+              Quero ser associado
+            </S.FooterLink>
+          </S.Column>
 
-          <Link href="/juridico" passHref>
-            <S.MenuLink
-              className={route.pathname === '/juridico' ? 'active' : ''}
+          <S.Column>
+            <h3>Contato</h3>
+            <S.FooterLink href={`tel:${phone}`}>{phone} · Fixo</S.FooterLink>
+            <S.FooterLink
+              href={FormatWhatsAppLink(WHATSAPP_NUMBER)}
+              target="_blank"
+              rel="noreferrer"
             >
-              Jurídico
-            </S.MenuLink>
-          </Link>
+              {WHATSAPP_NUMBER} · WhatsApp
+            </S.FooterLink>
+            <S.FooterLink href={`mailto:${email}`}>{email}</S.FooterLink>
+            <address>{sindicatoAddress}</address>
+          </S.Column>
 
-          <Link href="/convenio" passHref>
-            <S.MenuLink
-              className={route.pathname === '/convenio' ? 'active' : ''}
+          <S.Column>
+            <h3>Redes sociais</h3>
+            <S.FooterLink
+              href={redessociais.whatsapp}
+              target="_blank"
+              rel="noreferrer"
             >
-              Convênios & Parcerias
-            </S.MenuLink>
-          </Link>
-
-          <Link href="/documentos-e-editais" passHref>
-            <S.MenuLink
-              className={
-                route.pathname === '/documentos-e-editais' ? 'active' : ''
-              }
+              WhatsApp
+            </S.FooterLink>
+            <S.FooterLink
+              href={redessociais.facebook}
+              target="_blank"
+              rel="noreferrer"
             >
-              Documentos & Editais
-            </S.MenuLink>
-          </Link>
-
-          <Link href="/noticias" passHref>
-            <S.MenuLink
-              className={route.pathname.includes('noticia') ? 'active' : ''}
+              Facebook
+            </S.FooterLink>
+            <S.FooterLink
+              href={redessociais.instagram}
+              target="_blank"
+              rel="noreferrer"
             >
-              Notícias
-            </S.MenuLink>
-          </Link>
-
-          <Link href="/fale-conosco" passHref>
-            <S.MenuLink
-              className={route.pathname === '/fale-conosco' ? 'active' : ''}
+              Instagram
+            </S.FooterLink>
+            <S.FooterLink
+              href={redessociais.telegram}
+              target="_blank"
+              rel="noreferrer"
             >
-              Fale Conosco
-            </S.MenuLink>
-          </Link>
-        </S.FooterTopBlock>
+              Telegram
+            </S.FooterLink>
+          </S.Column>
+        </S.Columns>
 
-        <S.FooterTopBlock>
-          <h4>Informações de Contato</h4>
+        <S.Bottom>
+          <S.Identity>
+            <img src="/img/logo-branco.svg" alt="" width={56} height={56} />
+            <div>
+              <strong>{sindicatoName}</strong>
+              <span>CNPJ {sindicatoCNPJ}</span>
+            </div>
+          </S.Identity>
 
-          <Link href={`tel:${phone}`} passHref>
-            <S.MenuLink target="_blank">{phone} - Fixo</S.MenuLink>
-          </Link>
-
-          <Link href={FormatWhatsAppLink('(22) 99201-0835')} passHref>
-            <S.MenuLink target="_blank">(22) 99201-0835 - WhatsApp</S.MenuLink>
-          </Link>
-
-          <Link href={`mailto:${email}`} passHref>
-            <S.MenuLink target="_blank">{email}</S.MenuLink>
-          </Link>
-        </S.FooterTopBlock>
-
-        <S.FooterTopBlock>
-          <h4>Acompanhe nas Redes Sociais</h4>
-
-          <S.SocialMedias>
-            <Link href={redessociais.whatsapp} passHref>
-              <S.MenuLink target="_blank" title="WhatsApp">
-                <RiWhatsappLine size={32} />
-              </S.MenuLink>
-            </Link>
-
-            <Link href={redessociais.facebook} passHref>
-              <S.MenuLink target="_blank" title="Facebook">
-                <RiFacebookCircleFill size={32} />
-              </S.MenuLink>
-            </Link>
-
-            <Link href={redessociais.instagram} passHref>
-              <S.MenuLink target="_blank" title="Instagram">
-                <RiInstagramLine size={32} />
-              </S.MenuLink>
-            </Link>
-
-            <Link href={redessociais.telegram} passHref>
-              <S.MenuLink target="_blank" title="Telegram">
-                <RiTelegramFill size={32} />
-              </S.MenuLink>
-            </Link>
-          </S.SocialMedias>
-        </S.FooterTopBlock>
-      </S.FooterArea>
-
-      <S.Copyright>
-        <S.DataArea>
-          <S.Name>{sindicatoName}</S.Name>
-          <S.Cnpj>
-            <b>CNPJ:</b> {sindicatoCNPJ}
-          </S.Cnpj>
-          <S.Location>{sindicatoAddress}</S.Location>
-        </S.DataArea>
-
-        <S.SindicatosLogos>
-          <Link href="https://www.cspb.org.br/" passHref>
-            <a target="_blank">
-              <Image
-                src="/img/cspb.png"
-                width={70}
-                height={70}
-                objectFit="cover"
-              />
-            </a>
-          </Link>
-          <Link href="https://ctb.org.br/" passHref>
-            <a target="_blank">
-              <Image
-                src="/img/ctb.png"
-                width={79}
-                height={60}
-                objectFit="cover"
-              />
-            </a>
-          </Link>
-          <Link href="https://www.feseprj.org/" passHref>
-            <a target="_blank">
+          <S.Affiliations>
+            <span>Filiado a</span>
+            <S.AffiliationLogo
+              href="https://www.cspb.org.br/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Image src="/img/cspb.png" alt="CSPB" width={44} height={44} />
+            </S.AffiliationLogo>
+            <S.AffiliationLogo
+              href="https://ctb.org.br/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Image src="/img/ctb.png" alt="CTB" width={52} height={40} />
+            </S.AffiliationLogo>
+            <S.AffiliationLogo
+              href="https://www.feseprj.org/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <Image
                 src="/img/fesep.png"
-                width={70}
-                height={70}
-                objectFit="cover"
+                alt="FESEP-RJ"
+                width={44}
+                height={44}
               />
-            </a>
-          </Link>
-        </S.SindicatosLogos>
+            </S.AffiliationLogo>
+          </S.Affiliations>
 
-        <S.CreatedBy>
-          Desenvolvido por:{' '}
-          <a
-            href="https://buzios.digital"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            Búzios Digital
-          </a>
-        </S.CreatedBy>
-      </S.Copyright>
-    </S.Wrapper>
-  )
-}
+          <S.CreatedBy>
+            Desenvolvido por{' '}
+            <a
+              href="https://buzios.digital"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Búzios Digital
+            </a>
+          </S.CreatedBy>
+        </S.Bottom>
+      </S.Inner>
+    </S.Dark>
+  </S.Wrapper>
+)
 
 export default Footer

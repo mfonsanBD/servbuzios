@@ -3,12 +3,7 @@ import { GetStaticProps } from 'next'
 import HomeTemplate, { HomeTemplateProps } from 'templates/Home'
 import client from 'graphql/client'
 import HOME_QUERY from 'graphql/queries/home'
-import {
-  AgendaMapper,
-  BannerMapper,
-  ConvenioMapper,
-  NewsMapper
-} from 'utils/mappers'
+import { ConvenioMapper, NewsMapper } from 'utils/mappers'
 
 export default function Home(props: HomeTemplateProps) {
   return <HomeTemplate {...props} />
@@ -18,20 +13,30 @@ export const getStaticProps: GetStaticProps = async () => {
   const TODAY = new Date().toISOString()
 
   const {
-    homesConnection: { edges }
+    homesConnection: { edges },
+    ultimasNoticias,
+    conveniosConnection
   } = await client.request(HOME_QUERY, { date: TODAY })
 
   const home = edges[0].node
 
+  // a home tem notícias escolhidas no CMS (destaques do topo); a grade usa as
+  // mais recentes que ainda não apareceram nesses destaques
+  const news = NewsMapper(home.noticias)
+  const featuredSlugs = news.map((item) => item.slug)
+  const latestNews = NewsMapper(ultimasNoticias)
+    .filter((item) => !featuredSlugs.includes(item.slug))
+    .slice(0, 3)
+
   return {
     revalidate: 60 * 60,
     props: {
-      banner: BannerMapper(home.noticias),
       presidenteName: home.presidenteName,
       presidenteImage: home.presidentePhoto.url,
       presidenteText: home.presidenteText.html,
-      agenda: AgendaMapper(home.agendas),
-      news: NewsMapper(home.noticias),
+      news,
+      latestNews,
+      totalConvenios: conveniosConnection.aggregate.count,
       sindicatoImage: home.sindicatoImage.url,
       sindicatoText: home.sindicatoText.html,
       convenios: ConvenioMapper(home.convenios),

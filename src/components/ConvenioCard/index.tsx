@@ -1,10 +1,10 @@
-/* eslint-disable @next/next/no-img-element */
-import { useState, useEffect } from 'react'
+import { useRef, useState } from 'react'
+import Image from 'next/image'
+import { FiArrowRight } from 'react-icons/fi'
+
+import Modal from 'components/Modal'
 
 import * as S from './styles'
-import Modal from 'components/Modal'
-import { MdClose } from 'react-icons/md'
-import Image from 'next/image'
 
 export type ConvenioCardProps = {
   imagem: string
@@ -13,31 +13,44 @@ export type ConvenioCardProps = {
 
 const ConvenioCard = ({ imagem, empresa }: ConvenioCardProps) => {
   const [isOpen, setIsOpen] = useState(false)
+  const openerRef = useRef<HTMLButtonElement>(null)
 
-  useEffect(() => {
-    const handleKeyUp = ({ key }: KeyboardEvent) => {
-      key === 'Escape' && setIsOpen(false)
-    }
+  const close = () => {
+    setIsOpen(false)
+    openerRef.current?.focus()
+  }
 
-    window.addEventListener('keyup', handleKeyUp)
-
-    return () => window.removeEventListener('keyup', handleKeyUp)
-  }, [])
   return (
-    <S.Wrapper>
-      <S.ClickedArea onClick={() => setIsOpen(true)}>
-        <Image src={imagem} alt={empresa} layout="fill" />
-      </S.ClickedArea>
+    <S.Wrapper $isOpen={isOpen}>
+      <S.Art onClick={() => setIsOpen(true)}>
+        <Image
+          src={imagem}
+          alt={`Arte do convênio ${empresa}`}
+          layout="fill"
+          objectFit="cover"
+          sizes="(max-width: 768px) 100vw, 300px"
+        />
+      </S.Art>
+
+      <S.Body>
+        <S.Name>{empresa}</S.Name>
+        <S.Open ref={openerRef} type="button" onClick={() => setIsOpen(true)}>
+          Ver condições
+          <FiArrowRight aria-hidden="true" />
+        </S.Open>
+      </S.Body>
 
       {isOpen && (
-        <Modal>
-          <S.CloseButton onClick={() => setIsOpen(false)}>
-            <MdClose size={28} />
-          </S.CloseButton>
-
-          <S.ModalMain>
-            <Image src={imagem} alt={empresa} layout="fill" />
-          </S.ModalMain>
+        <Modal label={`Condições do convênio ${empresa}`} onClose={close}>
+          <S.ModalFrame>
+            <Image
+              src={imagem}
+              alt={`Arte do convênio ${empresa}`}
+              layout="fill"
+              objectFit="contain"
+              sizes="(max-width: 768px) 90vw, 720px"
+            />
+          </S.ModalFrame>
         </Modal>
       )}
     </S.Wrapper>
