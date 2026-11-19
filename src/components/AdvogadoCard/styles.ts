@@ -7,8 +7,10 @@ export const Wrapper = styled.div`
   gap: 1.6rem;
 `
 
-export const Initials = styled.div`
+export const Avatar = styled.div`
   ${({ theme }) => css`
+    position: relative;
+    overflow: hidden;
     flex: none;
     width: 6.4rem;
     height: 6.4rem;

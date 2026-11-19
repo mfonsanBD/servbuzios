@@ -4,6 +4,9 @@ const ADVOGADOS_QUERY = /* GraphQL */ `
       nome
       oab
       whatsapp
+      foto {
+        url
+      }
     }
     dados {
       sindicatoName

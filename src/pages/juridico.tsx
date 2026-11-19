@@ -2,6 +2,7 @@ import client from 'graphql/client'
 import ADVOGADOS_QUERY from 'graphql/queries/advogados'
 import { GetStaticProps } from 'next'
 import JuridicoTemplate, { JuridicoTemplateProps } from 'templates/Juridico'
+import { AdvogadoMapper } from 'utils/mappers'
 
 export default function Juridico(props: JuridicoTemplateProps) {
   return <JuridicoTemplate {...props} />
@@ -24,7 +25,7 @@ export const getStaticProps: GetStaticProps = async () => {
         telegram: data.dados[0].redesSociais.telegram,
         whatsapp: data.dados[0].redesSociais.whatsapp
       },
-      advogados: data.advogados
+      advogados: AdvogadoMapper(data.advogados)
     }
   }
 }

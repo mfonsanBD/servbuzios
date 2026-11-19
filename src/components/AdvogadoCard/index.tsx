@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 import Button from 'components/Button'
 import { FormatWhatsAppLink } from 'utils/formatLinks'
 
@@ -7,6 +9,7 @@ export type AdvogadoCardProps = {
   nome: string
   oab: string
   whatsapp: string
+  photo?: string | null
 }
 
 const PREFIX = /^\s*(advogad[oa]|dra?\.?)\s+/i
@@ -30,12 +33,30 @@ const getInitials = (nome: string) => {
   return `${first}${last}`.toUpperCase()
 }
 
-const AdvogadoCard = ({ nome, oab, whatsapp }: AdvogadoCardProps) => {
+const AdvogadoCard = ({
+  nome,
+  oab,
+  whatsapp,
+  photo = null
+}: AdvogadoCardProps) => {
   const { clean, role } = parseNome(nome)
 
   return (
     <S.Wrapper>
-      <S.Initials aria-hidden="true">{getInitials(clean)}</S.Initials>
+      <S.Avatar aria-hidden={photo ? undefined : 'true'}>
+        {photo ? (
+          <Image
+            src={photo}
+            alt={clean}
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center 30%"
+            sizes="64px"
+          />
+        ) : (
+          getInitials(clean)
+        )}
+      </S.Avatar>
 
       <S.Info>
         <S.Nome>{clean}</S.Nome>

@@ -10,6 +10,17 @@ export const DirectoryMapper = (directories: any[]) => {
     : []
 }
 
+export const AdvogadoMapper = (advogados: any[]) => {
+  return advogados
+    ? advogados.map((advogado) => ({
+        nome: advogado.nome,
+        oab: advogado.oab,
+        whatsapp: advogado.whatsapp,
+        photo: advogado.foto?.url ?? null
+      }))
+    : []
+}
+
 export const ConvenioMapper = (convenios: any[]) => {
   return convenios
     ? convenios.map((convenio) => ({
