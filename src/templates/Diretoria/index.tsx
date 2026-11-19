@@ -95,7 +95,8 @@ const DiretoriaTemplate = ({
                   name={people.name}
                   role={people.role}
                   featured={president}
-                  photo={president ? presidentePhoto : null}
+                  // sem foto própria, o presidente usa a foto da Home
+                  photo={people.photo ?? (president ? presidentePhoto : null)}
                 />
               )
             })}

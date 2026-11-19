@@ -3,6 +3,9 @@ const DIRETORIA_QUERY = /* GraphQL */ `
     diretorias {
       nome
       cargo
+      foto {
+        url
+      }
     }
     conselheiros {
       nome
