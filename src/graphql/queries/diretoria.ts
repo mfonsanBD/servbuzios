@@ -10,6 +10,9 @@ const DIRETORIA_QUERY = /* GraphQL */ `
     conselheiros {
       nome
       cargo
+      foto {
+        url
+      }
     }
     homesConnection {
       edges {

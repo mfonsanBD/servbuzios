@@ -4,7 +4,7 @@ export const DirectoryMapper = (directories: any[]) => {
     ? directories.map((directory) => ({
         name: directory.nome,
         role: directory.cargo,
-        // conselheiros não têm foto no Hygraph; null porque o Next não serializa undefined
+        // a foto é opcional no Hygraph; null porque o Next não serializa undefined
         photo: directory.foto?.url ?? null
       }))
     : []

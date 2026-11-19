@@ -90,8 +90,10 @@ export const Member = styled.article`
   `}
 `
 
-export const MemberInitials = styled.span`
+export const MemberAvatar = styled.span`
   ${({ theme }) => css`
+    position: relative;
+    overflow: hidden;
     flex: none;
     display: flex;
     align-items: center;

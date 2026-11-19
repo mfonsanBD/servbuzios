@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { NextSeo } from 'next-seo'
 import { FiArrowRight, FiCheck, FiFileText, FiUser } from 'react-icons/fi'
@@ -124,9 +125,22 @@ const DiretoriaTemplate = ({
           <S.CouncilList>
             {conselheiros.map((conselheiro, index) => (
               <S.Member key={`${conselheiro.name}-${index}`}>
-                <S.MemberInitials aria-hidden="true">
-                  {getInitials(conselheiro.name)}
-                </S.MemberInitials>
+                <S.MemberAvatar
+                  aria-hidden={conselheiro.photo ? undefined : 'true'}
+                >
+                  {conselheiro.photo ? (
+                    <Image
+                      src={conselheiro.photo}
+                      alt={conselheiro.name}
+                      layout="fill"
+                      objectFit="cover"
+                      objectPosition="center 30%"
+                      sizes="48px"
+                    />
+                  ) : (
+                    getInitials(conselheiro.name)
+                  )}
+                </S.MemberAvatar>
                 <div>
                   <h3>{conselheiro.name}</h3>
                   <span>{conselheiro.role}</span>
